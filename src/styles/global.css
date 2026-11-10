@@ -554,65 +554,65 @@ p { margin: 0 0 1em; }
 .btn-light { background: #ffffff; color: var(--navy-900); }
 .btn-light:hover { background: var(--blue-50); color: var(--navy-950); }
 
-/* ---------- Tmavý režim: modrý ----------
+/* ---------- Tmavý režim: nočná modrá (modrá len ako akcent) ----------
    Platí podľa nastavenia zariadenia, alebo keď si ho návštevník zapne prepínačom (data-theme). */
 :root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #10275a;
-    --surface: #142f69;
-    --card: #19387a;
-    --ink: #eef3fc;
-    --ink-2: #d2ddf2;
-    --muted: #b7c6e6;
-    --line: #2c4d92;
-    --line-strong: #4064ad;
-    --heading: #ffffff;
-    --link: #b3cbfa;
-    --chip: #21458f;
-    --chip-ink: #d6e3fc;
-    --head-bg: #15326f;
-    --warn-bg: #3a2f0b;
-    --warn-line: #7a6216;
+    --bg: #0c1730;
+    --surface: #101d3b;
+    --card: #14223f;
+    --ink: #e7ecf6;
+    --ink-2: #c5cfe2;
+    --muted: #a9b6d0;
+    --line: #2a3d66;
+    --line-strong: #3b5585;
+    --heading: #f3f6fc;
+    --link: #9fbdf5;
+    --chip: #1b2d55;
+    --chip-ink: #c9d8f8;
+    --head-bg: #101d3b;
+    --warn-bg: #2b2309;
+    --warn-line: #6b5612;
     --warn-ink: #f8e7ad;
     --warn-icon: #f2cf52;
-    --green-bg: #133220;
-    --green-line: #2b5a39;
+    --green-bg: #11261a;
+    --green-line: #264a31;
     --green-ink: #b3e0bb;
     --focus: #f2dc86;
     --shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 24px rgb(0 0 0 / 0.3);
 }
 :root[data-theme="dark"] .site-header, :root[data-theme="dark"] .mobile-menu { background: var(--card); }
-:root[data-theme="dark"] .site-footer { background: #0b1d45; }
+:root[data-theme="dark"] .site-footer { background: #08112a; }
 :root[data-theme="dark"] .file-ext { background: #c2402f; }
 :root[data-theme="dark"] img { filter: none; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #10275a;
-    --surface: #142f69;
-    --card: #19387a;
-    --ink: #eef3fc;
-    --ink-2: #d2ddf2;
-    --muted: #b7c6e6;
-    --line: #2c4d92;
-    --line-strong: #4064ad;
-    --heading: #ffffff;
-    --link: #b3cbfa;
-    --chip: #21458f;
-    --chip-ink: #d6e3fc;
-    --head-bg: #15326f;
-    --warn-bg: #3a2f0b;
-    --warn-line: #7a6216;
+    --bg: #0c1730;
+    --surface: #101d3b;
+    --card: #14223f;
+    --ink: #e7ecf6;
+    --ink-2: #c5cfe2;
+    --muted: #a9b6d0;
+    --line: #2a3d66;
+    --line-strong: #3b5585;
+    --heading: #f3f6fc;
+    --link: #9fbdf5;
+    --chip: #1b2d55;
+    --chip-ink: #c9d8f8;
+    --head-bg: #101d3b;
+    --warn-bg: #2b2309;
+    --warn-line: #6b5612;
     --warn-ink: #f8e7ad;
     --warn-icon: #f2cf52;
-    --green-bg: #133220;
-    --green-line: #2b5a39;
+    --green-bg: #11261a;
+    --green-line: #264a31;
     --green-ink: #b3e0bb;
     --focus: #f2dc86;
     --shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 24px rgb(0 0 0 / 0.3);
   }
   :root:not([data-theme="light"]) .site-header,   :root:not([data-theme="light"]) .mobile-menu { background: var(--card); }
-  :root:not([data-theme="light"]) .site-footer { background: #0b1d45; }
+  :root:not([data-theme="light"]) .site-footer { background: #08112a; }
   :root:not([data-theme="light"]) .file-ext { background: #c2402f; }
   :root:not([data-theme="light"]) img { filter: none; }
 }
