@@ -49,13 +49,20 @@ for au in albums:
     t = get(au)
     if not t: continue
     c = t[t.find('id="content"'):]
+    # fotky albumu sú len v hlavnej časti stránky (<main id="main">); bočné bloky obsahujú náhodné fotky iných albumov
+    mi = t.find('id="main"')
+    if mi != -1:
+        me = t.find('</main>', mi)
+        main_part = t[mi:me if me != -1 else None]
+    else:
+        main_part = c
     title = html.unescape(re.sub(r'<[^>]+>', '', (re.findall(r'<h1[^>]*>(.*?)</h1>', c, re.S) or [aslug])[0])).strip()
     for a_, b_ in (('Deň Obce', 'Deň obce'), ('Suťaž', 'Súťaž'), ('Gulášu', 'gulášu'), ('topánok?', 'topánok')):
         title = title.replace(a_, b_)
     dm = re.search(r'(\d{1,2})\.(\d{1,2})\.(\d{4})', c)
     date = f'{dm.group(3)}-{int(dm.group(2)):02d}-{int(dm.group(1)):02d}' if dm else None
     # varianty: _lg (veľká, h=2000) a _sm (náhľad)
-    urls = [html.unescape(x) for x in re.findall(r'https://picturium\.moderneobce\.sk/data/gallery/[^"\s,]+token=[0-9a-f]+', c)]
+    urls = [html.unescape(x) for x in re.findall(r'https://picturium\.moderneobce\.sk/data/gallery/[^"\s,]+token=[0-9a-f]+', main_part)]
     photos = {}
     for u in urls:
         path = u.split('?')[0]
@@ -91,5 +98,18 @@ for au in albums:
     print(f'{title}: {len(items)} fotiek', file=sys.stderr)
 
 result.sort(key=lambda a: a['date'] or '', reverse=True)
+# zmazať fotky, ktoré už nepatria do žiadneho albumu (album zmazaný alebo upravený na starom webe)
+if result:
+    keep = {p[k].split('/')[-1] for a in result for p in a['photos'] for k in ('src', 'thumb')}
+    keep_dirs = {a['id'] for a in result}
+    removed = 0
+    for d in os.listdir(MEDIA):
+        dp = os.path.join(MEDIA, d)
+        if not os.path.isdir(dp): continue
+        for f in os.listdir(dp):
+            if d not in keep_dirs or f not in keep:
+                os.remove(os.path.join(dp, f)); removed += 1
+        if not os.listdir(dp): os.rmdir(dp)
+    if removed: print(f'zmazaných starých fotiek: {removed}', file=sys.stderr)
 json.dump(result, open(os.path.join(OUT, 'src/data/gallery.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(f'albumov {len(result)}, fotiek {sum(len(a["photos"]) for a in result)}', file=sys.stderr)
