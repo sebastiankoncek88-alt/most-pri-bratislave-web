@@ -44,6 +44,16 @@ const topics = [
       <p class="hint" style="margin:0">Po odoslaní sa otvorí váš e-mailový program s pripravenou správou pre obecný úrad. Fotografiu môžete priložiť priamo v e-maile.</p>
       <div><button class="btn btn-primary" type="submit"><Icon name="send" size={18} /> Pripraviť e-mail</button></div>
     </form>
+    <div class="sent-box" id="sent" hidden tabindex="-1" role="status">
+      <h2><Icon name="mail-check" size={24} /> Otvárame váš e-mail…</h2>
+      <p>Ak sa e-mailový program neotvoril, skopírujte text nižšie a pošlite ho na <strong id="sent-to"></strong>.</p>
+      <pre id="sent-text"></pre>
+      <p class="sent-actions">
+        <button class="btn btn-primary" type="button" id="copy"><Icon name="copy" size={18} /> Kopírovať text</button>
+        <a class="btn btn-ghost" id="sent-mail" href="#"><Icon name="mail" size={18} /> Skúsiť znova</a>
+      </p>
+      <p class="hint" id="copied" hidden>Skopírované. Vložte text do e-mailu.</p>
+    </div>
     <div class="note" style="max-width:640px"><Icon name="phone" size={20} /><p>Naliehavé veci volajte na obecný úrad <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. Pri ohrození života, zdravia alebo majetku volajte <strong>112</strong>. Poruchy vody, plynu a elektriny nájdete v <a href={url('/kontakt/dolezite-telefonne-cisla/')}>dôležitých telefónnych číslach</a>.</p></div>
   </div>
 </Base>
@@ -55,6 +65,21 @@ const topics = [
     const v = (n: string) => (f.elements.namedItem(n) as HTMLInputElement).value.trim();
     const subject = `Podnet z webu: ${sel.options[sel.selectedIndex].text} – ${v('where')}`;
     const body = `Miesto: ${v('where')}\n\n${v('msg')}\n\n${v('name') ? 'Meno: ' + v('name') + '\n' : ''}${v('contact') ? 'Kontakt: ' + v('contact') + '\n' : ''}`;
-    window.location.href = `mailto:${sel.value}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const href = `mailto:${sel.value}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const box = document.getElementById('sent')!;
+    document.getElementById('sent-to')!.textContent = sel.value;
+    document.getElementById('sent-text')!.textContent = `Predmet: ${subject}\n\n${body}`;
+    (document.getElementById('sent-mail') as HTMLAnchorElement).href = href;
+    box.hidden = false;
+    box.focus();
+    window.location.href = href;
+  });
+  document.getElementById('copy')?.addEventListener('click', async () => {
+    const t = document.getElementById('sent-text')!.textContent || '';
+    try { await navigator.clipboard.writeText(t); } catch {
+      const r = document.createRange(); r.selectNodeContents(document.getElementById('sent-text')!);
+      const sel = getSelection(); sel?.removeAllRanges(); sel?.addRange(r); document.execCommand('copy');
+    }
+    document.getElementById('copied')!.hidden = false;
   });
 </script>

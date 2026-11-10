@@ -1,5 +1,5 @@
 ---
-title: "Nordic walking 12.11. ZRUŠENÉ"
+title: "Nordic walking 12.11. zrušené"
 date: 2026-11-10
 category: "Upozornenie"
 image: "/media/60d0c7795e0b72d9.jpg"

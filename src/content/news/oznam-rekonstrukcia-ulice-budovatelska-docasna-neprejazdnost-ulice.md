@@ -1,5 +1,5 @@
 ---
-title: "OZNAM – REKONŠTRUKCIA ULICE BUDOVATEĽSKÁ  - Dočasná neprejazdnosť ulice"
+title: "Rekonštrukcia ulice Budovateľská - Dočasná neprejazdnosť ulice"
 date: 2026-11-09
 category: "Doprava a stavby"
 image: "/media/01a488ec879fa054.jpg"

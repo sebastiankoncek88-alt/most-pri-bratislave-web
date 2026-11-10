@@ -1,5 +1,5 @@
 ---
-title: "Oznam pre obyvateľov budovateľskej ulice – začiatok rekonštrukcie"
+title: "Pre obyvateľov Budovateľskej ulice – začiatok rekonštrukcie"
 date: 2026-10-21
 category: "Doprava a stavby"
 image: "/media/7e36bfbfa840a7a0.jpg"

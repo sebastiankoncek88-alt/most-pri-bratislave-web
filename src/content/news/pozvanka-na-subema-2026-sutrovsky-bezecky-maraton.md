@@ -1,5 +1,5 @@
 ---
-title: "POZVÁNKA NA ŠuBeMa 2026 – Šutrovský bežecký maratón"
+title: "Pozvánka na ŠuBeMa 2026 – Šutrovský bežecký maratón"
 date: 2026-10-13
 category: "Kultúra a šport"
 image: "/media/8073b1cf3bd258e4.jpg"

@@ -79,7 +79,7 @@ export const sections = [
   {
     id: 'obec',
     title: 'Život v obci',
-    short: 'Život v obci',
+    short: 'Obec',
     icon: 'trees',
     description: 'O obci a jej histórii, školy, zdravie, služby, kultúra, kluby a spolky.',
   },

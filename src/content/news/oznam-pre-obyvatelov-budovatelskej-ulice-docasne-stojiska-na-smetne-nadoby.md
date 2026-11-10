@@ -1,5 +1,5 @@
 ---
-title: "Oznam pre obyvateľov budovateľskej ulice – dočasné stojiská na smetné nádoby"
+title: "Pre obyvateľov Budovateľskej ulice – dočasné stojiská na smetné nádoby"
 date: 2026-10-27
 category: "Doprava a stavby"
 image: "/media/8f87ddc7ef32b9e1.png"

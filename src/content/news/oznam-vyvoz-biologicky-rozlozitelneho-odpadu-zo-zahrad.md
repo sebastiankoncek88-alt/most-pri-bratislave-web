@@ -1,5 +1,5 @@
 ---
-title: "Oznam – vývoz biologicky rozložiteľného odpadu zo záhrad"
+title: "Vývoz biologicky rozložiteľného odpadu zo záhrad"
 date: 2026-10-27
 category: "Odpady"
 image: "/media/8776a8d4ce5c066e.jpg"

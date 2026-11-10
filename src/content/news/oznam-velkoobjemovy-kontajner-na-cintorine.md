@@ -1,5 +1,5 @@
 ---
-title: "Oznam – veľkoobjemový kontajner na cintoríne"
+title: "Veľkoobjemový kontajner na cintoríne"
 date: 2026-10-26
 category: "Odpady"
 image: "/media/676490cc7f24139f.jpg"

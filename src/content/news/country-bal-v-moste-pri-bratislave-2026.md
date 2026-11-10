@@ -1,5 +1,5 @@
 ---
-title: "Country bál v moste pri bratislave 2026"
+title: "Country bál v Moste pri Bratislave 2026"
 date: 2026-11-06
 category: "Kultúra a šport"
 image: "/media/d1b03dc00c792424.png"

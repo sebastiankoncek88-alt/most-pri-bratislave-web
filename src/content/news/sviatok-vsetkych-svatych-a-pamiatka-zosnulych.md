@@ -1,5 +1,5 @@
 ---
-title: "Sviatok všetkých svätých a Pamiatka zosnulých"
+title: "Sviatok Všetkých svätých a Pamiatka zosnulých"
 date: 2026-10-22
 category: "Oznam"
 image: "/media/b31d19c80f6cb9e5.jpg"

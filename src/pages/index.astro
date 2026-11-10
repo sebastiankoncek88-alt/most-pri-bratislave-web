@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import NewsCard from '../components/NewsCard.astro';
 import EventList from '../components/EventList.astro';
-import { quickLinks, sections, obec, url } from '../data/site';
+import { quickLinks, obec, url } from '../data/site';
 import { allNews, boardItems, newsUrl, fmtDate } from '../lib/content';
 import gallery from '../data/gallery.json';
 
@@ -15,6 +15,11 @@ const board = await boardItems(5);
 ---
 <Base current="home">
   <section class="hero" style={`--hero-erb: url(${url('/erb-512.png')})`}>
+    <svg class="hero-flight" viewBox="0 0 1200 420" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+      <path d="M1250 40 C 1000 30, 820 150, 700 230 S 470 330, 300 318" fill="none" stroke="#f2dc86" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" opacity="0.55" />
+      <circle cx="300" cy="318" r="5" fill="#e3bd2f" opacity="0.9" />
+      <circle cx="300" cy="318" r="14" fill="#f2dc86" opacity="0.12" />
+    </svg>
     <div class="container hero-inner">
       <p class="hero-kicker">Oficiálna stránka obce</p>
       <h1>Vitajte v Moste pri Bratislave</h1>
@@ -24,14 +29,6 @@ const board = await boardItems(5);
         <input id="q" name="q" type="search" placeholder="Čo hľadáte? Napr. vývoz odpadu, trvalý pobyt…" autocomplete="off" />
         <button type="submit"><Icon name="search" size={20} /><span>Hľadať</span></button>
       </form>
-      <p class="hero-hints">
-        Často hľadané:
-        <a href={url('/odpady/harmonogram/')}>harmonogram odpadu</a>
-        <a href={url('/urad/dane-a-poplatky/')}>daň z nehnuteľností</a>
-        <a href={url('/samosprava/vzn/')}>VZN</a>
-        <a href={url('/kontakt/')}>úradné hodiny</a>
-        <a href={url('/obec/fotogaleria/')}>fotogaléria</a>
-      </p>
     </div>
   </section>
 
@@ -109,20 +106,6 @@ const board = await boardItems(5);
     </div>
   </section>
 
-  <section class="home-section" aria-labelledby="sections-title">
-    <div class="container">
-      <div class="section-head"><h2 id="sections-title">Všetko o obci prehľadne</h2></div>
-      <ul class="sections-grid">
-        {sections.map((s) => (
-          <li class="section-card">
-            <Icon name={s.icon} size={28} />
-            <h3><a href={url(`/${s.id}/`)}>{s.title}</a></h3>
-            <p>{s.description}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 
   <section class="home-section home-section--tint" aria-labelledby="gallery-title">
     <div class="container">

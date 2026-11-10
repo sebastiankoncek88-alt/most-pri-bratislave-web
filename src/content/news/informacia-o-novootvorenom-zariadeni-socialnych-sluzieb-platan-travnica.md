@@ -1,5 +1,5 @@
 ---
-title: "Informácia o novootvorenom zariadení sociálnych služieb PLATAN – TRÁVNICA"
+title: "Informácia o novootvorenom zariadení sociálnych služieb Platan – Trávnica"
 date: 2026-10-15
 category: "Oznam"
 image: "/media/1a62f12847d429db.jpg"

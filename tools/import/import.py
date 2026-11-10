@@ -267,6 +267,19 @@ def _rank(u):
     if w: return 0 if 600 <= int(w.group(1)) <= 1000 else 1
     if 'h=2000' in u: return 2
     return 4
+def fix_format(fn):
+    """Server niekedy pošle AVIF/WebP pod príponou .png/.jpg – prevedie sa na skutočný formát."""
+    try:
+        from PIL import Image
+        with Image.open(fn) as im:
+            want = 'PNG' if fn.lower().endswith('.png') else 'JPEG'
+            if im.format == want: return
+            im.load()
+            out = im.convert('RGBA' if want == 'PNG' else 'RGB')
+        out.save(fn, want, **({'optimize': True} if want == 'PNG' else {'quality': 85, 'optimize': True}))
+    except Exception as e:
+        print('FORMÁT', fn, e, file=sys.stderr)
+
 def localize(u):
     u = html.unescape(u)
     path = u.split('?')[0]
@@ -288,6 +301,7 @@ def localize(u):
         if data is None:
             print('OBRÁZOK ZLYHAL', u[:100], last, file=sys.stderr); return None
         open(fn, 'wb').write(data)
+        fix_format(fn)
     _media_cache[path] = '/media/' + name
     return _media_cache[path]
 
@@ -305,10 +319,35 @@ def localize_all(b):
 def yq(s):
     return json.dumps(s, ensure_ascii=False)
 
+# Vlastné mená a skratky, ktoré po prevode z VEĽKÝCH písmen musia ostať správne
+PROPER = ['Most pri Bratislave', 'Moste pri Bratislave', 'Mosta pri Bratislave', 'Mostom pri Bratislave',
+          'Bratislavský samosprávny kraj', 'Bratislavského kraja', 'Bratislavského samosprávneho kraja',
+          'Bratislava', 'Bratislave', 'Bratislavy', 'Budovateľská', 'Budovateľskej', 'Budovateľskú',
+          'Záhradná', 'Záhradnou', 'Záhradnej', 'Športová', 'Športovej', 'Družstevná', 'Družstevnou', 'Krátka',
+          'Studené', 'Studenom', 'Zelená voda', 'Zelenej vode', 'Tri vody', 'Nové polia', 'Malinovo', 'Malinove',
+          'Slovnaft', 'Štefánik', 'Štefánika', 'Milan Rastislav', 'Milana Rastislava', 'M. R.', 'Country Mostík',
+          'Mikuláš', 'Platan', 'Trávnica', 'Všetkých svätých', 'Bitter House', 'Šutrovský', 'Slovensko', 'Slovenska', 'Slovenskej republiky',
+          'Jednota dôchodcov Slovenska', 'Dušan Jurkovič']
+ACRO = ['ŠuBeMa', 'MAMAFIT', 'ZŠ', 'MŠ', 'DHZO', 'DHZ', 'FK', 'TJ', 'VZN', 'RDP', 'BRKO', 'SHMÚ', 'BSK', 'NR SR', 'SR', 'OZ', 'EÚ', 'IROP', 'PSČ']
+
 def title_case_fix(t):
     t = re.sub(r'\s+', ' ', t.replace('\u00ad', '')).strip()
-    if t.isupper() and len(t) > 4:
-        t = t[0] + t[1:].lower()
+    # úvodné „OZNAM –“, „UPOZORNENIE:“ … nahrádza štítok kategórie
+    t = re.sub(r'^(OZNAM|OZNÁMENIE|UPOZORNENIE|INFORMÁCIA|POZVÁNKA)\s*(pre [^–:-]+?)?\s*[–:-]\s+', lambda m: (m.group(2) + ' – ') if m.group(2) else '', t, flags=re.I)
+    letters = [c for c in t if c.isalpha()]
+    upper_share = sum(c.isupper() for c in letters) / max(1, len(letters))
+    if upper_share > 0.6:
+        t = t.lower()
+    else:
+        # segmenty písané celé veľkými (napr. „REKONŠTRUKCIA ULICE – dočasná…“)
+        t = re.sub(r"[A-ZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ][A-ZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ0-9 ,.'’/]{4,}[A-ZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ]",
+                   lambda m: m.group(0).lower() if len(m.group(0).split()) > 1 else m.group(0), t)
+        t = re.sub(r'(?<!\w)[A-ZÁÄČĎÉÍĹĽŇÓÔŔŠŤÚÝŽ]{4,}(?!\w)', lambda m: m.group(0).lower(), t)
+    for w in PROPER:
+        t = re.sub(r'(?<!\w)' + re.escape(w.lower()) + r'(?!\w)', w, t, flags=re.I)
+    for w in ACRO:
+        t = re.sub(r'(?<!\w)' + re.escape(w) + r'(?!\w)', w, t, flags=re.I)
+    t = t[:1].upper() + t[1:]
     return t
 
 # ---------------------------------------------------------------------------
@@ -421,8 +460,7 @@ for n in news:
         img = im.group(1)
         body = body.replace(im.group(0), '', 1).strip()
     if img and 'nahradny-obrazok' in img: img = None
-    title = n['title']
-    if title.isupper(): title = title[0] + title[1:].lower()
+    title = title_case_fix(n['title'])
     # perex = prvý textový odsek
     perex = ''
     for para in body.split('\n\n'):

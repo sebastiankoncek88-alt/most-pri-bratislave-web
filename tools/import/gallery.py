@@ -50,6 +50,8 @@ for au in albums:
     if not t: continue
     c = t[t.find('id="content"'):]
     title = html.unescape(re.sub(r'<[^>]+>', '', (re.findall(r'<h1[^>]*>(.*?)</h1>', c, re.S) or [aslug])[0])).strip()
+    for a_, b_ in (('Deň Obce', 'Deň obce'), ('Suťaž', 'Súťaž'), ('Gulášu', 'gulášu'), ('topánok?', 'topánok')):
+        title = title.replace(a_, b_)
     dm = re.search(r'(\d{1,2})\.(\d{1,2})\.(\d{4})', c)
     date = f'{dm.group(3)}-{int(dm.group(2)):02d}-{int(dm.group(1)):02d}' if dm else None
     # varianty: _lg (veľká, h=2000) a _sm (náhľad)

@@ -32,7 +32,7 @@ for (const e of events) {
               <li id={eventId(e)}>
                 <span class="event-date"><b>{dt.getDate()}</b><small>{fmtDate(dt, { weekday: 'short' })}</small></span>
                 <span>
-                  <strong style="color:var(--navy-900);font-size:1.125rem">{e.title}</strong>
+                  <strong style="color:var(--heading);font-size:1.125rem">{e.title}</strong>
                   <span class="ev-meta">{fmtDate(dt, { weekday: 'long', day: 'numeric', month: 'long' })}{e.time ? `, ${e.time}${e.end ? ' – ' + e.end : ''}` : ''}</span>
                   <span style="display:block;color:var(--ink-2);margin-top:4px">{e.excerpt}</span>
                 </span>

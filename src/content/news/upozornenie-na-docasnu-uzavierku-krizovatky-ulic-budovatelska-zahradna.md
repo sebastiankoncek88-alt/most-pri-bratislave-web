@@ -1,5 +1,5 @@
 ---
-title: "Upozornenie na dočasnú uzávierku križovatky ulíc budovateľská – záhradná"
+title: "Upozornenie na dočasnú uzávierku križovatky ulíc Budovateľská – Záhradná"
 date: 2026-11-03
 category: "Upozornenie"
 image: "/media/4037b01615248796.jpg"

@@ -1,17 +1,15 @@
 ---
-import Icon from './Icon.astro';
 import { fmtDate, newsUrl, type News } from '../lib/content';
 import { url } from '../data/site';
-interface Props { item: News; showImage?: boolean; headingLevel?: 'h2' | 'h3' }
+interface Props { item: News; showImage?: boolean }
 const { item, showImage = true } = Astro.props;
 const d = item.data;
+// farebný pásik podľa kategórie – karty bez fotky nemajú prázdny zástupný obrázok
+const tone = ({ 'Upozornenie': 'warn', 'Doprava a stavby': 'traffic', 'Odpady': 'waste', 'Kultúra a šport': 'culture', 'Voľby': 'civic', 'Obecný úrad': 'civic' } as Record<string, string>)[d.category] ?? 'default';
+const withImage = showImage && !!d.image;
 ---
-<article class="news-card">
-  {showImage && (
-    d.image
-      ? <div class="thumb"><img src={url(d.image)} alt="" loading="lazy" decoding="async" /></div>
-      : <div class="thumb thumb--empty"><Icon name="newspaper" size={36} /></div>
-  )}
+<article class={`news-card news-card--${withImage ? 'image' : 'text'} tone-${tone}`}>
+  {withImage && <div class="thumb"><img src={url(d.image!)} alt="" loading="lazy" decoding="async" /></div>}
   <div class="body">
     <div class="meta"><span class="tag">{d.category}</span><time datetime={d.date.toISOString().slice(0, 10)}>{fmtDate(d.date)}</time></div>
     <h3><a href={url(newsUrl(item))}>{d.title}</a></h3>

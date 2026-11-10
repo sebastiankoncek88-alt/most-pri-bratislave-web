@@ -12,7 +12,7 @@ const activeAlerts = alerts.filter((a) => !a.until || a.until >= today);
   <div class="container topbar-inner">
     <OfficeStatus variant="dark" />
     <div class="topbar-links">
-      <a href={`tel:${obec.phoneHref}`}><Icon name="phone" size={16} /> {obec.phone}</a>
+      <a href={`tel:${obec.phoneHref}`} aria-label={`Zavolať na obecný úrad ${obec.phone}`}><Icon name="phone" size={16} /> <span class="hide-sm">{obec.phone}</span><span class="show-sm">Zavolať</span></a>
       <a href={`mailto:${obec.email}`} class="hide-sm"><Icon name="mail" size={16} /> {obec.email}</a>
       <a href={obec.facebook} class="hide-sm" rel="noopener">Facebook</a>
     </div>
