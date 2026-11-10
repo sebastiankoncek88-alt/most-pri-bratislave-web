@@ -29,7 +29,7 @@ const { variant = 'light' } = Astro.props;
         while (i < 8 && !(hours[(d + i) % 7] || []).length) i++;
         const nd = (d + i) % 7;
         const first = (hours[nd] || [])[0];
-        text = first ? `Zatvorené · otvárame ${i === 1 ? 'zajtra' : 'v ' + DAYS[nd]} o ${fmt(first[0])}` : 'Zatvorené';
+        text = first ? `Zatvorené, otvárame ${i === 1 ? 'zajtra' : 'v ' + DAYS[nd]} o ${fmt(first[0])}` : 'Zatvorené';
         state = 'closed';
       }
     }

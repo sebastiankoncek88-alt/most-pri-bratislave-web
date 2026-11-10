@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { a } = Astro.props;
 const date = a.date ? fmtDate(new Date(a.date + 'T12:00:00'), { day: 'numeric', month: 'long', year: 'numeric' }) : '';
 ---
-<PageShell title={a.title} section="obec" href="/obec/fotogaleria/" lead={`${date}${date ? ' · ' : ''}${a.photos.length} fotografií`}
+<PageShell title={a.title} section="obec" href="/obec/fotogaleria/" lead={`${a.photos.length} fotografií${date ? ', ' + date : ''}`}
   crumbs={[{ title: 'Život v obci', href: '/obec/' }, { title: 'Fotogaléria', href: '/obec/fotogaleria/' }, { title: a.title }]}>
   <ul class="photo-grid" data-gallery>
     {a.photos.map((p, i) => (

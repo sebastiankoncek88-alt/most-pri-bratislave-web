@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import { url } from '../data/site';
 interface Props { title?: string; description?: string; current?: string; noindex?: boolean }
 const { title, description = 'Oficiálna stránka obce Most pri Bratislave – úrad, odpady, samospráva, úradná tabuľa, aktuality a život v obci.', current, noindex } = Astro.props;
-const fullTitle = title ? `${title} | Obec Most pri Bratislave` : 'Obec Most pri Bratislave – oficiálna stránka obce';
+const fullTitle = title ? `${title} | Obec Most pri Bratislave` : 'Obec Most pri Bratislave';
 ---
 <!doctype html>
 <html lang="sk">

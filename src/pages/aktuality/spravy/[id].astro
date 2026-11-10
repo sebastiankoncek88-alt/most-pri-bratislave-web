@@ -19,7 +19,7 @@ const d = item.data;
   <div class="page-head">
     <div class="container">
       <Breadcrumbs items={[{ title: 'Aktuality', href: '/aktuality/' }, { title: d.title }]} />
-      <p class="tag" style="margin:0 0 6px">{d.category} · <time datetime={d.date.toISOString().slice(0, 10)}>{fmtDate(d.date, { day: 'numeric', month: 'long', year: 'numeric' })}</time></p>
+      <p class="tag" style="margin:0 0 6px">{d.category}, <time datetime={d.date.toISOString().slice(0, 10)}>{fmtDate(d.date, { day: 'numeric', month: 'long', year: 'numeric' })}</time></p>
       <h1 style="max-width:30ch">{d.title}</h1>
     </div>
   </div>

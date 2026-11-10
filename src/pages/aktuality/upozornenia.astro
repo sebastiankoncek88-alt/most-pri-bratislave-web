@@ -32,7 +32,7 @@ const tips = [
       <li class={`warn-item${n.data.category === 'Doprava a stavby' ? ' warn-item--traffic' : ''}`}>
         <Icon name={n.data.category === 'Doprava a stavby' ? 'construction' : 'triangle-alert'} size={22} />
         <span>
-          <time datetime={n.data.date.toISOString().slice(0, 10)}>{fmtDate(n.data.date)} · {n.data.category === 'Doprava a stavby' ? 'Doprava a stavby' : 'Upozornenie'}</time>
+          <time datetime={n.data.date.toISOString().slice(0, 10)}>{fmtDate(n.data.date)}, {n.data.category === 'Doprava a stavby' ? 'Doprava a stavby' : 'Upozornenie'}</time>
           <a href={url(newsUrl(n))}>{n.data.title}</a>
           {n.data.excerpt && <p>{n.data.excerpt}</p>}
         </span>

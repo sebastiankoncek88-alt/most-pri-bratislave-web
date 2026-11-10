@@ -26,7 +26,7 @@ const groups = await sectionTree(section);
     {section === 'urad' && (
       <div class="note" style="margin-top:0">
         <Icon name="clock" size={20} />
-        <p><strong><OfficeStatus /></strong> · Obecný úrad, {obec.address}, tel. <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. <a href={url('/kontakt/')}>Stránkové hodiny a kontakty</a></p>
+        <p><strong><OfficeStatus /></strong>. Obecný úrad, {obec.address}, tel. <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. <a href={url('/kontakt/')}>Stránkové hodiny a kontakty</a></p>
       </div>
     )}
     {section === 'odpady' && (

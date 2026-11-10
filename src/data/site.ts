@@ -134,7 +134,7 @@ export const extraLinks: Record<string, { title: string; href: string; group: st
     { title: 'Na čo si dať pozor', href: '/aktuality/upozornenia/', group: 'Z obce', order: 2 },
     { title: 'Kalendár podujatí', href: '/aktuality/podujatia/', group: 'Podujatia', order: 19 },
   ],
-  'uradna-tabula': [{ title: 'Voľby a referendá – prehľad', href: '/volby/', group: 'Voľby a referendá', order: 19 }],
+  'uradna-tabula': [{ title: 'Prehľad volieb', href: '/volby/', group: 'Voľby a referendá', order: 19 }],
   kontakt: [
     { title: 'Kontakty a úradné hodiny', href: '/kontakt/', group: 'Kontakty', order: 0 },
     { title: 'Nahlásiť problém', href: '/nahlasit-problem/', group: 'Kontakty', order: 2 },
