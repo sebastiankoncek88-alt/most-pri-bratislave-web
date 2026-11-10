@@ -59,7 +59,7 @@ for u in links:
         answer = md(''.join(parts), heading_style='ATX').strip()
         answer = re.sub(r'\n{3,}', '\n\n', answer)
         answer = answer.split('[Preskočiť na obsah]')[0].strip()
-    if title.islower(): title = title[0].upper() + title[1:]
+    title = title[:1].upper() + title[1:]
     items.append({'id': re.search(r'/(\d+)/', u.replace(BASE, '')).group(1), 'title': title, 'status': status,
                   'received': iso(received), 'answered': iso(answered), 'answer': answer, 'url': u})
     time.sleep(0.2)

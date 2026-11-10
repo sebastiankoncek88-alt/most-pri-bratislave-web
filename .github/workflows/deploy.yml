@@ -4,7 +4,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '17 3 * * *'   # denne o 4:17 (5:17 v lete) – prevezme obsah zo starého webu a znova zostaví
+    # každé 2 hodiny od 6:17 do 20:17 (v lete o hodinu neskôr) + v noci o 4:17:
+    # prevezme obsah zo starého webu obce a web znova zostaví
+    - cron: '17 3,5-19/2 * * *'
   workflow_dispatch:
 
 permissions:
@@ -28,7 +30,8 @@ jobs:
       - name: Synchronizácia obsahu z pôvodného webu obce
         # Kým obec používa starý web, nový web si každú noc prevezme novinky, podujatia a stránky.
         # Po spustení nového webu (úrad píše v administrácii) tento krok vymažte.
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        # beží pri pláne, ručnom spustení a pri commite so značkou [sync]
+        if: github.event_name != 'push' || contains(github.event.head_commit.message, '[sync]')
         continue-on-error: true
         run: |
           pip install -q -r requirements.txt
@@ -36,7 +39,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A src/content src/data public/media
-          git diff --cached --quiet || (git commit -m "Automatická synchronizácia obsahu zo starého webu" && git push)
+          git diff --cached --quiet || (git commit -m "Automatická synchronizácia obsahu zo starého webu" && git pull --rebase -X theirs origin main && git push)
       - run: npm ci
       - name: Zostavenie
         run: npm run build

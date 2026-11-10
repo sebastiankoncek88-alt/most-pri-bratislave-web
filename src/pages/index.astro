@@ -6,13 +6,15 @@ import { quickLinks, obec, url } from '../data/site';
 import { allNews, boardItems, newsUrl, fmtDate } from '../lib/content';
 import gallery from '../data/gallery.json';
 import podnety from '../data/podnety.json';
+import { podnetTopic } from '../lib/topics';
 
 const all = await allNews();
 const rows = all.slice(0, 20);
 const flash = [...all].filter((n) => n.data.time).slice(0, 4).concat(all.filter((n) => !n.data.time)).slice(0, 4);
 const tone = (c: string) => ({ 'Upozornenie': 'warn', 'Doprava a stavby': 'traffic', 'Odpady': 'waste', 'Kultúra a šport': 'culture', 'Voľby': 'civic', 'Obecný úrad': 'civic' } as Record<string, string>)[c] ?? 'default';
 const catIcon = (c: string) => ({ 'Upozornenie': 'triangle-alert', 'Doprava a stavby': 'construction', 'Odpady': 'recycle', 'Kultúra a šport': 'party-popper', 'Voľby': 'vote', 'Obecný úrad': 'landmark' } as Record<string, string>)[c] ?? 'megaphone';
-const warnings = all.filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category)).slice(0, 3);
+const recent = Date.now() - 21 * 24 * 3600 * 1000; // staršie upozornenia už spravidla neplatia
+const warnings = all.filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category) && n.data.date.getTime() >= recent).slice(0, 3);
 const photos = gallery.slice(0, 4);
 const board = await boardItems(5);
 ---
@@ -87,11 +89,13 @@ const board = await boardItems(5);
         </section>
         <section class="panel panel--warn" aria-labelledby="warn-title">
           <h2 id="warn-title"><Icon name="triangle-alert" size={22} /> Na čo si dať pozor</h2>
-          <ul class="news-list">
-            {warnings.map((n) => (
-              <li><a href={url(newsUrl(n))}><time>{fmtDate(n.data.date)}</time><strong>{n.data.title}</strong></a></li>
-            ))}
-          </ul>
+          {warnings.length ? (
+            <ul class="news-list">
+              {warnings.map((n) => (
+                <li><a href={url(newsUrl(n))}><time>{fmtDate(n.data.date)}</time><strong>{n.data.title}</strong></a></li>
+              ))}
+            </ul>
+          ) : <p>Momentálne nie sú žiadne aktuálne upozornenia.</p>}
           <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/upozornenia/')}>Všetky upozornenia <Icon name="arrow-right" size={18} /></a></p>
         </section>
       </aside>
@@ -140,8 +144,10 @@ const board = await boardItems(5);
       <ul class="podnet-cards">
         {podnety.items.slice(0, 4).map((p) => {
           const open = /rieš/i.test(p.status) && !/vyrieš/i.test(p.status);
+          const t = podnetTopic(p.title);
           return (
-            <li class="podnet-card">
+            <li class={`podnet-card tone-${t.tone}`}>
+              <span class="pc-img" aria-hidden="true"><Icon name={t.icon} size={40} /><small>{t.label}</small></span>
               <span class={`badge${open ? ' badge--open' : ''}`}><Icon name={open ? 'clock' : 'circle-check'} size={14} /> {p.status}</span>
               <a href={url(`/kontakt/podnety/#podnet-${p.id}`)}>{p.title}</a>
               {p.received && <small>{fmtDate(new Date(p.received + 'T12:00:00'))}</small>}

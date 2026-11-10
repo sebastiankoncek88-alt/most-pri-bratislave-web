@@ -5,7 +5,8 @@ import { alerts, url } from '../../data/site';
 import { allNews, newsUrl, fmtDate } from '../../lib/content';
 const today = new Date().toISOString().slice(0, 10);
 const active = alerts.filter((a) => !a.until || a.until >= today);
-const warn = (await allNews()).filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category)).slice(0, 20);
+const since = Date.now() - 60 * 24 * 3600 * 1000; // upozornenia za posledné 2 mesiace
+const warn = (await allNews()).filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category) && n.data.date.getTime() >= since).slice(0, 20);
 const tips = [
   { icon: 'factory', title: 'Činnosť rafinérie Slovnaft', text: 'Obec každý mesiac zverejňuje informácie o plánovaných činnostiach v rafinérii, ktoré môžu spôsobiť zápach, hluk alebo zvýšené horenie fakieľ.', href: '/aktuality/' },
   { icon: 'zap-off', title: 'Prerušenie dodávky elektriny', text: 'Plánované odstávky elektriny zverejňujeme v aktualitách. Poruchy hláste distribučnej spoločnosti – čísla nájdete medzi dôležitými kontaktmi.', href: '/kontakt/dolezite-telefonne-cisla/' },
@@ -26,7 +27,8 @@ const tips = [
       </ul>
     </section>
   )}
-  <h2>Posledné upozornenia a uzávierky</h2>
+  <h2>Upozornenia a uzávierky za posledné 2 mesiace</h2>
+  {warn.length === 0 && <p>Za posledné dva mesiace obec nezverejnila žiadne upozornenia.</p>}
   <ul class="warn-list">
     {warn.map((n) => (
       <li class={`warn-item${n.data.category === 'Doprava a stavby' ? ' warn-item--traffic' : ''}`}>

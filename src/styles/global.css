@@ -524,8 +524,8 @@ p { margin: 0 0 1em; }
 .podnet summary::-webkit-details-marker { display: none; }
 .podnet summary strong { color: var(--heading); line-height: 1.3; }
 .podnet summary small { display: block; color: var(--muted); font-size: 0.875rem; font-weight: 400; }
-.podnet summary .icon { transition: transform 0.15s; color: var(--blue-600); }
-.podnet[open] summary .icon { transform: rotate(180deg); }
+.podnet summary > .icon { transition: transform 0.15s; color: var(--blue-600); }
+.podnet[open] summary > .icon { transform: rotate(180deg); }
 .podnet .answer { padding: 0 18px 16px; border-top: 1px solid var(--line); }
 .podnet .answer > :first-child { margin-top: 14px; }
 .badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--green-bg); color: var(--green-ink); margin-right: 6px; }
@@ -766,3 +766,17 @@ p { margin: 0 0 1em; }
   .news-row { grid-template-columns: 84px minmax(0, 1fr); }
   .nr-thumb { width: 84px; height: 60px; }
 }
+
+/* Obrázok témy na kartách podnetov */
+.podnet-card { padding: 0; overflow: hidden; }
+.podnet-card > :not(.pc-img) { margin-inline: 16px; }
+.podnet-card .badge { margin-top: 2px; }
+.podnet-card small:last-child { margin-bottom: 16px; }
+.pc-img { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; aspect-ratio: 16 / 7; color: var(--tone, var(--link)); background: color-mix(in srgb, var(--tone, var(--link)) 12%, var(--card)); border-bottom: 1px solid var(--line); }
+.pc-img small { font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); margin: 0 !important; }
+.podnet summary { justify-content: flex-start; }
+.podnet summary .pd-text { flex: 1; min-width: 0; }
+.pd-ico { flex-shrink: 0; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; color: var(--tone, var(--link)); background: color-mix(in srgb, var(--tone, var(--link)) 12%, var(--card)); }
+.tone-default { --tone: var(--link); }
+
+:root.is-dark .tone-civic { --tone: #9fbdf5; }

@@ -5,6 +5,7 @@ import podnety from '../../data/podnety.json';
 import { url } from '../../data/site';
 import { fmtDate } from '../../lib/content';
 import { marked } from '../../lib/md';
+import { podnetTopic } from '../../lib/topics';
 const d = (s: string | null) => (s ? fmtDate(new Date(s + 'T12:00:00')) : '');
 ---
 <PageShell title="Odpovede na podnety občanov" section="kontakt" href="/kontakt/podnety/" lead="Otázky a podnety obyvateľov a odpovede obce. Možno už niekto riešil to isté čo vy.">
@@ -19,7 +20,8 @@ const d = (s: string | null) => (s ? fmtDate(new Date(s + 'T12:00:00')) : '');
   {podnety.items.map((p) => (
     <details class="podnet" id={`podnet-${p.id}`}>
       <summary>
-        <span>
+        <span class={`pd-ico tone-${podnetTopic(p.title).tone}`} aria-hidden="true"><Icon name={podnetTopic(p.title).icon} size={22} /></span>
+        <span class="pd-text">
           <strong>{p.title}</strong>
           <small><span class={`badge${/rieš/i.test(p.status) && !/vyrieš/i.test(p.status) ? ' badge--open' : ''}`}>{p.status}</span>prijatý {d(p.received)}{p.answered && `, zodpovedaný ${d(p.answered)}`}</small>
         </span>
