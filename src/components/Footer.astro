@@ -1,0 +1,61 @@
+---
+import Icon from './Icon.astro';
+import { obec, officeHours, dayNames, officeHoursNote, sections, url } from '../data/site';
+const days = [1, 2, 3, 4, 5];
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col footer-brand">
+      <img src={url('/erb-256.png')} alt="Erb obce Most pri Bratislave" width="64" height="64" />
+      <p class="footer-name">{obec.fullName}</p>
+      <address>
+        {obec.address}<br />{obec.zip} {obec.city}
+      </address>
+      <p>
+        <a href={`tel:${obec.phoneHref}`}><Icon name="phone" size={16} /> {obec.phone}</a><br />
+        <a href={`mailto:${obec.email}`}><Icon name="mail" size={16} /> {obec.email}</a>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h2>Stránkové hodiny</h2>
+      <table class="hours-table">
+        <tbody>
+          {days.map((d) => (
+            <tr>
+              <th scope="row">{dayNames[d]}</th>
+              <td>{officeHours[d].length ? officeHours[d].map(([a, b]) => `${a.replace(/^0/, '')} – ${b.replace(/^0/, '')}`).join(', ') : 'nestránkový deň'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p class="footer-note">{officeHoursNote}</p>
+    </div>
+    <div class="footer-col">
+      <h2>Web obce</h2>
+      <ul>
+        {sections.map((s) => <li><a href={url(`/${s.id}/`)}>{s.title}</a></li>)}
+        <li><a href={url('/kontakt/')}>Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>Užitočné</h2>
+      <ul>
+        <li><a href={url('/nahlasit-problem/')}>Nahlásiť problém</a></li>
+        <li><a href={url('/kontakt/dolezite-telefonne-cisla/')}>Dôležité telefónne čísla</a></li>
+        <li><a href={url('/uradna-tabula/info-211/')}>Žiadosť o informácie (211/2000)</a></li>
+        <li><a href="https://www.slovensko.sk" rel="noopener">Elektronické podanie (slovensko.sk)</a></li>
+        <li><a href={obec.facebook} rel="noopener">Facebook obce</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <p>IČO {obec.ico} · DIČ {obec.dic} · {obec.iban}</p>
+      <p>
+        <a href={url('/vyhlasenie-o-pristupnosti/')}>Vyhlásenie o prístupnosti</a> ·
+        <a href={url('/ochrana-osobnych-udajov/')}>Ochrana osobných údajov</a> ·
+        <a href={url('/mapa-stranky/')}>Mapa stránky</a>
+      </p>
+    </div>
+  </div>
+</footer>

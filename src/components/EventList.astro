@@ -1,0 +1,25 @@
+---
+import events from '../data/events.json';
+import { url } from '../data/site';
+import { eventId } from '../lib/content';
+interface Props { limit?: number; from?: string }
+const { limit = 5 } = Astro.props;
+const today = new Date().toISOString().slice(0, 10);
+const MON = ['jan', 'feb', 'mar', 'apr', 'máj', 'jún', 'júl', 'aug', 'sep', 'okt', 'nov', 'dec'];
+const list = events.filter((e) => e.date >= today).slice(0, limit);
+const shown = list.length ? list : events.slice(-limit);
+---
+<ul class="events">
+  {shown.map((e) => {
+    const [y, m, d] = e.date.split('-').map(Number);
+    return (
+      <li>
+        <span class="event-date"><b>{d}</b><small>{MON[m - 1]}</small></span>
+        <span>
+          <a href={url(`/aktuality/podujatia/#${eventId(e)}`)}>{e.title}</a>
+          <span class="ev-meta">{e.time ? `${e.time}${e.end ? ' – ' + e.end : ''}` : 'celý deň'}</span>
+        </span>
+      </li>
+    );
+  })}
+</ul>

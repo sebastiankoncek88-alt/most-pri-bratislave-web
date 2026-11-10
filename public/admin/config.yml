@@ -1,0 +1,75 @@
+# Administrácia obsahu (Sveltia CMS) – obsah sa ukladá priamo do repozitára na GitHube
+# a web sa po každej zmene automaticky znova zostaví.
+# PRED SPUSTENÍM: doplňte názov repozitára (vlastník/názov).
+backend:
+  name: github
+  repo: VLASTNIK/most-pri-bratislave-web
+  branch: main
+
+media_folder: public/media/uploads
+public_folder: /media/uploads
+locale: sk
+
+collections:
+  - name: news
+    label: Aktuality
+    label_singular: Aktualita
+    folder: src/content/news
+    create: true
+    slug: '{{slug}}'
+    sortable_fields: [date, title]
+    summary: '{{date | date("D. M. YYYY")}} – {{title}}'
+    fields:
+      - { name: title, label: Nadpis, widget: string }
+      - { name: date, label: Dátum, widget: datetime, format: 'YYYY-MM-DD', time_format: false }
+      - name: category
+        label: Kategória
+        widget: select
+        options: [Oznam, Obecný úrad, Odpady, Doprava a stavby, Kultúra a šport, Upozornenie]
+        default: Oznam
+      - { name: image, label: Obrázok, widget: image, required: false }
+      - { name: excerpt, label: Krátky popis (zobrazí sa v zozname), widget: text, required: false }
+      - { name: body, label: Text, widget: markdown }
+
+  - name: pages
+    label: Stránky
+    label_singular: Stránka
+    folder: src/content/pages
+    create: true
+    nested: { depth: 4, summary: '{{title}}' }
+    meta: { path: { widget: string, label: Cesta, index_file: index } }
+    fields:
+      - { name: title, label: Nadpis, widget: string }
+      - name: section
+        label: Sekcia webu
+        widget: select
+        options:
+          - { label: Úrad a služby, value: urad }
+          - { label: Odpady, value: odpady }
+          - { label: Samospráva, value: samosprava }
+          - { label: Úradná tabuľa, value: uradna-tabula }
+          - { label: Aktuality, value: aktuality }
+          - { label: Život v obci, value: obec }
+          - { label: Kontakt, value: kontakt }
+      - { name: group, label: Skupina v menu sekcie, widget: string, required: false }
+      - { name: order, label: Poradie, widget: number, value_type: float, default: 50 }
+      - { name: parent, label: Nadradená stránka (slug), widget: string, required: false }
+      - { name: updated, label: Naposledy upravené, widget: datetime, format: 'YYYY-MM-DD', time_format: false, required: false }
+      - { name: body, label: Obsah, widget: markdown }
+
+  - name: settings
+    label: Nastavenia
+    files:
+      - name: alerts
+        label: Upozornenie v hornej lište
+        file: src/data/alerts.json
+        format: json
+        fields:
+          - name: items
+            label: Upozornenia
+            widget: list
+            root: true
+            fields:
+              - { name: text, label: Text, widget: string }
+              - { name: href, label: Odkaz (nepovinné), widget: string, required: false }
+              - { name: until, label: Zobrazovať do, widget: datetime, format: 'YYYY-MM-DD', time_format: false, required: false }

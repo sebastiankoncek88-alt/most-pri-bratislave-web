@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { url } from '../data/site';
+---
+<Base title="Vyhľadávanie" noindex>
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Vyhľadávanie' }]} />
+      <h1>Vyhľadávanie</h1>
+    </div>
+  </div>
+  <div class="container search-page" style="padding-block: 32px 64px; max-width: 860px">
+    <link href={url('/pagefind/pagefind-ui.css')} rel="stylesheet" />
+    <div id="search"></div>
+    <noscript>Vyhľadávanie vyžaduje zapnutý JavaScript. Použite <a href={url('/mapa-stranky/')}>mapu stránky</a>.</noscript>
+  </div>
+  <script is:inline define:vars={{ src: url('/pagefind/pagefind-ui.js') }}>
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = () => {
+      const ui = new PagefindUI({
+        element: '#search', showSubResults: true, showImages: false, resetStyles: false,
+        translations: { placeholder: 'Čo hľadáte? Napr. odpad, matrika, VZN…', zero_results: 'Pre „[SEARCH_TERM]“ sme nič nenašli. Skúste iné slovo.', many_results: '[COUNT] výsledkov pre „[SEARCH_TERM]“', one_result: '1 výsledok pre „[SEARCH_TERM]“', load_more: 'Zobraziť ďalšie', search_label: 'Hľadať na webe', clear_search: 'Vymazať' },
+      });
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) ui.triggerSearch(q);
+    };
+    s.onerror = () => { document.getElementById('search').textContent = 'Vyhľadávanie je dostupné po zostavení webu (npm run build).'; };
+    document.head.appendChild(s);
+  </script>
+</Base>

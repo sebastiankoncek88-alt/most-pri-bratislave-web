@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import events from '../../data/events.json';
+
+import { url } from '../../data/site';
+import { fmtDate, eventId } from '../../lib/content';
+const byMonth = new Map<string, typeof events>();
+for (const e of events) {
+  const k = fmtDate(new Date(e.date + 'T12:00:00'), { month: 'long', year: 'numeric' });
+  if (!byMonth.has(k)) byMonth.set(k, []);
+  byMonth.get(k)!.push(e);
+}
+---
+<Base title="Kalendár podujatí" current="aktuality">
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Aktuality', href: '/aktuality/' }, { title: 'Kalendár podujatí' }]} />
+      <h1>Kalendár podujatí</h1>
+      <p class="lead">Kultúrne, športové a komunitné podujatia, zbery odpadu a sobášne dni v obci.</p>
+    </div>
+  </div>
+  <div class="container" style="padding-block: 32px 64px; max-width: 860px">
+    {[...byMonth.entries()].map(([m, list]) => (
+      <section>
+        <h2 style="text-transform:capitalize">{m}</h2>
+        <ul class="events">
+          {list.map((e) => {
+            const dt = new Date(e.date + 'T12:00:00');
+            return (
+              <li id={eventId(e)}>
+                <span class="event-date"><b>{dt.getDate()}</b><small>{fmtDate(dt, { weekday: 'short' })}</small></span>
+                <span>
+                  <strong style="color:var(--navy-900);font-size:1.125rem">{e.title}</strong>
+                  <span class="ev-meta">{fmtDate(dt, { weekday: 'long', day: 'numeric', month: 'long' })}{e.time ? `, ${e.time}${e.end ? ' – ' + e.end : ''}` : ''}</span>
+                  <span style="display:block;color:var(--ink-2);margin-top:4px">{e.excerpt}</span>
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
+    <div class="note"><Icon name="info" size={20} /><p>Organizujete podujatie v obci? Nahláste ho na <a href="mailto:sekretariat@mostpribratislave.sk">sekretariat@mostpribratislave.sk</a>. Pozrite si aj <a href={url('/aktuality/nahlasene-podujatia/')}>nahlásené podujatia s rušením nočného kľudu</a>.</p></div>
+  </div>
+</Base>

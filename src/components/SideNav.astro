@@ -1,0 +1,31 @@
+---
+import { sections, url } from '../data/site';
+import { sectionPages, groupPages, pageUrl } from '../lib/content';
+interface Props { section: string; currentId?: string }
+const { section, currentId } = Astro.props;
+const meta = sections.find((s) => s.id === section);
+const groups = groupPages(await sectionPages(section));
+const isOpen = (topId: string) => currentId === topId || currentId?.startsWith(topId + '/');
+---
+<nav class="side-nav" aria-label={`Navigácia v sekcii ${meta?.title ?? ''}`}>
+  <h2><a href={url(`/${section}/`)}>{meta?.title ?? 'Kontakt'}</a></h2>
+  {[...groups.entries()].map(([g, items]) => (
+    <>
+      {groups.size > 1 && <h3>{g}</h3>}
+      <ul>
+        {items.map(({ top, children }) => (
+          <li>
+            <a class="sn" href={url(pageUrl(top))} aria-current={currentId === top.id ? 'page' : undefined}>{top.data.title}</a>
+            {children.length > 0 && isOpen(top.id) && (
+              <ul>
+                {children.map((c) => (
+                  <li><a class="sn" href={url(pageUrl(c))} aria-current={currentId === c.id ? 'page' : undefined}>{c.data.title}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
+</nav>

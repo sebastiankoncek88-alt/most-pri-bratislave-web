@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { url, quickLinks } from '../data/site';
+---
+<Base title="Stránka sa nenašla" noindex>
+  <div class="container" style="padding-block: 64px; max-width: 860px">
+    <h1>Túto stránku sme nenašli</h1>
+    <p class="lead" style="font-size:1.1875rem">Web obce má novú, prehľadnejšiu štruktúru, preto sa niektoré adresy zmenili. Skúste vyhľadávanie alebo niektorý z častých odkazov.</p>
+    <form class="hero-search" action={url('/vyhladavanie/')} role="search" style="box-shadow:none;border:2px solid var(--line-strong);margin:24px 0 32px">
+      <label for="q404" class="sr-only">Hľadať</label>
+      <input id="q404" name="q" type="search" placeholder="Čo hľadáte?" />
+      <button type="submit"><Icon name="search" size={20} /><span>Hľadať</span></button>
+    </form>
+    <ul class="child-grid">
+      {quickLinks.map((q) => <li><a href={url(q.href)}>{q.title} <Icon name="chevron-right" size={18} /></a></li>)}
+    </ul>
+  </div>
+</Base>

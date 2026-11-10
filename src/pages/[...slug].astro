@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SideNav from '../components/SideNav.astro';
+import { sections, url } from '../data/site';
+import { sortChildren, pageUrl, fmtDate } from '../lib/content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((p) => ({ params: { slug: p.id }, props: { page: p, all: pages } }));
+}
+const { page, all } = Astro.props;
+const { Content } = await render(page);
+const d = page.data;
+const sectionMeta = sections.find((s) => s.id === d.section);
+const sectionTitle = sectionMeta?.title ?? 'Kontakt';
+const ownSlug = page.id.split('/').slice(1).join('/');
+const children = sortChildren(all.filter((c) => c.data.section === d.section && c.data.parent === ownSlug));
+const parent = d.parent ? all.find((c) => c.id === `${d.section}/${d.parent}`) : undefined;
+const crumbs = [{ title: sectionTitle, href: `/${d.section}/` }];
+if (parent) crumbs.push({ title: parent.data.title, href: pageUrl(parent) });
+crumbs.push({ title: d.title } as any);
+const hasDocs = (page.body || '').includes('class="doc-list"');
+const isEmpty = !(page.body || '').trim();
+---
+<Base title={d.title} current={d.section}>
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={crumbs} />
+      <h1>{d.title}</h1>
+    </div>
+  </div>
+  <div class="container page-layout">
+    <SideNav section={d.section} currentId={page.id} />
+    <article class="prose" data-pagefind-body>
+      {children.length > 0 && (
+        <ul class="child-grid">
+          {children.map((c) => <li><a href={url(pageUrl(c))}>{c.data.title} <Icon name="chevron-right" size={18} /></a></li>)}
+        </ul>
+      )}
+      {hasDocs && (
+        <div class="doc-filter" data-pagefind-ignore>
+          <label for="f" class="sr-only">Filtrovať dokumenty</label>
+          <input id="f" type="search" placeholder="Filtrovať v zozname… (napr. číslo, názov, dátum)" data-doc-filter />
+        </div>
+      )}
+      <Content />
+      {isEmpty && children.length === 0 && (
+        <div class="note"><Icon name="info" size={20} /><p>Obsah tejto stránky sa pripravuje. Informácie vám radi poskytneme na obecnom úrade.</p></div>
+      )}
+      {hasDocs && d.source && (
+        <div class="note" data-pagefind-ignore><Icon name="info" size={20} /><p>Zobrazené sú najnovšie zverejnené dokumenty. Staršie záznamy nájdete v <a href={d.source}>archíve</a>.</p></div>
+      )}
+      <div class="page-meta" data-pagefind-ignore>
+        {d.updated && <span>Naposledy upravené: {fmtDate(d.updated)}</span>}
+        <span>Správca obsahu: Obecný úrad Most pri Bratislave</span>
+      </div>
+    </article>
+  </div>
+</Base>
+<script>
+  document.querySelectorAll<HTMLInputElement>('[data-doc-filter]').forEach((input) => {
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      document.querySelectorAll<HTMLLIElement>('.doc-list li, .file-list li').forEach((li) => {
+        li.hidden = !!q && !li.textContent!.toLowerCase().includes(q);
+      });
+    });
+  });
+</script>

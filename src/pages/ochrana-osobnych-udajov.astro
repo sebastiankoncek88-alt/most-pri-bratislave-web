@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { obec } from '../data/site';
+---
+<Base title="Ochrana osobných údajov">
+  <div class="page-head"><div class="container"><Breadcrumbs items={[{ title: 'Ochrana osobných údajov' }]} /><h1>Ochrana osobných údajov</h1></div></div>
+  <div class="container" style="padding-block: 32px 64px">
+    <div class="prose" data-pagefind-body>
+      <p>Prevádzkovateľom webového sídla je {obec.fullName}, {obec.address}, {obec.zip} {obec.city}, IČO {obec.ico}.</p>
+      <h2>Cookies a meranie návštevnosti</h2>
+      <p>Tento web nepoužíva reklamné ani analytické cookies tretích strán a nesleduje návštevníkov. Písma a ikony sú uložené priamo na serveri obce, takže pri prezeraní webu sa vaše údaje neposielajú externým službám (napr. Google Fonts).</p>
+      <h2>Podnety a e-maily</h2>
+      <p>Údaje, ktoré nám pošlete e-mailom alebo cez formulár „Nahlásiť problém“, spracúvame len na vybavenie vašej požiadavky podľa nariadenia (EÚ) 2016/679 (GDPR) a zákona č. 18/2018 Z. z.</p>
+      <h2>Podrobné informácie</h2>
+      <p>Úplné informácie o spracúvaní osobných údajov obcou, o vašich právach a kontakt na zodpovednú osobu zverejní obec na tejto stránke. Do spustenia nového webu platia <a href="https://www.mostpribratislave.sk/ochranaosobnychudajov">informácie na doterajšom webe</a>.</p>
+    </div>
+  </div>
+</Base>

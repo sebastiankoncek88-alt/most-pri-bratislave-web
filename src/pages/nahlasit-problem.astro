@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { obec, url } from '../data/site';
+const topics = [
+  ['Verejné osvetlenie alebo rozhlas', 'sekretariat@mostpribratislave.sk'],
+  ['Odpad, kontajnery, čierna skládka', 'odpady@mostpribratislave.sk'],
+  ['Cesty, chodníky, zeleň', 'sekretariat@mostpribratislave.sk'],
+  ['Stavby a územné plánovanie', 'stavebnyurad@mostpribratislave.sk'],
+  ['Verejný poriadok a bezpečnosť', 'sekretariat@mostpribratislave.sk'],
+  ['Podnet pre starostku', 'starosta@mostpribratislave.sk'],
+  ['Iné', 'sekretariat@mostpribratislave.sk'],
+];
+---
+<Base title="Nahlásiť problém" description="Nahláste obci problém – nefunkčné osvetlenie, odpad, cesty, zeleň a ďalšie podnety." current="kontakt">
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Kontakt', href: '/kontakt/' }, { title: 'Nahlásiť problém' }]} />
+      <h1>Nahlásiť problém</h1>
+      <p class="lead">Nesvieti lampa, nevyviezli smeti, je výtlk na ceste? Dajte nám vedieť, podnet pošleme priamo na zodpovedný referát.</p>
+    </div>
+  </div>
+  <div class="container" style="padding-block: 32px 64px">
+    <form class="form" id="podnet">
+      <div>
+        <label for="topic">O čo ide?</label>
+        <select id="topic" name="topic" required>
+          {topics.map(([t, e]) => <option value={e}>{t}</option>)}
+        </select>
+      </div>
+      <div>
+        <label for="where">Kde? <span class="hint">ulica, číslo domu alebo popis miesta</span></label>
+        <input id="where" name="where" required />
+      </div>
+      <div>
+        <label for="msg">Popis problému</label>
+        <textarea id="msg" name="msg" required></textarea>
+      </div>
+      <div class="row">
+        <div><label for="name">Meno <span class="hint">(nepovinné)</span></label><input id="name" name="name" autocomplete="name" /></div>
+        <div><label for="contact">Telefón alebo e-mail <span class="hint">(nepovinné)</span></label><input id="contact" name="contact" /></div>
+      </div>
+      <p class="hint" style="margin:0">Po odoslaní sa otvorí váš e-mailový program s pripravenou správou pre obecný úrad. Fotografiu môžete priložiť priamo v e-maile.</p>
+      <div><button class="btn btn-primary" type="submit"><Icon name="send" size={18} /> Pripraviť e-mail</button></div>
+    </form>
+    <div class="note" style="max-width:640px"><Icon name="phone" size={20} /><p>Naliehavé veci volajte na obecný úrad <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. Pri ohrození života, zdravia alebo majetku volajte <strong>112</strong>. Poruchy vody, plynu a elektriny nájdete v <a href={url('/kontakt/dolezite-telefonne-cisla/')}>dôležitých telefónnych číslach</a>.</p></div>
+  </div>
+</Base>
+<script>
+  document.getElementById('podnet')?.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const f = ev.target as HTMLFormElement;
+    const sel = f.topic as HTMLSelectElement;
+    const v = (n: string) => (f.elements.namedItem(n) as HTMLInputElement).value.trim();
+    const subject = `Podnet z webu: ${sel.options[sel.selectedIndex].text} – ${v('where')}`;
+    const body = `Miesto: ${v('where')}\n\n${v('msg')}\n\n${v('name') ? 'Meno: ' + v('name') + '\n' : ''}${v('contact') ? 'Kontakt: ' + v('contact') + '\n' : ''}`;
+    window.location.href = `mailto:${sel.value}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

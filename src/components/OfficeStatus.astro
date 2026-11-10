@@ -1,0 +1,42 @@
+---
+import { officeHours } from '../data/site';
+interface Props { variant?: 'light' | 'dark' }
+const { variant = 'light' } = Astro.props;
+---
+<span class={`office-status office-status--${variant}`} data-office-status data-hours={JSON.stringify(officeHours)}>
+  <span class="office-dot" aria-hidden="true"></span>
+  <span class="office-text">Stránkové hodiny úradu</span>
+</span>
+<script>
+  const DAYS = ['nedeľu', 'pondelok', 'utorok', 'stredu', 'štvrtok', 'piatok', 'sobotu'];
+  function fmt(t: string) { return t.replace(/^0/, ''); }
+  function update(el: HTMLElement) {
+    const hours: Record<string, [string, string][]> = JSON.parse(el.dataset.hours || '{}');
+    // čas v slovenskom pásme bez ohľadu na zariadenie
+    const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Bratislava' }));
+    const d = now.getDay();
+    const hm = now.toTimeString().slice(0, 5);
+    const today = hours[d] || [];
+    const open = today.find(([a, b]) => hm >= a && hm < b);
+    let text: string; let state: string;
+    if (open) {
+      text = `Úrad je otvorený do ${fmt(open[1])}`; state = 'open';
+    } else {
+      const later = today.find(([a]) => hm < a);
+      if (later) { text = `Dnes otvárame o ${fmt(later[0])}`; state = 'soon'; }
+      else {
+        let i = 1;
+        while (i < 8 && !(hours[(d + i) % 7] || []).length) i++;
+        const nd = (d + i) % 7;
+        const first = (hours[nd] || [])[0];
+        text = first ? `Zatvorené · otvárame ${i === 1 ? 'zajtra' : 'v ' + DAYS[nd]} o ${fmt(first[0])}` : 'Zatvorené';
+        state = 'closed';
+      }
+    }
+    el.dataset.state = state;
+    const t = el.querySelector('.office-text'); if (t) t.textContent = text;
+  }
+  document.querySelectorAll<HTMLElement>('[data-office-status]').forEach((el) => {
+    update(el); setInterval(() => update(el), 60000);
+  });
+</script>

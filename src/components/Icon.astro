@@ -1,0 +1,14 @@
+---
+// Ikony z knižnice Lucide (ISC licencia), vkladané priamo do HTML.
+interface Props { name: string; size?: number; class?: string; label?: string }
+const { name, size = 20, class: cls = '', label } = Astro.props;
+const icons = import.meta.glob('/node_modules/lucide-static/icons/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+let svg = icons[`/node_modules/lucide-static/icons/${name}.svg`] ?? icons['/node_modules/lucide-static/icons/circle.svg'];
+svg = svg
+  .replace(/<!--.*?-->/s, '')
+  .replace(/width="24"/, `width="${size}"`)
+  .replace(/height="24"/, `height="${size}"`)
+  .replace(/class="[^"]*"/, `class="icon ${cls}"`)
+  .replace('<svg', label ? `<svg role="img" aria-label="${label}"` : '<svg aria-hidden="true" focusable="false"');
+---
+<Fragment set:html={svg} />

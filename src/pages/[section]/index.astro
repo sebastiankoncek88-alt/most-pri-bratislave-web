@@ -1,0 +1,53 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import OfficeStatus from '../../components/OfficeStatus.astro';
+import { sections, obec, url } from '../../data/site';
+import { sectionPages, groupPages, pageUrl } from '../../lib/content';
+
+export function getStaticPaths() {
+  return sections.filter((s) => s.id !== 'aktuality').map((s) => ({ params: { section: s.id } }));
+}
+const { section } = Astro.params;
+const meta = sections.find((s) => s.id === section)!;
+const groups = groupPages(await sectionPages(section));
+---
+<Base title={meta.title} description={meta.description} current={section}>
+  <div class="page-head page-head--section">
+    <div class="container">
+      <Breadcrumbs items={[{ title: meta.title }]} />
+      <span class="head-icon"><Icon name={meta.icon} size={28} /></span>
+      <h1>{meta.title}</h1>
+      <p class="lead">{meta.description}</p>
+    </div>
+  </div>
+  <div class="container" style="padding-block: 40px 64px">
+    {section === 'urad' && (
+      <div class="note" style="margin-top:0">
+        <Icon name="clock" size={20} />
+        <p><strong><OfficeStatus /></strong> · Obecný úrad, {obec.address}, tel. <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. <a href={url('/kontakt/')}>Stránkové hodiny a kontakty</a></p>
+      </div>
+    )}
+    {section === 'odpady' && (
+      <div class="waste-card" style="margin-bottom:40px">
+        <span class="w-icon"><Icon name="calendar-days" size={30} /></span>
+        <div><h2>Harmonogram vývozu 2026</h2><p>Rozpis vývozu komunálneho odpadu, plastov, papiera a skla pre jednotlivé časti obce.</p></div>
+        <a class="btn btn-green" href={url('/odpady/harmonogram/harmonogram-na-rok-2026/')}>Otvoriť harmonogram <Icon name="arrow-right" size={18} /></a>
+      </div>
+    )}
+    {[...groups.entries()].map(([g, items]) => (
+      <section class="group-block">
+        <h2>{g}</h2>
+        <ul class="link-grid">
+          {items.map(({ top, children }) => (
+            <li class="link-card">
+              <a href={url(pageUrl(top))}>{top.data.title}</a>
+              {children.length > 0 && <small>{children.length} {children.length < 5 ? 'podstránky' : 'podstránok'}</small>}
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

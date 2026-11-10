@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import EventList from '../../components/EventList.astro';
+import { url } from '../../data/site';
+import { allNews, sectionPages, pageUrl } from '../../lib/content';
+
+const news = await allNews();
+const cats = [...new Set(news.map((n) => n.data.category))].sort();
+const pages = (await sectionPages('aktuality')).filter((p) => !p.data.parent);
+---
+<Base title="Aktuality" description="Novinky, oznamy a podujatia v obci Most pri Bratislave." current="aktuality">
+  <div class="page-head page-head--section">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Aktuality' }]} />
+      <span class="head-icon"><Icon name="newspaper" size={28} /></span>
+      <h1>Aktuality</h1>
+      <p class="lead">Oznamy obecného úradu, uzávierky, zbery odpadu, pozvánky a novinky z obce.</p>
+    </div>
+  </div>
+  <div class="container home-grid" style="padding-block: 40px 64px">
+    <div>
+      <div class="doc-filter" role="group" aria-label="Filtrovať podľa kategórie" style="flex-wrap:wrap">
+        <button class="btn btn-ghost" data-cat="" aria-pressed="true">Všetko</button>
+        {cats.map((c) => <button class="btn btn-ghost" data-cat={c} aria-pressed="false">{c}</button>)}
+      </div>
+      <div class="news-grid" id="news">
+        {news.map((n) => <div data-category={n.data.category}><NewsCard item={n} /></div>)}
+      </div>
+      <p style="margin-top:24px"><a href="https://www.mostpribratislave.sk/novinky/1370/novinky-v-obci">Staršie aktuality v archíve</a></p>
+    </div>
+    <aside>
+      <section class="panel">
+        <h2><Icon name="calendar-days" size={22} /> Podujatia</h2>
+        <EventList limit={6} />
+        <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/podujatia/')}>Všetky podujatia <Icon name="arrow-right" size={18} /></a></p>
+      </section>
+      <section class="panel">
+        <h2><Icon name="folder-open" size={22} /> Z obce</h2>
+        <ul class="news-list">
+          <li><a href={url('/aktuality/podujatia/')}><strong>Kalendár podujatí</strong></a></li>
+          {pages.map((p) => <li><a href={url(pageUrl(p))}><strong>{p.data.title}</strong></a></li>)}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</Base>
+<style>
+  .doc-filter .btn { padding: 6px 14px; font-size: 0.9375rem; }
+  .doc-filter .btn[aria-pressed='true'] { background: var(--blue-700); border-color: var(--blue-700); color: #fff; }
+  #news > div { display: contents; }
+  #news > div[hidden] { display: none; }
+</style>
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('[data-cat]');
+  btns.forEach((b) => b.addEventListener('click', () => {
+    btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    const c = b.dataset.cat;
+    document.querySelectorAll<HTMLElement>('#news > [data-category]').forEach((el) => { el.hidden = !!c && el.dataset.category !== c; });
+  }));
+</script>

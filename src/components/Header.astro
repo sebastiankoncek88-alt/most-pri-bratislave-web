@@ -1,0 +1,81 @@
+---
+import Icon from './Icon.astro';
+import OfficeStatus from './OfficeStatus.astro';
+import { obec, sections, alerts, url } from '../data/site';
+interface Props { current?: string }
+const { current } = Astro.props;
+const today = new Date().toISOString().slice(0, 10);
+const activeAlerts = alerts.filter((a) => !a.until || a.until >= today);
+---
+<a class="skip-link" href="#obsah">Preskočiť na obsah</a>
+<div class="topbar">
+  <div class="container topbar-inner">
+    <OfficeStatus variant="dark" />
+    <div class="topbar-links">
+      <a href={`tel:${obec.phoneHref}`}><Icon name="phone" size={16} /> {obec.phone}</a>
+      <a href={`mailto:${obec.email}`} class="hide-sm"><Icon name="mail" size={16} /> {obec.email}</a>
+      <a href={obec.facebook} class="hide-sm" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={url('/')} class="brand" aria-label="Obec Most pri Bratislave – úvodná stránka">
+      <img src={url('/erb-256.png')} alt="" width="48" height="48" />
+      <span class="brand-text">
+        <span class="brand-kicker">Obec</span>
+        <span class="brand-name">Most pri Bratislave</span>
+      </span>
+    </a>
+    <nav class="main-nav" aria-label="Hlavné menu" id="hlavne-menu">
+      <ul>
+        {sections.map((s) => (
+          <li><a href={url(`/${s.id}/`)} aria-current={current === s.id ? 'page' : undefined}>{s.short}</a></li>
+        ))}
+        <li><a href={url('/kontakt/')} aria-current={current === 'kontakt' ? 'page' : undefined}>Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="icon-btn" href={url('/vyhladavanie/')} aria-label="Vyhľadávanie"><Icon name="search" size={22} /></a>
+      <button class="icon-btn menu-toggle" type="button" aria-expanded="false" aria-controls="mobilne-menu" aria-label="Otvoriť menu">
+        <Icon name="menu" size={24} class="i-open" /><Icon name="x" size={24} class="i-close" />
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobilne-menu" hidden>
+    <div class="container">
+      <form class="mobile-search" action={url('/vyhladavanie/')} role="search">
+        <label class="sr-only" for="m-q">Hľadať na webe</label>
+        <input id="m-q" name="q" type="search" placeholder="Čo hľadáte? Napr. odpad, matrika…" />
+        <button type="submit" aria-label="Hľadať"><Icon name="search" size={20} /></button>
+      </form>
+      <ul>
+        {sections.map((s) => (
+          <li><a href={url(`/${s.id}/`)}><Icon name={s.icon} size={22} /><span><strong>{s.title}</strong><small>{s.description}</small></span></a></li>
+        ))}
+        <li><a href={url('/kontakt/')}><Icon name="phone" size={22} /><span><strong>Kontakt</strong><small>Úradné hodiny, telefóny a e-maily</small></span></a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+{activeAlerts.length > 0 && (
+  <div class="alert-bar" role="region" aria-label="Dôležité upozornenie">
+    {activeAlerts.map((a) => (
+      <div class="container alert-inner">
+        <Icon name="triangle-alert" size={20} />
+        <p>{a.text} {a.href && <a href={url(a.href)}>Viac informácií</a>}</p>
+      </div>
+    ))}
+  </div>
+)}
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const menu = document.getElementById('mobilne-menu');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    btn.setAttribute('aria-label', open ? 'Otvoriť menu' : 'Zavrieť menu');
+    if (menu) menu.hidden = open;
+    document.body.classList.toggle('menu-open', !open);
+  });
+</script>

@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import OfficeStatus from '../../components/OfficeStatus.astro';
+import { obec, officeHours, dayNames, officeHoursNote, contacts, url } from '../../data/site';
+const days = [1, 2, 3, 4, 5];
+---
+<Base title="Kontakt" description="Adresa, stránkové hodiny, telefóny a e-maily obecného úradu Most pri Bratislave." current="kontakt">
+  <div class="page-head page-head--section">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Kontakt' }]} />
+      <span class="head-icon"><Icon name="phone" size={28} /></span>
+      <h1>Kontakt</h1>
+      <p class="lead"><OfficeStatus /></p>
+    </div>
+  </div>
+  <div class="container" style="padding-block: 40px 64px">
+    <div class="contact-hero">
+      <section class="panel">
+        <h2><Icon name="landmark" size={22} /> Obecný úrad Most pri Bratislave</h2>
+        <div class="big-contact">
+          <span><Icon name="map-pin" size={20} /> {obec.address}, {obec.zip} {obec.city}</span>
+          <a href={`tel:${obec.phoneHref}`}><Icon name="phone" size={20} /> {obec.phone}</a>
+          <a href={`mailto:${obec.email}`}><Icon name="mail" size={20} /> {obec.email}</a>
+        </div>
+        <p style="margin-top:16px"><a class="btn btn-ghost" href={obec.mapUrl} rel="noopener"><Icon name="map" size={18} /> Zobraziť na mape</a></p>
+        <p style="margin:16px 0 0;color:var(--muted);font-size:.9375rem">IČO {obec.ico} · DIČ {obec.dic}<br />Bankové spojenie: {obec.bank}, {obec.iban}</p>
+      </section>
+      <section class="panel">
+        <h2><Icon name="clock" size={22} /> Stránkové hodiny</h2>
+        <table class="hours-table" id="hours">
+          <tbody>
+            {days.map((d) => (
+              <tr data-day={d}>
+                <th scope="row">{dayNames[d]}</th>
+                <td>{officeHours[d].length ? officeHours[d].map(([a, b]) => `${a.replace(/^0/, '')} – ${b.replace(/^0/, '')}`).join(', ') : 'nestránkový deň'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p style="margin:12px 0 0;color:var(--muted);font-size:.9375rem">{officeHoursNote} Matrika má rovnaké hodiny ako obecný úrad.</p>
+      </section>
+    </div>
+
+    <h2>Kontakty na referáty</h2>
+    <div class="contact-grid">
+      {contacts.map((c) => (
+        <div class="contact-card">
+          <h3><a href={url(c.href)}>{c.title}</a></h3>
+          {c.people && <p class="who">{c.people}</p>}
+          <p><a href={`mailto:${c.email}`}>{c.email}</a></p>
+          {c.phone && <p>{c.phone}</p>}
+        </div>
+      ))}
+    </div>
+
+    <div class="contact-grid" style="margin-top:40px">
+      <a class="link-card" href={url('/kontakt/dolezite-telefonne-cisla/')} style="text-decoration:none"><strong style="color:var(--navy-900)">Dôležité telefónne čísla</strong><small>Tiesňové linky, poruchy vody, plynu, elektriny, kanalizácia</small></a>
+      <a class="link-card" href={url('/nahlasit-problem/')} style="text-decoration:none"><strong style="color:var(--navy-900)">Nahlásiť problém</strong><small>Nesvieti lampa, čierna skládka, výtlk na ceste…</small></a>
+      <a class="link-card" href={url('/obec/mapa-obce/')} style="text-decoration:none"><strong style="color:var(--navy-900)">Mapa obce s ulicami</strong><small>PDF mapa s vyznačením ulíc</small></a>
+    </div>
+  </div>
+</Base>
+<script>
+  const d = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Bratislava' })).getDay();
+  document.querySelector(`#hours tr[data-day="${d}"]`)?.classList.add('today');
+</script>

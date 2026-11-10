@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { obec } from '../data/site';
+---
+<Base title="Vyhlásenie o prístupnosti">
+  <div class="page-head"><div class="container"><Breadcrumbs items={[{ title: 'Vyhlásenie o prístupnosti' }]} /><h1>Vyhlásenie o prístupnosti</h1></div></div>
+  <div class="container" style="padding-block: 32px 64px">
+    <div class="prose" data-pagefind-body>
+      <p>{obec.fullName} sa zaväzuje sprístupniť svoje webové sídlo v súlade so zákonom č. 95/2019 Z. z. o informačných technológiách vo verejnej správe a vyhláškou MIRRI SR č. 78/2020 Z. z. o štandardoch pre informačné technológie verejnej správy, ktoré preberajú požiadavky smernice (EÚ) 2016/2102.</p>
+      <h2>Stav súladu</h2>
+      <p>Web je navrhnutý podľa štandardu WCAG 2.1 na úrovni AA: má zrozumiteľnú štruktúru nadpisov, dostatočný kontrast farieb, ovládanie klávesnicou, odkaz „Preskočiť na obsah“, viditeľné zameranie prvkov a prispôsobenie pre mobilné zariadenia.</p>
+      <p>Niektoré staršie dokumenty vo formáte PDF (najmä naskenované) nemusia byť plne prístupné. Na požiadanie vám ich poskytneme v prístupnej podobe.</p>
+      <h2>Spätná väzba a kontakt</h2>
+      <p>Ak narazíte na problém s prístupnosťou, napíšte nám na <a href={`mailto:${obec.email}`}>{obec.email}</a> alebo volajte {obec.phone}.</p>
+      <p class="page-meta">Vyhlásenie bolo pripravené v roku 2026. Pred spustením webu ho odporúčame doplniť o výsledok auditu prístupnosti.</p>
+    </div>
+  </div>
+</Base>

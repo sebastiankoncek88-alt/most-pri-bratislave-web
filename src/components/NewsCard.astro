@@ -1,0 +1,20 @@
+---
+import Icon from './Icon.astro';
+import { fmtDate, newsUrl, type News } from '../lib/content';
+import { url } from '../data/site';
+interface Props { item: News; showImage?: boolean; headingLevel?: 'h2' | 'h3' }
+const { item, showImage = true } = Astro.props;
+const d = item.data;
+---
+<article class="news-card">
+  {showImage && (
+    d.image
+      ? <div class="thumb"><img src={url(d.image)} alt="" loading="lazy" decoding="async" /></div>
+      : <div class="thumb thumb--empty"><Icon name="newspaper" size={36} /></div>
+  )}
+  <div class="body">
+    <div class="meta"><span class="tag">{d.category}</span><time datetime={d.date.toISOString().slice(0, 10)}>{fmtDate(d.date)}</time></div>
+    <h3><a href={url(newsUrl(item))}>{d.title}</a></h3>
+    {d.excerpt && <p>{d.excerpt}</p>}
+  </div>
+</article>

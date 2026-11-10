@@ -1,0 +1,37 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import Icon from '../../../components/Icon.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import NewsCard from '../../../components/NewsCard.astro';
+import { url } from '../../../data/site';
+import { allNews, fmtDate } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const news = await allNews();
+  return news.map((n, i) => ({ params: { id: n.id }, props: { item: n, related: news.filter((x) => x.id !== n.id).slice(0, 3) } }));
+}
+const { item, related } = Astro.props;
+const { Content } = await render(item);
+const d = item.data;
+---
+<Base title={d.title} description={d.excerpt} current="aktuality">
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={[{ title: 'Aktuality', href: '/aktuality/' }, { title: d.title }]} />
+      <p class="tag" style="margin:0 0 6px">{d.category} · <time datetime={d.date.toISOString().slice(0, 10)}>{fmtDate(d.date, { day: 'numeric', month: 'long', year: 'numeric' })}</time></p>
+      <h1 style="max-width:30ch">{d.title}</h1>
+    </div>
+  </div>
+  <div class="container" style="padding-block: 32px 64px">
+    <article class="prose" data-pagefind-body style="margin-inline:auto">
+      {d.image && <p><img src={url(d.image)} alt="" /></p>}
+      <Content />
+      <p style="margin-top:32px"><a class="link-arrow" href={url('/aktuality/')}><Icon name="arrow-left" size={18} /> Späť na aktuality</a></p>
+    </article>
+    <section style="margin-top:56px">
+      <h2>Ďalšie aktuality</h2>
+      <div class="news-grid news-grid--3">{related.map((n) => <NewsCard item={n} />)}</div>
+    </section>
+  </div>
+</Base>
