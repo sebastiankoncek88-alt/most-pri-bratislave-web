@@ -70,12 +70,18 @@ tools/import/import.py       import obsahu z pôvodného webu
 - **Presmerovania** zo starých adries: mapa starých a nových URL je v `src/data/redirects.json`.
 - Vyhlásenie o ochrane osobných údajov a o prístupnosti treba doplniť o údaje obce.
 
+## Automatická synchronizácia so starým webom
+
+Kým obec používa pôvodný web, nový web si **každú noc sám prevezme** nové aktuality, podujatia a zmeny na stránkach (`tools/import/sync.sh`, spúšťa sa v `.github/workflows/deploy.yml`). Ručne sa dá spustiť v záložke **Actions → Zostavenie a nasadenie webu → Run workflow**.
+
+Po prechode na nový web (úrad píše priamo v administrácii) treba krok „Synchronizácia obsahu“ z workflow odstrániť, inak by prepisoval stránky.
+
 ## Import obsahu
 
 Obsah bol stiahnutý z pôvodného webu 10. 11. 2026. Import sa dá zopakovať (napr. tesne pred spustením):
 
 ```bash
-python3 tools/import/import.py <priečinok s pages.json a news.json> <kalendar.html> .
+./tools/import/sync.sh   # potrebuje: pip install -r requirements.txt
 ```
 
 Mapovanie starých stránok do novej štruktúry je na začiatku skriptu.

@@ -1,7 +1,8 @@
 import sys,json,re
-sys.argv=[sys.argv[0],'src/index.html','data']
-exec(open('tools/import/crawl.py').read().split('# menu pages')[0])
-pages=json.load(open('data/pages.json'))
+# Použitie: python3 crawl_subpages.py <index.html> <data_dir>
+import os
+exec(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'crawl.py')).read().split('# menu pages')[0])
+pages=json.load(open(out+'/pages.json'))
 have={p['url'] for p in pages}
 for depth in range(2):
     new=[]
@@ -14,5 +15,5 @@ for depth in range(2):
         title,upd,body=extract(t)
         pages.append({'url':u,'title':title,'updated':upd,'body':body,'parent':parent})
         print(len(body),u,file=sys.stderr)
-json.dump(pages,open('data/pages.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
+json.dump(pages,open(out+'/pages.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
 print('total',len(pages),file=sys.stderr)

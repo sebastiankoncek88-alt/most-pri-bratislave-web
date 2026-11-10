@@ -399,7 +399,7 @@ for u, a in assigned.items():
 
 # 3) novinky
 ndir = os.path.join(OUT, 'src/content/news')
-shutil.rmtree(ndir, ignore_errors=True); os.makedirs(ndir)
+os.makedirs(ndir, exist_ok=True)  # staršie novinky zostávajú, nové sa pridajú
 for n in news:
     dm_ = re.search(r'Dátum:\s*\n\s*(\d{1,2}\.\d{1,2}\.\d{4})', n['body'])
     if dm_:
