@@ -72,7 +72,7 @@ tools/import/import.py       import obsahu z pôvodného webu
 
 ## Automatická synchronizácia so starým webom
 
-Kým obec používa pôvodný web, nový web si **každú noc sám prevezme** nové aktuality, podujatia a zmeny na stránkach (`tools/import/sync.sh`, spúšťa sa v `.github/workflows/deploy.yml`). Ručne sa dá spustiť v záložke **Actions → Zostavenie a nasadenie webu → Run workflow**.
+Kým obec používa pôvodný web, nový web si **každú noc sám prevezme** nové aktuality, podujatia, zmeny na stránkach, nové fotoalbumy a odpovede na podnety (`tools/import/sync.sh`, spúšťa sa v `.github/workflows/deploy.yml`). Ručne sa dá spustiť v záložke **Actions → Zostavenie a nasadenie webu → Run workflow**.
 
 Po prechode na nový web (úrad píše priamo v administrácii) treba krok „Synchronizácia obsahu“ z workflow odstrániť, inak by prepisoval stránky.
 

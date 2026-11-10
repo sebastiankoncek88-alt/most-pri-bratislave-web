@@ -448,3 +448,84 @@ p { margin: 0 0 1em; }
   .topbar, .site-header, .site-footer, .side-nav, .alert-bar { display: none !important; }
   .page-layout { display: block; }
 }
+
+/* ---------- Fotogaléria ---------- */
+.album-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; list-style: none; padding: 0; margin: 0; }
+.album-card { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.15s, border-color 0.15s; }
+.album-card:hover { box-shadow: var(--shadow); border-color: var(--line-strong); }
+.album-cover { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; aspect-ratio: 4 / 3; background: var(--blue-50); }
+.album-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.album-cover img:first-child { grid-row: span 2; }
+.album-cover img:only-child { grid-column: span 2; }
+.album-body { padding: 14px 16px 16px; }
+.album-body h2 { font-size: 1.125rem; margin: 0 0 4px; }
+.album-body h2 a { color: var(--navy-900); text-decoration: none; }
+.album-body h2 a::after { content: ''; position: absolute; inset: 0; }
+.album-card:hover h2 a { color: var(--blue-700); text-decoration: underline; }
+.album-body p { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; list-style: none; padding: 0; margin: 0; }
+.photo-grid a { display: block; aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-sm); background: var(--blue-50); }
+.photo-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s; }
+.photo-grid a:hover img { transform: scale(1.04); }
+.lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgb(8 14 30 / 0.96); color: #fff; }
+.lightbox::backdrop { background: rgb(8 14 30 / 0.9); }
+.lightbox[open] { display: grid; place-items: center; }
+.lightbox img { max-width: calc(100vw - 140px); max-height: calc(100vh - 100px); object-fit: contain; border-radius: 4px; }
+.lb-count { position: absolute; top: 18px; left: 24px; margin: 0; font-weight: 600; color: #cfd9ee; }
+.lb-btn { position: absolute; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; border: 0; background: rgb(255 255 255 / 0.1); color: #fff; cursor: pointer; }
+.lb-btn:hover { background: rgb(255 255 255 / 0.22); }
+.lb-close { top: 12px; right: 16px; }
+.lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+
+/* ---------- Upozornenia, voľby, podnety ---------- */
+.warn-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.warn-item { position: relative; display: flex; gap: 14px; padding: 16px 18px; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold-500); border-radius: var(--radius-sm); }
+.warn-item:hover { box-shadow: var(--shadow-sm); }
+.warn-item .icon { color: #9a7300; margin-top: 2px; }
+.warn-item--traffic { border-left-color: var(--blue-600); }
+.warn-item--traffic .icon { color: var(--blue-600); }
+.warn-item time { display: block; font-size: 0.875rem; color: var(--muted); }
+.warn-item a { color: var(--navy-900); font-weight: 700; text-decoration: none; line-height: 1.3; }
+.warn-item a::after { content: ''; position: absolute; inset: 0; }
+.warn-item:hover a { color: var(--blue-700); text-decoration: underline; }
+.warn-item p { margin: 4px 0 0; color: var(--ink-2); font-size: 0.9375rem; }
+.tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 16px 0 32px; }
+.tip { background: var(--surface); border-radius: var(--radius); padding: 16px 18px; }
+.tip h3 { margin: 0 0 6px; font-size: 1.0625rem; display: flex; gap: 8px; align-items: center; }
+.tip h3 .icon { color: var(--blue-600); }
+.tip p { margin: 0; font-size: 0.9375rem; color: var(--ink-2); }
+.stat-row { display: flex; gap: 32px; flex-wrap: wrap; margin: 0 0 24px; }
+.stat-row div b { display: block; font-size: 2rem; color: var(--navy-900); line-height: 1.1; }
+.stat-row div span { color: var(--muted); font-size: 0.9375rem; }
+.podnet { border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 10px; background: #fff; }
+.podnet summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 14px 18px; }
+.podnet summary::-webkit-details-marker { display: none; }
+.podnet summary strong { color: var(--navy-900); line-height: 1.3; }
+.podnet summary small { display: block; color: var(--muted); font-size: 0.875rem; font-weight: 400; }
+.podnet summary .icon { transition: transform 0.15s; color: var(--blue-600); }
+.podnet[open] summary .icon { transform: rotate(180deg); }
+.podnet .answer { padding: 0 18px 16px; border-top: 1px solid var(--line); }
+.podnet .answer > :first-child { margin-top: 14px; }
+.badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--green-50); color: var(--green-700); margin-right: 6px; }
+.badge--open { background: var(--gold-50); color: #7a5b00; }
+.election-hero { background: linear-gradient(135deg, var(--navy-900), var(--blue-700)); color: #fff; border-radius: var(--radius-lg); padding: 28px; margin-bottom: 32px; }
+.election-hero h2 { color: #fff; margin: 0 0 6px; }
+.election-hero p { color: #dbe4f7; margin: 0 0 16px; max-width: 60ch; }
+@media (max-width: 900px) { .album-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) {
+  .album-grid, .tips-grid { grid-template-columns: 1fr; }
+  .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+  .lightbox img { max-width: 100vw; max-height: calc(100vh - 140px); }
+  .lb-prev, .lb-next { top: auto; bottom: 16px; transform: none; }
+}
+
+.panel--warn { border-color: var(--gold-300); background: linear-gradient(180deg, var(--gold-50), #fff 60%); }
+.panel--warn h2 .icon { color: #9a7300; }
+.album-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.album-cover--single { display: block; }
+.album-body h3 { font-size: 1.0625rem; margin: 0 0 4px; }
+.album-body h3 a { color: var(--navy-900); text-decoration: none; }
+.album-body h3 a::after { content: ''; position: absolute; inset: 0; }
+.album-card:hover h3 a { color: var(--blue-700); text-decoration: underline; }
+@media (max-width: 900px) { .album-grid--4 { grid-template-columns: 1fr 1fr; } }

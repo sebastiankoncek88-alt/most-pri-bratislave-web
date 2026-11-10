@@ -1,0 +1,32 @@
+---
+import PageShell from '../../layouts/PageShell.astro';
+import Icon from '../../components/Icon.astro';
+import podnety from '../../data/podnety.json';
+import { url } from '../../data/site';
+import { fmtDate } from '../../lib/content';
+import { marked } from '../../lib/md';
+const d = (s: string | null) => (s ? fmtDate(new Date(s + 'T12:00:00')) : '');
+---
+<PageShell title="Odpovede na podnety občanov" section="kontakt" href="/kontakt/podnety/" lead="Obyvatelia sa obracajú na obec s otázkami a podnetmi. Tu nájdete odpovede obce – možno už niekto riešil to isté čo vy.">
+  {podnety.stats && (
+    <div class="stat-row">
+      <div><b>{podnety.stats.solved.toLocaleString('sk-SK')}</b><span>vyriešených podnetov</span></div>
+      <div><b>{podnety.stats.open}</b><span>práve v riešení</span></div>
+    </div>
+  )}
+  <p><a class="btn btn-primary" href={url('/nahlasit-problem/')}><Icon name="message-square-warning" size={18} /> Poslať vlastný podnet</a></p>
+  <h2>Najnovšie odpovede</h2>
+  {podnety.items.map((p) => (
+    <details class="podnet">
+      <summary>
+        <span>
+          <strong>{p.title}</strong>
+          <small><span class={`badge${/rieš/i.test(p.status) && !/vyrieš/i.test(p.status) ? ' badge--open' : ''}`}>{p.status}</span>prijatý {d(p.received)}{p.answered && ` · zodpovedaný ${d(p.answered)}`}</small>
+        </span>
+        <Icon name="chevron-down" size={22} />
+      </summary>
+      <div class="answer prose">{p.answer ? <Fragment set:html={marked(p.answer)} /> : <p>Odpoveď sa pripravuje.</p>}</div>
+    </details>
+  ))}
+  <div class="note"><Icon name="lock" size={20} /><p>Z ochrany osobných údajov zverejňujeme len názov podnetu a odpoveď obce, nie meno ani text pisateľa.</p></div>
+</PageShell>

@@ -14,6 +14,3 @@ source: "https://www.mostpribratislave.sk/31272/revitalizacia-vozovky-na-ul-krat
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/31272/kratka-1.pdf"><span class="file-ext">PDF</span><span class="file-name">Krátka 1</span></a><span class="file-meta">3,15 MB · 25.6.2026</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/31272/kratka-2.pdf"><span class="file-ext">PDF</span><span class="file-name">Krátka 2</span></a><span class="file-meta">2,66 MB · 25.6.2026</span></li>
 </ul>
-
-Vytvorené: 
-•

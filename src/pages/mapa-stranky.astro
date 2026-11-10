@@ -2,8 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { sections, url } from '../data/site';
-import { sectionPages, groupPages, pageUrl } from '../lib/content';
-const all = await Promise.all([...sections.map((s) => s.id), 'kontakt'].map(async (id) => ({ id, groups: groupPages(await sectionPages(id)) })));
+import { sectionTree } from '../lib/content';
+const all = await Promise.all([...sections.map((s) => s.id), 'kontakt'].map(async (id) => ({ id, groups: await sectionTree(id) })));
 const title = (id: string) => sections.find((s) => s.id === id)?.title ?? 'Kontakt';
 ---
 <Base title="Mapa stránky">
@@ -13,12 +13,11 @@ const title = (id: string) => sections.find((s) => s.id === id)?.title ?? 'Konta
       <section style="break-inside: avoid; margin-bottom: 24px">
         <h2 style="margin-top:0"><a href={url(`/${id}/`)}>{title(id)}</a></h2>
         <ul>
-          {[...groups.values()].flat().map(({ top, children }) => (
-            <li><a href={url(pageUrl(top))}>{top.data.title}</a>
-              {children.length > 0 && <ul>{children.map((c) => <li><a href={url(pageUrl(c))}>{c.data.title}</a></li>)}</ul>}
+          {[...groups.values()].flat().map((top) => (
+            <li><a href={url(top.href)}>{top.title}</a>
+              {top.children.length > 0 && <ul>{top.children.map((c) => <li><a href={url(c.href)}>{c.title}</a></li>)}</ul>}
             </li>
           ))}
-          {id === 'aktuality' && <li><a href={url('/aktuality/podujatia/')}>Kalendár podujatí</a></li>}
         </ul>
       </section>
     ))}

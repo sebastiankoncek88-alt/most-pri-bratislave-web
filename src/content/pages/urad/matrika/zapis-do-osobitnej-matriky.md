@@ -41,8 +41,8 @@ Zápis do osobitnej matriky sa nevykonáva, ak matričná udalosť nastala pred 
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/legalizacia_matricnych_dokumentov.pdf"><span class="file-ext">PDF</span><span class="file-name">legalizacia\_matricnych\_dokumentov</span></a><span class="file-meta">6,43 MB · 30.11.2022</span></li>
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/zapis_do_osobitnej_matriky.docx"><span class="file-ext">DOCX</span><span class="file-name">zápis\_do\_osobitnej\_matriky</span></a><span class="file-meta">13,85 KB · 21.7.2025</span></li>
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/zapis_do_osobitnej_matriky-1.pdf"><span class="file-ext">PDF</span><span class="file-name">zápis\_do\_osobitnej\_matriky (1)</span></a><span class="file-meta">203,92 KB · 21.7.2025</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/legalizacia_matricnych_dokumentov.pdf"><span class="file-ext">PDF</span><span class="file-name">legalizacia_matricnych_dokumentov</span></a><span class="file-meta">6,43 MB · 30.11.2022</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/zapis_do_osobitnej_matriky.docx"><span class="file-ext">DOCX</span><span class="file-name">zápis_do_osobitnej_matriky</span></a><span class="file-meta">13,85 KB · 21.7.2025</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/zapis_do_osobitnej_matriky-1.pdf"><span class="file-ext">PDF</span><span class="file-name">zápis_do_osobitnej_matriky (1)</span></a><span class="file-meta">203,92 KB · 21.7.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13696/cestne-prehlasenie.pdf"><span class="file-ext">PDF</span><span class="file-name">čestné prehlásenie</span></a><span class="file-meta">512,65 KB · 11.9.2025</span></li>
 </ul>

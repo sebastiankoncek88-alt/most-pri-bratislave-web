@@ -128,5 +128,5 @@ Tel.: 02/ 4564 8196
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/1397/ordinacne-hodiny_page-0001.pdf"><span class="file-ext">PDF</span><span class="file-name">ordinačné hodiny\_page-0001</span></a><span class="file-meta">852,92 KB · 2.2.2024</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/1397/ordinacne-hodiny_page-0001.pdf"><span class="file-ext">PDF</span><span class="file-name">ordinačné hodiny_page-0001</span></a><span class="file-meta">852,92 KB · 2.2.2024</span></li>
 </ul>

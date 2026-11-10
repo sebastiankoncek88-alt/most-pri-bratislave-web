@@ -9,6 +9,3 @@ source: "https://www.mostpribratislave.sk/27761/referat-projektov-a-verejneho-ob
 
 * [Referát verejného obstarávania](/urad/projekty-a-obstaravanie/)
 * [Referát projektov](/urad/projekty-a-obstaravanie/)
-
-Vytvorené: 
-•

@@ -21,9 +21,6 @@ source: "https://www.mostpribratislave.sk/28313/tlaciva-v-zmysle-zakona-501976-z
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/ziadost-o-predlzenie-platnosti-stavebneho-povolenia.pdf"><span class="file-ext">PDF</span><span class="file-name">Žiadosť o predĺženie platnosti stavebného povolenia</span></a><span class="file-meta">177,44 KB · 7.5.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/ziadost-o-stavebne-povolenie.pdf"><span class="file-ext">PDF</span><span class="file-name">Žiadost o stavebne povolenie</span></a><span class="file-meta">286,12 KB · 7.5.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/navrh-na-vydanie-kolaudacneho-rozhodnutia.pdf"><span class="file-ext">PDF</span><span class="file-name">navrh na vydanie kolaudacneho rozhodnutia</span></a><span class="file-meta">407,14 KB · 7.5.2025</span></li>
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/ziadost-o-povolenie_zmeny-stavby-pred-jej-dokoncenim.pdf"><span class="file-ext">PDF</span><span class="file-name">ziadost o povolenie\_zmeny stavby pred jej dokoncenim</span></a><span class="file-meta">402,67 KB · 7.5.2025</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/ziadost-o-povolenie_zmeny-stavby-pred-jej-dokoncenim.pdf"><span class="file-ext">PDF</span><span class="file-name">ziadost o povolenie_zmeny stavby pred jej dokoncenim</span></a><span class="file-meta">402,67 KB · 7.5.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/28313/preskumanie-sposobilosti-stavby-na-uzivanie.pdf"><span class="file-ext">PDF</span><span class="file-name">Preskúmanie spôsobilosti stavby na užívanie</span></a><span class="file-meta">125,69 KB · 24.4.2026</span></li>
 </ul>
-
-Vytvorené: 
-•

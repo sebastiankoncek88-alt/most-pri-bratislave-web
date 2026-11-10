@@ -23,5 +23,5 @@ Tešíme sa na vašu návštevu a všetkých seniorov srdečne vítame!
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/142160/snm_mkchs_pozvanie_seniorske_stredy.pdf"><span class="file-ext">PDF</span><span class="file-name">SNM\_MKCHS\_pozvanie\_seniorske\_stredy</span></a><span class="file-meta">128,16 KB · 13.10.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/142160/snm_mkchs_pozvanie_seniorske_stredy.pdf"><span class="file-ext">PDF</span><span class="file-name">SNM_MKCHS_pozvanie_seniorske_stredy</span></a><span class="file-meta">128,16 KB · 13.10.2026</span></li>
 </ul>

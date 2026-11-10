@@ -31,5 +31,5 @@ source: "https://www.mostpribratislave.sk/zverejnovanie/146/uznesenia-obecneho-z
 <li><time>21.12.2023</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/366554/uznesenia-oz-72023">Uznesenia OZ 7/2023</a><span class="doc-files">1 súbor (179 KB)</span></li>
 <li><time>10.11.2023</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/355220/uznesenia-oz-62023">Uznesenia OZ 6/2023</a><span class="doc-files">1 súbor (136 KB)</span></li>
 <li><time>25.10.2023</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/352983/uznesenia-oz-52023">Uznesenia OZ 5/2023</a><span class="doc-files">1 súbor (152 KB)</span></li>
-<li><time>30.8.2023</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/318819/uznesenia-oz-4-2023">Uznesenia OZ\_4\_2023</a><span class="doc-files">1 súbor (127 KB)</span></li>
+<li><time>30.8.2023</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/318819/uznesenia-oz-4-2023">Uznesenia OZ_4_2023</a><span class="doc-files">1 súbor (127 KB)</span></li>
 </ul>

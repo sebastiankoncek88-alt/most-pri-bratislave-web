@@ -125,3 +125,19 @@ export const contacts = [
   { title: 'Obecný spravodaj', people: 'Príspevky do obecných novín', email: 'spravodaj@mostpribratislave.sk', href: '/aktuality/obecny-spravodaj/' },
   { title: 'Obecná polícia', people: 'Spoločná obecná polícia (Malinovo)', email: 'obecna.policia@malinovo.sk', phone: '0914 557 722', href: '/urad/obecna-policia/' },
 ];
+
+// Špeciálne stránky, ktoré nie sú z importu – zobrazia sa v navigácii sekcie
+export const extraLinks: Record<string, { title: string; href: string; group: string; order: number }[]> = {
+  obec: [{ title: 'Fotogaléria', href: '/obec/fotogaleria/', group: 'O obci', order: 3 }],
+  aktuality: [
+    { title: 'Všetky aktuality', href: '/aktuality/', group: 'Z obce', order: 1 },
+    { title: 'Na čo si dať pozor', href: '/aktuality/upozornenia/', group: 'Z obce', order: 2 },
+    { title: 'Kalendár podujatí', href: '/aktuality/podujatia/', group: 'Podujatia', order: 19 },
+  ],
+  'uradna-tabula': [{ title: 'Voľby a referendá – prehľad', href: '/volby/', group: 'Voľby a referendá', order: 19 }],
+  kontakt: [
+    { title: 'Kontakty a úradné hodiny', href: '/kontakt/', group: 'Kontakty', order: 0 },
+    { title: 'Nahlásiť problém', href: '/nahlasit-problem/', group: 'Kontakty', order: 2 },
+    { title: 'Odpovede na podnety občanov', href: '/kontakt/podnety/', group: 'Kontakty', order: 3 },
+  ],
+};

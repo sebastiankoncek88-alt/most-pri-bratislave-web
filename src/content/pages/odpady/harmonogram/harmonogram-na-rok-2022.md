@@ -15,6 +15,3 @@ source: "https://www.mostpribratislave.sk/27885/harmonogram-na-rok-2022"
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/27885/rozpis-separovaneho-odpadu-studene-tri-vody-a-nove-polia.pdf"><span class="file-ext">PDF</span><span class="file-name">rozpis-separovaneho-odpadu-studene-tri-vody-a-nove-polia</span></a><span class="file-meta">37,14 KB · 10.4.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/27885/rozpis-separovaneho-odpadu-most-pri-bratislave-a-zelena-voda.pdf"><span class="file-ext">PDF</span><span class="file-name">rozpis-separovaneho-odpadu-most-pri-bratislave-a-zelena-voda</span></a><span class="file-meta">36,16 KB · 10.4.2025</span></li>
 </ul>
-
-Vytvorené: 
-•

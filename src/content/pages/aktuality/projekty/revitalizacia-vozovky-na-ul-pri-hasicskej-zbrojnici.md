@@ -8,5 +8,4 @@ updated: 2026-11-10
 source: "https://www.mostpribratislave.sk/31273/revitalizacia-vozovky-na-ul-pri-hasicskej-zbrojnici"
 ---
 
-Vytvorené: 
-•
+

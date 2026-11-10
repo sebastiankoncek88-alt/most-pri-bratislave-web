@@ -9,6 +9,3 @@ source: "https://www.mostpribratislave.sk/27191/participativny-rozpocet"
 
 * [Participatívny rozpočet 2025](/samosprava/participativny-rozpocet/participativny-rozpocet-2025/)
 * [Participatívny rozpočet 2026](/samosprava/participativny-rozpocet/participativny-rozpocet-2026/)
-
-Vytvorené: 
-•

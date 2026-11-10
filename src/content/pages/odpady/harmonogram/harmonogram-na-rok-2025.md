@@ -17,6 +17,3 @@ source: "https://www.mostpribratislave.sk/26764/harmonogram-na-rok-2025"
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/26764/zber-konarov-a-stromov-zo-zahrad-most-pri-bratislave.pdf"><span class="file-ext">PDF</span><span class="file-name">Zber konárov a stromov zo záhrad Most pri Bratislave</span></a><span class="file-meta">153,83 KB · 5.3.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/26764/zber-objemneho-odpadu-most-pri-bratislave.pdf"><span class="file-ext">PDF</span><span class="file-name">Zber objemného odpadu Most pri Bratislave</span></a><span class="file-meta">139,17 KB · 5.3.2025</span></li>
 </ul>
-
-Vytvorené: 
-•

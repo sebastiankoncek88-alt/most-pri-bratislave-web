@@ -18,6 +18,3 @@ source: "https://www.mostpribratislave.sk/31251/projekty"
 * [Osvetlenie chodníka pri RDP Most pri Bratislave](/aktuality/projekty/osvetlenie-chodnika-pri-rdp-most-pri-bratislave/)
 * [Výmena autobusových zastávok](/aktuality/projekty/vymena-autobusovych-zastavok/)
 * [Revitalizácia verejného priestranstva - križovatka Bratislavská x Športová](/aktuality/projekty/revitalizacia-verejneho-priestranstva-krizovatka-bratislavska-x-sportova/)
-
-Vytvorené: 
-•

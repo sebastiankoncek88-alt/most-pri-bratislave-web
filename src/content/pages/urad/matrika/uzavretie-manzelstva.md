@@ -86,6 +86,6 @@ Všetky ostatné poplatky upravuje zákon č. 145/1995 Z.z. o správnych poplatk
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13694/uzavr_man.pdf"><span class="file-ext">PDF</span><span class="file-name">uzavretie\_manzelstva</span></a><span class="file-meta">86,58 KB · 8.3.2022</span></li>
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13694/legalizacia_matricnych_dokumentov-3.pdf"><span class="file-ext">PDF</span><span class="file-name">legalizacia\_matricnych\_dokumentov</span></a><span class="file-meta">498,08 KB · 9.3.2022</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13694/uzavr_man.pdf"><span class="file-ext">PDF</span><span class="file-name">uzavretie_manzelstva</span></a><span class="file-meta">86,58 KB · 8.3.2022</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/13694/legalizacia_matricnych_dokumentov-3.pdf"><span class="file-ext">PDF</span><span class="file-name">legalizacia_matricnych_dokumentov</span></a><span class="file-meta">498,08 KB · 9.3.2022</span></li>
 </ul>

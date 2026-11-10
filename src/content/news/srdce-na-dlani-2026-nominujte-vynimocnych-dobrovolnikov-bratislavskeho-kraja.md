@@ -23,5 +23,5 @@ Pomôžme spoločne zviditeľniť príbehy ľudí, ktorí svojou ochotou pomáha
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/142271/ts_srdce_na_dlani_2026_nominacie.pdf"><span class="file-ext">PDF</span><span class="file-name">TS\_Srdce\_na\_dlani\_2026\_nominacie</span></a><span class="file-meta">681 KB · 14.10.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/142271/ts_srdce_na_dlani_2026_nominacie.pdf"><span class="file-ext">PDF</span><span class="file-name">TS_Srdce_na_dlani_2026_nominacie</span></a><span class="file-meta">681 KB · 14.10.2026</span></li>
 </ul>

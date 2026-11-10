@@ -1,0 +1,22 @@
+---
+import PageShell from '../../../layouts/PageShell.astro';
+import gallery from '../../../data/gallery.json';
+import { url } from '../../../data/site';
+import { fmtDate } from '../../../lib/content';
+const count = (n: number) => `${n} ${n === 1 ? 'fotka' : n < 5 ? 'fotky' : 'fotiek'}`;
+---
+<PageShell title="Fotogaléria" section="obec" href="/obec/fotogaleria/" lead="Fotografie z podujatí a života v obci – Deň obce, Mikuláš, súťaže, hasiči a ďalšie.">
+  <ul class="album-grid">
+    {gallery.map((a) => (
+      <li class="album-card">
+        <div class="album-cover">
+          {a.photos.slice(0, 3).map((p, i) => <img src={url(p.thumb)} alt="" loading={i ? 'lazy' : 'eager'} decoding="async" />)}
+        </div>
+        <div class="album-body">
+          <h2><a href={url(`/obec/fotogaleria/${a.id}-${a.slug}/`)}>{a.title}</a></h2>
+          <p>{a.date && <time datetime={a.date}>{fmtDate(new Date(a.date + 'T12:00:00'), { day: 'numeric', month: 'long', year: 'numeric' })}</time>} · {count(a.photos.length)}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</PageShell>

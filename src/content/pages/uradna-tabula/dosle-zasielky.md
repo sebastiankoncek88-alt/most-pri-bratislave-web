@@ -16,6 +16,3 @@ source: "https://www.mostpribratislave.sk/11149/oznamenia-o-doslych-zasielkach"
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/xinbiao-liang-09112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Xinbiao Liang 09112026</span></a><span class="file-meta">235,4 KB · 9.11.2026</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/vlcek-09112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Vlček 09112026</span></a><span class="file-meta">296,2 KB · 9.11.2026</span></li>
 </ul>
-
-Vytvorené: 
-•

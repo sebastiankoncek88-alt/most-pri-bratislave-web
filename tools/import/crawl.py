@@ -29,12 +29,28 @@ def extract(t):
 # menu pages
 links=re.findall(r'<a[^>]+href="(https://www\.mostpribratislave\.sk/(?:\d+|zverejnovanie/\d+|novinky/\d+)/[^"]+)"',idx)
 links=list(dict.fromkeys(links))
+# mapa stránok: doplní stránky, ktoré nie sú v menu, a zistí ich nadradenú stránku
+parents={}
+sm=get(BASE+'/sitemap')
+if sm:
+    ss=BeautifulSoup(sm,'html.parser')
+    for a in ss.select('li a[href]'):
+        h=a['href'].rstrip('/')
+        if not re.match(r'https://www\.mostpribratislave\.sk/(\d+|zverejnovanie/\d+)/', h): continue
+        if h not in links: links.append(h)
+        li=a.find_parent('li'); pli=li.find_parent('li') if li else None
+        if pli:
+            pa=pli.find('a', href=True)
+            if pa and pa['href'].rstrip('/')!=h: parents[h]=pa['href'].rstrip('/')
 pages=[]
+menu=set(re.findall(r'<a[^>]+href="(https://www\.mostpribratislave\.sk/(?:\d+|zverejnovanie/\d+|novinky/\d+)/[^"]+)"',idx))
 for u in links:
     t=get(u)
     if not t: continue
     title,upd,body=extract(t)
-    pages.append({'url':u,'title':title,'updated':upd,'body':body})
+    rec={'url':u,'title':title,'updated':upd,'body':body}
+    if u not in menu and u in parents: rec['parent']=parents[u]
+    pages.append(rec)
     print(len(body),u,file=sys.stderr)
 json.dump(pages,open(out+'/pages.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
 # news

@@ -1,0 +1,43 @@
+---
+import PageShell from '../layouts/PageShell.astro';
+import Icon from '../components/Icon.astro';
+import { url, obec } from '../data/site';
+import { allNews, newsUrl, fmtDate } from '../lib/content';
+const news = (await allNews()).filter((n) => n.data.category === 'Voľby' || /voľb|referend/i.test(n.data.title)).slice(0, 6);
+const items = [
+  { title: 'Komunálne a krajské voľby 2026', text: 'Vyhlásenie volieb, okrsky, kandidáti na starostu, do zastupiteľstva a do BSK.', href: '/uradna-tabula/volby-2026/', icon: 'vote' },
+  { title: 'Referendum 2026', text: 'Informácie a dokumenty k referendu.', href: '/uradna-tabula/referendum-2026/', icon: 'square-check-big' },
+  { title: 'Archív volieb', text: 'Parlamentné, prezidentské, európske a predchádzajúce komunálne voľby.', href: '/uradna-tabula/volby/', icon: 'archive' },
+];
+---
+<PageShell title="Voľby a referendá" section="uradna-tabula" href="/volby/" lead="Všetko k voľbám a referendám na jednom mieste – kandidáti, volebné okrsky, hlasovací preukaz a dokumenty."
+  crumbs={[{ title: 'Úradná tabuľa', href: '/uradna-tabula/' }, { title: 'Voľby a referendá' }]}>
+  <div class="election-hero">
+    <h2>Komunálne a krajské voľby 2026</h2>
+    <p>Zoznamy kandidátov, určenie volebných okrskov, oznámenia volebných komisií a ďalšie dokumenty.</p>
+    <a class="btn btn-gold" href={url('/uradna-tabula/volby-2026/')}>Dokumenty k voľbám 2026 <Icon name="arrow-right" size={18} /></a>
+  </div>
+  <ul class="link-grid" style="grid-template-columns:repeat(3,1fr)">
+    {items.map((i) => (
+      <li class="link-card">
+        <Icon name={i.icon} size={24} class="lc-icon" />
+        <a href={url(i.href)}>{i.title}</a>
+        <small>{i.text}</small>
+      </li>
+    ))}
+  </ul>
+  <h2>Ako voliť</h2>
+  <div class="tips-grid">
+    <div class="tip"><h3><Icon name="map-pin" size={20} /> Kde voliť</h3><p>Voliť môžete vo volebnej miestnosti okrsku podľa adresy trvalého pobytu. Rozdelenie ulíc do okrskov je v dokumente „Určenie okrskov“.</p></div>
+    <div class="tip"><h3><Icon name="id-card" size={20} /> Čo si vziať</h3><p>Platný občiansky preukaz (alebo iný doklad totožnosti s fotografiou).</p></div>
+    <div class="tip"><h3><Icon name="file-pen" size={20} /> Hlasovací preukaz a voľba poštou</h3><p>Pri niektorých voľbách (napr. do NR SR alebo prezidentských) môžete požiadať o hlasovací preukaz a voliť inde. Voľba poštou je určená voličom, ktorí sú počas volieb v zahraničí. Podmienky a termíny obec zverejní pri každých voľbách.</p></div>
+    <div class="tip"><h3><Icon name="phone" size={20} /> Otázky</h3><p>Evidencia obyvateľov: <a href="mailto:matrika@mostpribratislave.sk">matrika@mostpribratislave.sk</a>, tel. {obec.phone}.</p></div>
+  </div>
+  {news.length > 0 && (
+    <>
+      <h2>Aktuality k voľbám</h2>
+      <ul class="news-list">{news.map((n) => <li><a href={url(newsUrl(n))}><time>{fmtDate(n.data.date)}</time><strong>{n.data.title}</strong></a></li>)}</ul>
+    </>
+  )}
+</PageShell>
+<style>.link-card :global(.lc-icon) { color: var(--blue-600); margin-bottom: 4px; } @media (max-width: 900px) { .link-grid { grid-template-columns: 1fr !important; } }</style>

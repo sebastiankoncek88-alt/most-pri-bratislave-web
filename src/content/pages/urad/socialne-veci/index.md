@@ -42,7 +42,7 @@ source: "https://www.mostpribratislave.sk/22750/referat-ekonomicky-a-socialny"
 <ul class="file-list">
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/22750/ziadost-o-posudenie-odkazanosti-2020.pdf"><span class="file-ext">PDF</span><span class="file-name">Žiadosť o posúdenie odkázanosti 2020</span></a><span class="file-meta">100,99 KB · 16.10.2023</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/22750/lekarsky-nalez-k-ziadosti-2020.pdf"><span class="file-ext">PDF</span><span class="file-name">Lekársky nález k žiadosti 2020</span></a><span class="file-meta">127,31 KB · 16.10.2023</span></li>
-<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/22750/prispevok-na-stravovanie_rozsirenie-zoznamu-stravovacich-zariadeni.pdf"><span class="file-ext">PDF</span><span class="file-name">Príspevok na stravovanie\_rozšírenie zoznamu stravovacích zariadení</span></a><span class="file-meta">359,72 KB · 29.5.2025</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/22750/prispevok-na-stravovanie_rozsirenie-zoznamu-stravovacich-zariadeni.pdf"><span class="file-ext">PDF</span><span class="file-name">Príspevok na stravovanie_rozšírenie zoznamu stravovacích zariadení</span></a><span class="file-meta">359,72 KB · 29.5.2025</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/22750/ekonomicky-opravnene-naklady-za-rok-2025.pdf"><span class="file-ext">PDF</span><span class="file-name">Ekonomicky oprávnené náklady za rok 2025</span></a><span class="file-meta">177,68 KB · 15.4.2026</span></li>
 </ul>
 

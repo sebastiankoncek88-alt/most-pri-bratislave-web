@@ -160,7 +160,7 @@ def files_table_to_html(m_):
         if len(cells) < 4: continue
         lm = re.search(r'\[([^\]]+)\]\(([^)\s]+)', cells[0])
         if not lm: continue
-        name, url = lm.group(1), fix_abs(lm.group(2))
+        name, url = re.sub(r'\\([_*\[\]#.-])', r'\1', lm.group(1)), fix_abs(lm.group(2))
         fmt = re.sub(r'Formát:\s*', '', cells[1]).strip().upper()
         size = re.sub(r'Veľkosť:\s*', '', cells[2]).strip()
         date = re.sub(r'Dátum:\s*', '', cells[3]).strip()
@@ -183,7 +183,7 @@ def docs_table_to_html(m_):
         if len(cells) < 3: continue
         lm = re.match(r'\[([^\]]+)\]\(([^)\s]+)[^)]*\)(.*)', cells[0])
         if not lm: continue
-        title, url, rest = lm.group(1), fix_abs(lm.group(2)), lm.group(3)
+        title, url, rest = re.sub(r'\\([_*\[\]#.-])', r'\1', lm.group(1)), fix_abs(lm.group(2)), lm.group(3)
         rest = re.sub(r'\s+', ' ', rest).strip(' •')
         meta = [p.strip() for p in rest.split('•') if p.strip()]
         files = cells[2]
@@ -211,7 +211,7 @@ def clean(body, link_map, self_url=None):
         b = re.sub(r'^\s*(?:web:\s*)?<?' + re.escape(self_url) + r'/?>?\s*$', '', b, flags=re.M)
     b = re.sub(r'Načítava sa\s*\n', '', b)
     b = re.sub(r'## Kategórie dokumentov\s*\n(\s*\* \[[^\n]*\n?)+', '', b)
-    b = re.sub(r'^Vytvorené:\s*\n•\s*\n', '', b, flags=re.M)
+    b = re.sub(r'^Vytvorené:\s*\n•\s*(\n|$)', '', b, flags=re.M)
     b = re.sub(r'\A(?:(?:Dátum:|Autor:|•|\d+|min\. čítania|[0-9.]+|Obec Most pri Bratislave)\s*\n)+', '', b)
     b = re.sub(r'## Komentáre\s*\n+Komentáre sú dostupné[^\n]*\n?', '', b)
     b = re.sub(r'\s*PDF bolo automaticky vygenerované OCR systémom Moderných obcí[^|]*?(?=\|)', ' ', b)
@@ -374,13 +374,18 @@ for n in news:
 
 # 2) zápis stránok
 pdir = os.path.join(OUT, 'src/content/pages')
-shutil.rmtree(pdir, ignore_errors=True)
+# vymažú sa len importované stránky (majú 'source:'), vlastné stránky obce zostávajú
+for dp, _, fs in os.walk(pdir):
+    for f in fs:
+        fp = os.path.join(dp, f)
+        if f.endswith('.md') and '\nsource: ' in open(fp, encoding='utf-8').read(2000):
+            os.remove(fp)
 redirects = {}
 for u, a in assigned.items():
     p = by_url[u]
     body = clean(p['body'], link_map, u)
     fn = os.path.join(pdir, a['section'], a['slug'] + '.md')
-    if a['parent'] is None and any(x['parent'] == a['slug'] and x['section'] == a['section'] for x in assigned.values()):
+    if any(x['parent'] == a['slug'] and x['section'] == a['section'] for x in assigned.values()):
         fn = os.path.join(pdir, a['section'], a['slug'], 'index.md')
     os.makedirs(os.path.dirname(fn), exist_ok=True)
     upd = None
@@ -428,11 +433,12 @@ for n in news:
             break
     cat = 'Oznam'
     tl = n['title'].lower()
-    if any(w in tl for w in ('odpad', 'vývoz', 'kontajner', 'zber')): cat = 'Odpady'
-    elif any(w in tl for w in ('uzávier', 'rekonštruk', 'neprejazd', 'cest', 'ulic')): cat = 'Doprava a stavby'
-    elif any(w in tl for w in ('pozvánk', 'bál', 'maratón', 'aktivit', 'múze', 'knižnic', 'cvičen')): cat = 'Kultúra a šport'
-    elif any(w in tl for w in ('zatvoren', 'zastupiteľ', 'referát', 'matrik')): cat = 'Obecný úrad'
-    elif any(w in tl for w in ('elektrin', 'slovnaft', 'deratiz', 'dron', 'hnojen')): cat = 'Upozornenie'
+    if any(w in tl for w in ('elektrin', 'slovnaft', 'rafinér', 'deratiz', 'dron', 'hnojen', 'prerušen', 'výpad', 'odstávk', 'upozornen', 'podvod', 'varovan', 'povodň', 'požiar', 'pitnej vody', 'plyn', 'dlžník', 'zrušen')): cat = 'Upozornenie'
+    elif any(w in tl for w in ('uzávier', 'neprejazd', 'rekonštruk', 'cest', 'ulic', 'chodník', 'doprav', 'stojisk')): cat = 'Doprava a stavby'
+    elif any(w in tl for w in ('odpad', 'vývoz', 'kontajner', 'zber')): cat = 'Odpady'
+    elif any(w in tl for w in ('voľb', 'referend', 'volič')): cat = 'Voľby'
+    elif any(w in tl for w in ('pozvánk', 'bál', 'maratón', 'aktivit', 'múze', 'knižnic', 'cvičen', 'walking', 'koncert', 'deň obce')): cat = 'Kultúra a šport'
+    elif any(w in tl for w in ('zatvoren', 'zastupiteľ', 'referát', 'matrik', 'pracovná ponuka')): cat = 'Obecný úrad'
     fm = ['---', f"title: {yq(title)}", f"date: {iso}", f"category: {yq(cat)}"]
     if img: fm.append(f"image: {yq(img)}")
     if perex: fm.append(f"excerpt: {yq(perex)}")

@@ -1,0 +1,51 @@
+---
+import PageShell from '../../layouts/PageShell.astro';
+import Icon from '../../components/Icon.astro';
+import { alerts, url } from '../../data/site';
+import { allNews, newsUrl, fmtDate } from '../../lib/content';
+const today = new Date().toISOString().slice(0, 10);
+const active = alerts.filter((a) => !a.until || a.until >= today);
+const warn = (await allNews()).filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category)).slice(0, 20);
+const tips = [
+  { icon: 'factory', title: 'Činnosť rafinérie Slovnaft', text: 'Obec každý mesiac zverejňuje informácie o plánovaných činnostiach v rafinérii, ktoré môžu spôsobiť zápach, hluk alebo zvýšené horenie fakieľ.', href: '/aktuality/' },
+  { icon: 'zap-off', title: 'Prerušenie dodávky elektriny', text: 'Plánované odstávky elektriny zverejňujeme v aktualitách. Poruchy hláste distribučnej spoločnosti – čísla nájdete medzi dôležitými kontaktmi.', href: '/kontakt/dolezite-telefonne-cisla/' },
+  { icon: 'droplets', title: 'Voda zo studní', text: 'Rozbory vody zo studní v obci ukázali v niektorých vzorkách zvýšené dusičnany a koliformné baktérie. Vodu zo studne pred pitím dajte otestovať.', href: '/odpady/zivotne-prostredie/' },
+  { icon: 'shield-alert', title: 'Podvodníci a neznámi „úradníci“', text: 'Obecný úrad nikdy nevyberá poplatky ani dane v hotovosti pri dverách. Ak vás niekto takto osloví, volajte políciu 158.', href: '/urad/obecna-policia/' },
+  { icon: 'plane', title: 'Lietanie s dronmi', text: 'Nad obcou platia pravidlá pre lietanie dronov. Pri porušovaní súkromia kontaktujte obecnú políciu.', href: '/aktuality/spravy/upozornenie-na-lietanie-s-dronmi/' },
+  { icon: 'phone', title: 'Tiesňové a poruchové linky', text: 'Tiesňová linka 112, hasiči 150, záchranka 155, polícia 158, poruchy vody, plynu, elektriny a kanalizácie.', href: '/kontakt/dolezite-telefonne-cisla/' },
+];
+---
+<PageShell title="Na čo si dať pozor" section="aktuality" href="/aktuality/upozornenia/" lead="Aktuálne upozornenia, uzávierky ciest, výpadky a užitočné rady pre bezpečnosť obyvateľov obce.">
+  {active.length > 0 && (
+    <section>
+      <h2 style="margin-top:0">Práve platí</h2>
+      <ul class="warn-list">
+        {active.map((a) => (
+          <li class="warn-item"><Icon name="triangle-alert" size={22} /><span>{a.href ? <a href={url(a.href)}>{a.text}</a> : <strong>{a.text}</strong>}{a.until && <time>do {fmtDate(new Date(a.until + 'T12:00:00'))}</time>}</span></li>
+        ))}
+      </ul>
+    </section>
+  )}
+  <h2>Posledné upozornenia a uzávierky</h2>
+  <ul class="warn-list">
+    {warn.map((n) => (
+      <li class={`warn-item${n.data.category === 'Doprava a stavby' ? ' warn-item--traffic' : ''}`}>
+        <Icon name={n.data.category === 'Doprava a stavby' ? 'construction' : 'triangle-alert'} size={22} />
+        <span>
+          <time datetime={n.data.date.toISOString().slice(0, 10)}>{fmtDate(n.data.date)} · {n.data.category === 'Doprava a stavby' ? 'Doprava a stavby' : 'Upozornenie'}</time>
+          <a href={url(newsUrl(n))}>{n.data.title}</a>
+          {n.data.excerpt && <p>{n.data.excerpt}</p>}
+        </span>
+      </li>
+    ))}
+  </ul>
+  <h2>Dobré vedieť</h2>
+  <div class="tips-grid">
+    {tips.map((t) => (
+      <div class="tip">
+        <h3><Icon name={t.icon} size={20} /> {t.title}</h3>
+        <p>{t.text} <a href={url(t.href)}>Viac</a></p>
+      </div>
+    ))}
+  </div>
+</PageShell>

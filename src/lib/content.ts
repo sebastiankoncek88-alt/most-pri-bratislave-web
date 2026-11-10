@@ -24,6 +24,27 @@ export function groupPages(pages: Page[]) {
   return groups;
 }
 
+export type NavItem = { id: string; title: string; href: string; order: number; group: string; children: NavItem[] };
+
+/** Strom navigácie sekcie: importované/vlastné stránky + špeciálne stránky (fotogaléria, podujatia…). */
+export async function sectionTree(section: string) {
+  const { extraLinks } = await import('../data/site');
+  const pages = await sectionPages(section);
+  const toItem = (p: Page): NavItem => ({ id: p.id, title: p.data.title, href: pageUrl(p), order: p.data.order, group: p.data.group || 'Ďalšie', children: [] });
+  const tops: NavItem[] = pages.filter((p) => !p.data.parent).map((top) => {
+    const slug = top.id.split('/').slice(1).join('/');
+    return { ...toItem(top), children: sortChildren(pages.filter((c) => c.data.parent === slug)).map(toItem) };
+  });
+  for (const x of extraLinks[section] || []) tops.push({ id: x.href, title: x.title, href: x.href, order: x.order, group: x.group, children: [] });
+  tops.sort((a, b) => a.order - b.order || collator.compare(a.title, b.title));
+  const groups = new Map<string, NavItem[]>();
+  for (const t of tops) {
+    if (!groups.has(t.group)) groups.set(t.group, []);
+    groups.get(t.group)!.push(t);
+  }
+  return groups;
+}
+
 /** Podstránky: ak všetky obsahujú rok, zoradia sa od najnovšieho, inak abecedne. */
 export function sortChildren(list: Page[]) {
   const year = (p: Page) => Number(p.data.title.match(/(19|20)\d\d/)?.[0] || 0);

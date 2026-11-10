@@ -1,25 +1,28 @@
 ---
 import { sections, url } from '../data/site';
-import { sectionPages, groupPages, pageUrl } from '../lib/content';
-interface Props { section: string; currentId?: string }
-const { section, currentId } = Astro.props;
+import { sectionTree } from '../lib/content';
+interface Props { section: string; currentId?: string; currentHref?: string }
+const { section, currentId, currentHref } = Astro.props;
 const meta = sections.find((s) => s.id === section);
-const groups = groupPages(await sectionPages(section));
-const isOpen = (topId: string) => currentId === topId || currentId?.startsWith(topId + '/');
+const groups = await sectionTree(section);
+const isCur = (i: { id: string; href: string }) => i.id === currentId || i.href === currentHref;
+const isOpen = (i: { id: string; href: string }) => isCur(i) || (currentId ?? '').startsWith(i.id + '/');
 ---
-<nav class="side-nav" aria-label={`Navigácia v sekcii ${meta?.title ?? ''}`}>
+<nav class="side-nav" aria-label={`Navigácia v sekcii ${meta?.title ?? 'Kontakt'}`}>
   <h2><a href={url(`/${section}/`)}>{meta?.title ?? 'Kontakt'}</a></h2>
   {[...groups.entries()].map(([g, items]) => (
     <>
       {groups.size > 1 && <h3>{g}</h3>}
       <ul>
-        {items.map(({ top, children }) => (
+        {items.map((top) => (
           <li>
-            <a class="sn" href={url(pageUrl(top))} aria-current={currentId === top.id ? 'page' : undefined}>{top.data.title}</a>
-            {children.length > 0 && isOpen(top.id) && (
+            <a class="sn" href={url(top.href)} aria-current={isCur(top) ? 'page' : undefined}>{top.title}</a>
+            {top.children.length > 0 && isOpen(top) && (
               <ul>
-                {children.map((c) => (
-                  <li><a class="sn" href={url(pageUrl(c))} aria-current={currentId === c.id ? 'page' : undefined}>{c.data.title}</a></li>
+                {top.children.map((c) => (
+                  <li>
+                    <a class="sn" href={url(c.href)} aria-current={isCur(c) ? 'page' : undefined}>{c.title}</a>
+                  </li>
                 ))}
               </ul>
             )}

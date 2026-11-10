@@ -4,9 +4,13 @@ import Icon from '../components/Icon.astro';
 import NewsCard from '../components/NewsCard.astro';
 import EventList from '../components/EventList.astro';
 import { quickLinks, sections, obec, url } from '../data/site';
-import { allNews, boardItems } from '../lib/content';
+import { allNews, boardItems, newsUrl, fmtDate } from '../lib/content';
+import gallery from '../data/gallery.json';
 
-const news = (await allNews()).slice(0, 4);
+const all = await allNews();
+const news = all.slice(0, 4);
+const warnings = all.filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category)).slice(0, 3);
+const photos = gallery.slice(0, 4);
 const board = await boardItems(5);
 ---
 <Base current="home">
@@ -26,6 +30,7 @@ const board = await boardItems(5);
         <a href={url('/urad/dane-a-poplatky/')}>daň z nehnuteľností</a>
         <a href={url('/samosprava/vzn/')}>VZN</a>
         <a href={url('/kontakt/')}>úradné hodiny</a>
+        <a href={url('/obec/fotogaleria/')}>fotogaléria</a>
       </p>
     </div>
   </section>
@@ -58,6 +63,15 @@ const board = await boardItems(5);
         </div>
       </div>
       <aside>
+        <section class="panel panel--warn" aria-labelledby="warn-title">
+          <h2 id="warn-title"><Icon name="triangle-alert" size={22} /> Na čo si dať pozor</h2>
+          <ul class="news-list">
+            {warnings.map((n) => (
+              <li><a href={url(newsUrl(n))}><time>{fmtDate(n.data.date)}</time><strong>{n.data.title}</strong></a></li>
+            ))}
+          </ul>
+          <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/upozornenia/')}>Všetky upozornenia <Icon name="arrow-right" size={18} /></a></p>
+        </section>
         <section class="panel" aria-labelledby="board-title">
           <h2 id="board-title"><Icon name="clipboard-list" size={22} /> Úradná tabuľa</h2>
           <ul class="news-list">
@@ -104,6 +118,26 @@ const board = await boardItems(5);
             <Icon name={s.icon} size={28} />
             <h3><a href={url(`/${s.id}/`)}>{s.title}</a></h3>
             <p>{s.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="home-section home-section--tint" aria-labelledby="gallery-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="gallery-title">Z fotogalérie</h2>
+        <a class="link-arrow" href={url('/obec/fotogaleria/')}>Všetky albumy <Icon name="arrow-right" size={18} /></a>
+      </div>
+      <ul class="album-grid album-grid--4">
+        {photos.map((a) => (
+          <li class="album-card">
+            <div class="album-cover album-cover--single"><img src={url(a.photos[0].thumb)} alt="" loading="lazy" decoding="async" /></div>
+            <div class="album-body">
+              <h3><a href={url(`/obec/fotogaleria/${a.id}-${a.slug}/`)}>{a.title}</a></h3>
+              <p>{a.photos.length} fotografií</p>
+            </div>
           </li>
         ))}
       </ul>

@@ -1,0 +1,23 @@
+---
+// Podstránka so záhlavím, omrvinkami a bočnou navigáciou sekcie (pre špeciálne stránky)
+import Base from './Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SideNav from '../components/SideNav.astro';
+import { sections } from '../data/site';
+interface Props { title: string; section: string; href: string; lead?: string; description?: string; crumbs?: { title: string; href?: string }[]; wide?: boolean }
+const { title, section, href, lead, description, crumbs, wide } = Astro.props;
+const sTitle = sections.find((s) => s.id === section)?.title ?? 'Kontakt';
+---
+<Base title={title} description={description ?? lead} current={section}>
+  <div class="page-head">
+    <div class="container">
+      <Breadcrumbs items={crumbs ?? [{ title: sTitle, href: `/${section}/` }, { title }]} />
+      <h1>{title}</h1>
+      {lead && <p class="lead">{lead}</p>}
+    </div>
+  </div>
+  <div class={`container page-layout${wide ? ' page-layout--gallery' : ''}`}>
+    <SideNav section={section} currentHref={href} />
+    <div data-pagefind-body><slot /></div>
+  </div>
+</Base>

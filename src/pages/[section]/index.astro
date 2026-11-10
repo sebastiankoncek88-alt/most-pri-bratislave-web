@@ -4,14 +4,14 @@ import Icon from '../../components/Icon.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import OfficeStatus from '../../components/OfficeStatus.astro';
 import { sections, obec, url } from '../../data/site';
-import { sectionPages, groupPages, pageUrl } from '../../lib/content';
+import { sectionTree } from '../../lib/content';
 
 export function getStaticPaths() {
   return sections.filter((s) => s.id !== 'aktuality').map((s) => ({ params: { section: s.id } }));
 }
 const { section } = Astro.params;
 const meta = sections.find((s) => s.id === section)!;
-const groups = groupPages(await sectionPages(section));
+const groups = await sectionTree(section);
 ---
 <Base title={meta.title} description={meta.description} current={section}>
   <div class="page-head page-head--section">
@@ -40,10 +40,10 @@ const groups = groupPages(await sectionPages(section));
       <section class="group-block">
         <h2>{g}</h2>
         <ul class="link-grid">
-          {items.map(({ top, children }) => (
+          {items.map((top) => (
             <li class="link-card">
-              <a href={url(pageUrl(top))}>{top.data.title}</a>
-              {children.length > 0 && <small>{children.length} {children.length < 5 ? 'podstránky' : 'podstránok'}</small>}
+              <a href={url(top.href)}>{top.title}</a>
+              {top.children.length > 0 && <small>{top.children.length} {top.children.length < 5 ? 'podstránky' : 'podstránok'}</small>}
             </li>
           ))}
         </ul>

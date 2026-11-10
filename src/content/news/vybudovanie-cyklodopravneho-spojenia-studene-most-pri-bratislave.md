@@ -1,7 +1,7 @@
 ---
 title: "Vybudovanie cyklodopravného spojenia Studené - Most pri Bratislave"
 date: 2022-05-17
-category: "Oznam"
+category: "Doprava a stavby"
 image: "/media/7dd53356e0b583fb.jpg"
 excerpt: "Vybudovanie cyklodopravného spojenia Studené - Most pri Bratislave"
 source: "https://www.mostpribratislave.sk/novinka/7942/vybudovanie-cyklodopravneho-spojenia-studene-most-pri-bratislave"
