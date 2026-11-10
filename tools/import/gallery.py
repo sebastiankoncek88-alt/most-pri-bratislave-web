@@ -100,14 +100,14 @@ for au in albums:
 result.sort(key=lambda a: a['date'] or '', reverse=True)
 # zmazať fotky, ktoré už nepatria do žiadneho albumu (album zmazaný alebo upravený na starom webe)
 if result:
-    keep = {p[k].split('/')[-1] for a in result for p in a['photos'] for k in ('src', 'thumb')}
+    keep = {(a['id'], p[k].split('/')[-1]) for a in result for p in a['photos'] for k in ('src', 'thumb')}
     keep_dirs = {a['id'] for a in result}
     removed = 0
     for d in os.listdir(MEDIA):
         dp = os.path.join(MEDIA, d)
         if not os.path.isdir(dp): continue
         for f in os.listdir(dp):
-            if d not in keep_dirs or f not in keep:
+            if d not in keep_dirs or (d, f) not in keep:
                 os.remove(os.path.join(dp, f)); removed += 1
         if not os.listdir(dp): os.rmdir(dp)
     if removed: print(f'zmazaných starých fotiek: {removed}', file=sys.stderr)
