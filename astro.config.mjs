@@ -34,4 +34,15 @@ export default defineConfig({
   trailingSlash: 'always',
   markdown: { rehypePlugins: [rehypeBase] },
   build: { format: 'directory' },
+  // Stabilné názvy súborov (bez hashu): stránka uložená v pamäti prehliadača počas
+  // aktualizácie webu nikdy neodkazuje na zmazaný súbor dizajnu.
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: '_astro/[name][extname]',
+        },
+      },
+    },
+  },
 });
