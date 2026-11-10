@@ -2,6 +2,7 @@
 title: "Rekonštrukcia ulice Budovateľská - Dočasná neprejazdnosť ulice"
 date: 2026-11-09
 category: "Doprava a stavby"
+time: "14:18"
 image: "/media/01a488ec879fa054.jpg"
 excerpt: "V piatok 13. 11. 2026 bude v čase od 8:00 hod. až do podvečerných hodín dočasne neprejazdný úsek ulice Budovateľská od križovatky so Záhradnou ulicou po križovatku pri hasičskej zbrojnici, a to z dôvodu realizácie asfalt"
 source: "https://www.mostpribratislave.sk/novinka/143840/oznam-rekonstrukcia-ulice-budovatelska-docasna-neprejazdnost-ulice"

@@ -17,7 +17,7 @@ const d = (s: string | null) => (s ? fmtDate(new Date(s + 'T12:00:00')) : '');
   <p><a class="btn btn-primary" href={url('/nahlasit-problem/')}><Icon name="message-square-warning" size={18} /> Poslať vlastný podnet</a></p>
   <h2>Najnovšie odpovede</h2>
   {podnety.items.map((p) => (
-    <details class="podnet">
+    <details class="podnet" id={`podnet-${p.id}`}>
       <summary>
         <span>
           <strong>{p.title}</strong>

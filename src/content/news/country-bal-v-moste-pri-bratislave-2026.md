@@ -2,6 +2,7 @@
 title: "Country bál v Moste pri Bratislave 2026"
 date: 2026-11-06
 category: "Kultúra a šport"
+time: "14:10"
 image: "/media/d1b03dc00c792424.png"
 excerpt: "Country Mostík v spolupráci s Obecným úradom Most pri Bratislave vás srdečne pozývajú na COUNTRY BÁL!"
 source: "https://www.mostpribratislave.sk/novinka/143755/country-bal-v-moste-pri-bratislave-2026"

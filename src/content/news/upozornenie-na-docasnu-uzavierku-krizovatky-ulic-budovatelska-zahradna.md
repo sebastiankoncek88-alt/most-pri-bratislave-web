@@ -2,6 +2,7 @@
 title: "Upozornenie na dočasnú uzávierku križovatky ulíc Budovateľská – Záhradná"
 date: 2026-11-03
 category: "Upozornenie"
+time: "14:25"
 image: "/media/4037b01615248796.jpg"
 excerpt: "V termíne od štvrtka 5. 11. do soboty 7. 11. 2026 sa uskutočnia stavebné práce súvisiace s realizáciou odvodnenia na križovatke ulíc Budovateľská – Záhradná."
 source: "https://www.mostpribratislave.sk/novinka/143545/upozornenie-na-docasnu-uzavierku-krizovatky-ulic-budovatelska-zahradna"

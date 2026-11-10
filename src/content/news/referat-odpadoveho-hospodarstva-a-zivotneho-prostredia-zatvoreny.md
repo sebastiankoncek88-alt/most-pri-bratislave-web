@@ -2,6 +2,7 @@
 title: "Referát odpadového hospodárstva a životného prostredia - zatvorený"
 date: 2026-11-02
 category: "Odpady"
+time: "08:31"
 excerpt: "Referát odpadového hospodárstva a životného prostredia bude v dňoch 2.11.2026 - 6.11.2026 (vrátane) zatvorený."
 source: "https://www.mostpribratislave.sk/novinka/143397/referat-odpadoveho-hospodarstva-a-zivotneho-prostredia-zatvoreny"
 ---

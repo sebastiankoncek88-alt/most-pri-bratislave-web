@@ -2,6 +2,7 @@
 title: "Slovnaft - informácia o činnostiach v rafinérii (november 2026)"
 date: 2026-11-03
 category: "Upozornenie"
+time: "15:19"
 image: "/media/e5b6de4dc9fb7794.jpg"
 excerpt: "Slovnaft - informácia o činnostiach v rafinérii (november 2026)"
 source: "https://www.mostpribratislave.sk/novinka/143552/slovnaft-informacia-o-cinnostiach-v-rafinerii-november-2026"

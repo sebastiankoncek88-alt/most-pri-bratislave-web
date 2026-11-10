@@ -478,6 +478,7 @@ for n in news:
     elif any(w in tl for w in ('pozvánk', 'bál', 'maratón', 'aktivit', 'múze', 'knižnic', 'cvičen', 'walking', 'koncert', 'deň obce')): cat = 'Kultúra a šport'
     elif any(w in tl for w in ('zatvoren', 'zastupiteľ', 'referát', 'matrik', 'pracovná ponuka')): cat = 'Obecný úrad'
     fm = ['---', f"title: {yq(title)}", f"date: {iso}", f"category: {yq(cat)}"]
+    if n.get('time'): fm.append(f"time: {yq(n['time'].zfill(5))}")
     if img: fm.append(f"image: {yq(img)}")
     if perex: fm.append(f"excerpt: {yq(perex)}")
     fm.append(f"source: {yq(n['url'])}")

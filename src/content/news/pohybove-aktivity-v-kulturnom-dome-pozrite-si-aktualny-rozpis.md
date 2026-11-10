@@ -2,6 +2,7 @@
 title: "Pohybové aktivity v Kultúrnom dome – pozrite si aktuálny rozpis"
 date: 2026-11-03
 category: "Kultúra a šport"
+time: "10:08"
 excerpt: "Hľadáte priestor na pohyb, relax a aktívne trávenie voľného času? V Kultúrnom dome v Moste pri Bratislave prebiehajú počas týždňa rôzne pohybové aktivity, z ktorých si môžete vybrať."
 source: "https://www.mostpribratislave.sk/novinka/143497/pohybove-aktivity-v-kulturnom-dome-pozrite-si-aktualny-rozpis"
 ---

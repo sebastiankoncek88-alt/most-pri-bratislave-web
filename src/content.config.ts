@@ -25,6 +25,7 @@ const news = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     category: z.string().default('Oznam'),
+    time: z.string().optional(),
     image: z.string().optional(),
     excerpt: z.string().optional(),
     important: z.boolean().default(false),

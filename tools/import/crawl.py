@@ -56,11 +56,17 @@ json.dump(pages,open(out+'/pages.json','w',encoding='utf-8'),ensure_ascii=False,
 # news
 news=[]
 nl=list(dict.fromkeys(re.findall(r'href="(https://www\.mostpribratislave\.sk/novinka/\d+/[^"]+)"',idx)))
+# čas zverejnenia (napr. „9.11.2026 o 14:18“) z bloku Rýchle správy na úvodnej stránke
+times={}
+for mm in re.finditer(r'href="(https://www\.mostpribratislave\.sk/novinka/\d+/[^"]+)"',idx):
+    seg=' '.join(html.unescape(re.sub(r'<[^>]+>',' ',idx[mm.end():mm.end()+600])).split())
+    tm=re.search(r'(\d{1,2}\.\d{1,2}\.\d{4}) o (\d{1,2}:\d{2})',seg)
+    if tm and mm.group(1) not in times: times[mm.group(1)]=tm.group(2)
 for u in nl:
     t=get(u)
     if not t: continue
     title,upd,body=extract(t)
     d=re.search(r'(\d{1,2}\.\d{1,2}\.20\d\d)',t[t.find('id="content"'):])
-    news.append({'url':u,'title':title,'date':d.group(1) if d else None,'body':body})
+    news.append({'url':u,'title':title,'date':d.group(1) if d else None,'time':times.get(u),'body':body})
 json.dump(news,open(out+'/news.json','w',encoding='utf-8'),ensure_ascii=False,indent=1)
 print('pages',len(pages),'news',len(news),file=sys.stderr)

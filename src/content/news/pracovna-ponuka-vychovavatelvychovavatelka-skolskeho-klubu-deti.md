@@ -2,6 +2,7 @@
 title: "Pracovná ponuka – vychovávateľ/vychovávateľka školského klubu detí"
 date: 2026-11-09
 category: "Obecný úrad"
+time: "13:36"
 excerpt: "Základná škola Milana Rastislava Štefánika v Moste pri Bratislave hľadá do svojho tímu nového kolegu alebo kolegyňu na pracovnú pozíciu vychovávateľ/vychovávateľka školského klubu detí (ŠKD)."
 source: "https://www.mostpribratislave.sk/novinka/143825/pracovna-ponuka-vychovavatelvychovavatelka-skolskeho-klubu-deti"
 ---

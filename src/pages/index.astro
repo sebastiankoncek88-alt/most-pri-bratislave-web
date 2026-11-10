@@ -1,14 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
-import NewsCard from '../components/NewsCard.astro';
 import EventList from '../components/EventList.astro';
 import { quickLinks, obec, url } from '../data/site';
 import { allNews, boardItems, newsUrl, fmtDate } from '../lib/content';
 import gallery from '../data/gallery.json';
+import podnety from '../data/podnety.json';
 
 const all = await allNews();
-const news = all.slice(0, 4);
+const rows = all.slice(0, 20);
+const flash = [...all].filter((n) => n.data.time).slice(0, 4).concat(all.filter((n) => !n.data.time)).slice(0, 4);
+const tone = (c: string) => ({ 'Upozornenie': 'warn', 'Doprava a stavby': 'traffic', 'Odpady': 'waste', 'Kultúra a šport': 'culture', 'Voľby': 'civic', 'Obecný úrad': 'civic' } as Record<string, string>)[c] ?? 'default';
+const catIcon = (c: string) => ({ 'Upozornenie': 'triangle-alert', 'Doprava a stavby': 'construction', 'Odpady': 'recycle', 'Kultúra a šport': 'party-popper', 'Voľby': 'vote', 'Obecný úrad': 'landmark' } as Record<string, string>)[c] ?? 'megaphone';
 const warnings = all.filter((n) => ['Upozornenie', 'Doprava a stavby'].includes(n.data.category)).slice(0, 3);
 const photos = gallery.slice(0, 4);
 const board = await boardItems(5);
@@ -47,18 +50,41 @@ const board = await boardItems(5);
     </div>
   </section>
 
-  <section class="home-section">
+  <section class="home-section" aria-label="Novinky a rýchle správy">
     <div class="container home-grid">
       <div>
         <div class="section-head">
-          <h2>Aktuality z obce</h2>
-          <a class="link-arrow" href={url('/aktuality/')}>Všetky aktuality <Icon name="arrow-right" size={18} /></a>
+          <h2>Novinky v obci</h2>
+          <a class="link-arrow" href={url('/aktuality/')}>Všetky novinky <Icon name="arrow-right" size={18} /></a>
         </div>
-        <div class="news-grid">
-          {news.map((n) => <NewsCard item={n} />)}
-        </div>
+        <ul class="news-rows">
+          {rows.map((n) => (
+            <li class={`news-row tone-${tone(n.data.category)}`}>
+              {n.data.image
+                ? <img class="nr-thumb" src={url(n.data.image)} alt="" loading="lazy" decoding="async" />
+                : <span class="nr-thumb nr-thumb--icon" aria-hidden="true"><Icon name={catIcon(n.data.category)} size={26} /></span>}
+              <span class="nr-body">
+                <span class="nr-meta"><span class="tag">{n.data.category}</span> <time datetime={n.data.date.toISOString().slice(0, 10)}>{fmtDate(n.data.date)}</time></span>
+                <a href={url(newsUrl(n))}>{n.data.title}</a>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
       <aside>
+        <section class="panel" aria-labelledby="quick-news-title">
+          <h2 id="quick-news-title"><Icon name="megaphone" size={22} /> Rýchle správy</h2>
+          <ol class="flash">
+            {flash.map((n) => (
+              <li>
+                <time datetime={n.data.date.toISOString().slice(0, 10)}>{fmtDate(n.data.date)}{n.data.time && ` o ${n.data.time.replace(/^0/, '')}`}</time>
+                <a href={url(newsUrl(n))}>{n.data.title}</a>
+                {n.data.excerpt && <p>{n.data.excerpt}</p>}
+              </li>
+            ))}
+          </ol>
+          <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/')}>Všetky správy <Icon name="arrow-right" size={18} /></a></p>
+        </section>
         <section class="panel panel--warn" aria-labelledby="warn-title">
           <h2 id="warn-title"><Icon name="triangle-alert" size={22} /> Na čo si dať pozor</h2>
           <ul class="news-list">
@@ -68,21 +94,61 @@ const board = await boardItems(5);
           </ul>
           <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/upozornenia/')}>Všetky upozornenia <Icon name="arrow-right" size={18} /></a></p>
         </section>
-        <section class="panel" aria-labelledby="board-title">
-          <h2 id="board-title"><Icon name="clipboard-list" size={22} /> Úradná tabuľa</h2>
-          <ul class="news-list">
-            {board.map((b) => (
-              <li><a href={b.href}><time>{b.date}</time><strong>{b.title}</strong></a></li>
-            ))}
-          </ul>
-          <p class="panel-foot"><a class="link-arrow" href={url('/uradna-tabula/uradna-tabula/')}>Celá úradná tabuľa <Icon name="arrow-right" size={18} /></a></p>
-        </section>
-        <section class="panel" aria-labelledby="events-title">
-          <h2 id="events-title"><Icon name="calendar-days" size={22} /> Najbližšie podujatia</h2>
-          <EventList limit={5} />
-          <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/podujatia/')}>Kalendár podujatí <Icon name="arrow-right" size={18} /></a></p>
-        </section>
       </aside>
+    </div>
+  </section>
+
+  <section class="home-section home-section--tint" aria-label="Úradná tabuľa, podujatia a voľby">
+    <div class="container trio">
+      <section class="panel" aria-labelledby="board-title">
+        <h2 id="board-title"><Icon name="clipboard-list" size={22} /> Úradná tabuľa</h2>
+        <ul class="news-list">
+          {board.map((b) => (
+            <li><a href={b.href}><time>{b.date}</time><strong>{b.title}</strong></a></li>
+          ))}
+        </ul>
+        <p class="panel-foot"><a class="link-arrow" href={url('/uradna-tabula/uradna-tabula/')}>Celá úradná tabuľa <Icon name="arrow-right" size={18} /></a></p>
+      </section>
+      <section class="panel" aria-labelledby="events-title">
+        <h2 id="events-title"><Icon name="calendar-days" size={22} /> Najbližšie podujatia</h2>
+        <EventList limit={5} />
+        <p class="panel-foot"><a class="link-arrow" href={url('/aktuality/podujatia/')}>Kalendár podujatí <Icon name="arrow-right" size={18} /></a></p>
+      </section>
+      <section class="panel panel--vote" aria-labelledby="vote-title">
+        <h2 id="vote-title"><Icon name="vote" size={22} /> Voľby a referendá</h2>
+        <p>Kandidáti, volebné okrsky, oznámenia volebných komisií a dokumenty.</p>
+        <ul class="vote-links">
+          <li><a href={url('/uradna-tabula/volby-2026/')}><strong>Komunálne a krajské voľby 2026</strong><small>kandidáti, okrsky, oznámenia</small></a></li>
+          <li><a href={url('/uradna-tabula/referendum-2026/')}><strong>Referendum 2026</strong><small>informácie a dokumenty</small></a></li>
+          <li><a href={url('/uradna-tabula/volby/')}><strong>Archív volieb</strong><small>predchádzajúce voľby</small></a></li>
+        </ul>
+        <p class="panel-foot"><a class="link-arrow" href={url('/volby/')}>Ako voliť a prehľad <Icon name="arrow-right" size={18} /></a></p>
+      </section>
+    </div>
+  </section>
+
+  <section class="home-section" aria-labelledby="podnety-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="podnety-title">Podnety pre starostku</h2>
+        <span class="head-links">
+          <a class="link-arrow" href={url('/kontakt/podnety/')}>Všetky odpovede <Icon name="arrow-right" size={18} /></a>
+          <a class="btn btn-primary btn-sm" href={url('/nahlasit-problem/')}><Icon name="message-square-warning" size={18} /> Poslať podnet</a>
+        </span>
+      </div>
+      {podnety.stats && <p class="podnet-stat"><strong>{podnety.stats.solved.toLocaleString('sk-SK')}</strong> vyriešených podnetov, <strong>{podnety.stats.open}</strong> práve v riešení</p>}
+      <ul class="podnet-cards">
+        {podnety.items.slice(0, 4).map((p) => {
+          const open = /rieš/i.test(p.status) && !/vyrieš/i.test(p.status);
+          return (
+            <li class="podnet-card">
+              <span class={`badge${open ? ' badge--open' : ''}`}><Icon name={open ? 'clock' : 'circle-check'} size={14} /> {p.status}</span>
+              <a href={url(`/kontakt/podnety/#podnet-${p.id}`)}>{p.title}</a>
+              {p.received && <small>{fmtDate(new Date(p.received + 'T12:00:00'))}</small>}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   </section>
 
