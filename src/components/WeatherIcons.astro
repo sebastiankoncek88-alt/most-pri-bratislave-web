@@ -1,0 +1,8 @@
+---
+// Šablóny ikon počasia pre skripty (vkladajú sa raz na stránku)
+import Icon from './Icon.astro';
+import { WEATHER_ICONS } from '../lib/weather';
+---
+<div hidden id="wx-icons">
+  {WEATHER_ICONS.map((n) => <template data-wx={n}><Icon name={n} size={20} /></template>)}
+</div>

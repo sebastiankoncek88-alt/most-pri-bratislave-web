@@ -1,6 +1,9 @@
 ---
 import Icon from './Icon.astro';
 import OfficeStatus from './OfficeStatus.astro';
+import WeatherChip from './WeatherChip.astro';
+import WeatherIcons from './WeatherIcons.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { obec, sections, alerts, url } from '../data/site';
 interface Props { current?: string }
 const { current } = Astro.props;
@@ -12,10 +15,14 @@ const activeAlerts = alerts.filter((a) => !a.until || a.until >= today);
   <div class="container topbar-inner">
     <OfficeStatus variant="dark" />
     <div class="topbar-links">
+      <WeatherChip />
+      <a href={url('/obec/fotogaleria/')} class="hide-sm"><Icon name="images" size={16} /> Fotogaléria</a>
       <a href={`tel:${obec.phoneHref}`} aria-label={`Zavolať na obecný úrad ${obec.phone}`}><Icon name="phone" size={16} /> <span class="hide-sm">{obec.phone}</span><span class="show-sm">Zavolať</span></a>
       <a href={`mailto:${obec.email}`} class="hide-sm"><Icon name="mail" size={16} /> {obec.email}</a>
       <a href={obec.facebook} class="hide-sm" rel="noopener">Facebook</a>
+      <ThemeToggle />
     </div>
+    <WeatherIcons />
   </div>
 </div>
 <header class="site-header">
@@ -53,6 +60,8 @@ const activeAlerts = alerts.filter((a) => !a.until || a.until >= today);
         {sections.map((s) => (
           <li><a href={url(`/${s.id}/`)}><Icon name={s.icon} size={22} /><span><strong>{s.title}</strong><small>{s.description}</small></span></a></li>
         ))}
+        <li><a href={url('/obec/fotogaleria/')}><Icon name="images" size={22} /><span><strong>Fotogaléria</strong><small>Fotky z podujatí v obci</small></span></a></li>
+        <li><a href={url('/obec/pocasie/')}><Icon name="cloud-sun" size={22} /><span><strong>Počasie</strong><small>Aktuálne počasie a predpoveď na týždeň</small></span></a></li>
         <li><a href={url('/kontakt/')}><Icon name="phone" size={22} /><span><strong>Kontakt</strong><small>Úradné hodiny, telefóny a e-maily</small></span></a></li>
       </ul>
     </div>

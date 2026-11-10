@@ -554,37 +554,67 @@ p { margin: 0 0 1em; }
 .btn-light { background: #ffffff; color: var(--navy-900); }
 .btn-light:hover { background: var(--blue-50); color: var(--navy-950); }
 
-/* ---------- Tmavý režim (podľa nastavenia zariadenia) ---------- */
-@media (prefers-color-scheme: dark) {
-  :root {
+/* ---------- Tmavý režim: modrý ----------
+   Platí podľa nastavenia zariadenia, alebo keď si ho návštevník zapne prepínačom (data-theme). */
+:root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #0b1630;
-    --surface: #0f1f44;
-    --card: #13254f;
-    --ink: #e6ecf8;
-    --ink-2: #c3cee6;
-    --muted: #a3b3d2;
-    --line: #26396a;
-    --line-strong: #35508a;
-    --heading: #f1f5fd;
-    --link: #a4c0f6;
-    --chip: #1c3268;
-    --chip-ink: #c2d4f8;
-    --head-bg: #10224a;
-    --warn-bg: #2b2309;
-    --warn-line: #6b5612;
-    --warn-ink: #f6e3a1;
-    --warn-icon: #e3bd2f;
-    --green-bg: #11281a;
-    --green-line: #24462d;
-    --green-ink: #a9d6b1;
+    --bg: #10275a;
+    --surface: #142f69;
+    --card: #19387a;
+    --ink: #eef3fc;
+    --ink-2: #d2ddf2;
+    --muted: #b7c6e6;
+    --line: #2c4d92;
+    --line-strong: #4064ad;
+    --heading: #ffffff;
+    --link: #b3cbfa;
+    --chip: #21458f;
+    --chip-ink: #d6e3fc;
+    --head-bg: #15326f;
+    --warn-bg: #3a2f0b;
+    --warn-line: #7a6216;
+    --warn-ink: #f8e7ad;
+    --warn-icon: #f2cf52;
+    --green-bg: #133220;
+    --green-line: #2b5a39;
+    --green-ink: #b3e0bb;
     --focus: #f2dc86;
-    --shadow: 0 2px 4px rgb(0 0 0 / 0.25), 0 8px 24px rgb(0 0 0 / 0.35);
+    --shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 24px rgb(0 0 0 / 0.3);
+}
+:root[data-theme="dark"] .site-header, :root[data-theme="dark"] .mobile-menu { background: var(--card); }
+:root[data-theme="dark"] .site-footer { background: #0b1d45; }
+:root[data-theme="dark"] .file-ext { background: #c2402f; }
+:root[data-theme="dark"] img { filter: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #10275a;
+    --surface: #142f69;
+    --card: #19387a;
+    --ink: #eef3fc;
+    --ink-2: #d2ddf2;
+    --muted: #b7c6e6;
+    --line: #2c4d92;
+    --line-strong: #4064ad;
+    --heading: #ffffff;
+    --link: #b3cbfa;
+    --chip: #21458f;
+    --chip-ink: #d6e3fc;
+    --head-bg: #15326f;
+    --warn-bg: #3a2f0b;
+    --warn-line: #7a6216;
+    --warn-ink: #f8e7ad;
+    --warn-icon: #f2cf52;
+    --green-bg: #133220;
+    --green-line: #2b5a39;
+    --green-ink: #b3e0bb;
+    --focus: #f2dc86;
+    --shadow: 0 2px 4px rgb(0 0 0 / 0.2), 0 8px 24px rgb(0 0 0 / 0.3);
   }
-  .site-header, .mobile-menu { background: var(--card); }
-  .site-footer { background: #091228; }
-  .file-ext { background: #c2402f; }
-  img { filter: none; }
+  :root:not([data-theme="light"]) .site-header,   :root:not([data-theme="light"]) .mobile-menu { background: var(--card); }
+  :root:not([data-theme="light"]) .site-footer { background: #0b1d45; }
+  :root:not([data-theme="light"]) .file-ext { background: #c2402f; }
+  :root:not([data-theme="light"]) img { filter: none; }
 }
 
 /* ---------- Revízia dizajnu: karty, signatúra, mobil ---------- */
@@ -642,3 +672,53 @@ p { margin: 0 0 1em; }
   .hero-search input { padding: 8px 14px; font-size: 1rem; }
 }
 .footer-bottom-inner p:last-child { display: flex; gap: 4px 20px; flex-wrap: wrap; }
+
+/* Prepínač režimu a počasie v hornej lište */
+.topbar-links { gap: 16px; }
+.theme-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 4px; border: 0; background: transparent; color: #ffffff; font: inherit; cursor: pointer; }
+.theme-toggle:hover { text-decoration: underline; }
+.theme-toggle > span { display: inline-flex; align-items: center; gap: 6px; }
+.tt-light { display: none !important; }
+:root.is-dark .tt-dark { display: none !important; }
+:root.is-dark .tt-light { display: inline-flex !important; }
+.wx-chip { font-weight: 600; }
+.wx-ico { display: inline-flex; }
+.wx-ico:empty { display: none; }
+
+/* ---------- Počasie ---------- */
+.wx-now { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--card); }
+.wx-now-main { display: flex; align-items: center; gap: 18px; }
+.wx-big-ico { display: inline-flex; color: var(--link); min-width: 64px; }
+.wx-temp { font-size: 3.25rem; font-weight: 700; line-height: 1; margin: 0; color: var(--heading); letter-spacing: -0.03em; }
+.wx-desc { margin: 6px 0 0; font-size: 1.125rem; color: var(--ink-2); }
+.wx-facts { display: flex; gap: 28px; margin: 0; flex-wrap: wrap; }
+.wx-facts dt { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 0.9375rem; }
+.wx-facts dd { margin: 2px 0 0; font-size: 1.25rem; font-weight: 700; color: var(--heading); }
+.wx-days { list-style: none; padding: 0; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.wx-day { display: grid; grid-template-columns: 140px 40px 1fr auto auto; gap: 14px; align-items: center; padding: 12px 18px; border-bottom: 1px solid var(--line); min-height: 60px; }
+.wx-day:last-child { border-bottom: 0; }
+.wx-dname strong { display: block; color: var(--heading); }
+.wx-dname small { color: var(--muted); }
+.wx-dico { display: inline-flex; color: var(--link); }
+.wx-dtext { color: var(--ink-2); }
+.wx-rain { color: var(--muted); font-size: 0.9375rem; white-space: nowrap; }
+.wx-range { white-space: nowrap; color: var(--muted); }
+.wx-range b { color: var(--heading); font-size: 1.125rem; }
+.wx-skel span { display: block; height: 20px; border-radius: 6px; background: var(--surface); grid-column: 1 / -1; }
+@media (max-width: 640px) {
+  .wx-day { grid-template-columns: 1fr 32px auto; gap: 10px; padding: 10px 14px; }
+  .wx-dtext, .wx-rain { display: none; }
+  .wx-temp { font-size: 2.75rem; }
+  .wx-facts { gap: 18px; }
+}
+
+[hidden] { display: none !important; }
+.wx-chip, .topbar a { white-space: nowrap; }
+@media (max-width: 640px) {
+  .topbar { font-size: 0.8125rem; }
+  .topbar-inner { gap: 10px; }
+  .topbar-links { gap: 12px; }
+  .topbar .show-sm { display: none; }
+  .office-status { line-height: 1.25; }
+  .theme-toggle { min-width: 40px; justify-content: center; }
+}

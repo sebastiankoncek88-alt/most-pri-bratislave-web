@@ -1,0 +1,23 @@
+---
+import { url } from '../data/site';
+---
+<a class="wx-chip" href={url('/obec/pocasie/')} data-wx-chip aria-label="Počasie v Moste pri Bratislave">
+  <span class="wx-ico" aria-hidden="true"></span><span class="wx-t">Počasie</span>
+</a>
+<script>
+  import { loadWeather, describe } from '../lib/weather';
+  const el = document.querySelector<HTMLAnchorElement>('[data-wx-chip]');
+  if (el) {
+    loadWeather().then((d) => {
+      if (!d) return;
+      const t = Math.round(d.current.temperature_2m);
+      const w = describe(d.current.weather_code, d.current.is_day);
+      const tpl = document.querySelector<HTMLTemplateElement>(`#wx-icons template[data-wx="${w.icon}"]`);
+      const ico = el.querySelector('.wx-ico')!;
+      if (tpl) ico.replaceChildren(tpl.content.cloneNode(true));
+      el.querySelector('.wx-t')!.textContent = `${t} °C`;
+      el.setAttribute('aria-label', `Počasie: ${w.text}, ${t} °C. Zobraziť predpoveď`);
+      el.title = w.text;
+    });
+  }
+</script>

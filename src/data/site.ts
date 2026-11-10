@@ -128,7 +128,10 @@ export const contacts = [
 
 // Špeciálne stránky, ktoré nie sú z importu – zobrazia sa v navigácii sekcie
 export const extraLinks: Record<string, { title: string; href: string; group: string; order: number }[]> = {
-  obec: [{ title: 'Fotogaléria', href: '/obec/fotogaleria/', group: 'O obci', order: 3 }],
+  obec: [
+    { title: 'Fotogaléria', href: '/obec/fotogaleria/', group: 'O obci', order: 3 },
+    { title: 'Počasie a webkamera', href: '/obec/pocasie/', group: 'O obci', order: 6 },
+  ],
   aktuality: [
     { title: 'Všetky aktuality', href: '/aktuality/', group: 'Z obce', order: 1 },
     { title: 'Na čo si dať pozor', href: '/aktuality/upozornenia/', group: 'Z obce', order: 2 },

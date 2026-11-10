@@ -1,0 +1,75 @@
+---
+import PageShell from '../../layouts/PageShell.astro';
+import Icon from '../../components/Icon.astro';
+import { url } from '../../data/site';
+---
+<PageShell title="Počasie a webkamera" section="obec" href="/obec/pocasie/" lead="Aktuálne počasie v Moste pri Bratislave a predpoveď na najbližších 7 dní.">
+  <section class="wx-now" data-wx-page aria-live="polite">
+    <div class="wx-now-main">
+      <span class="wx-big-ico" aria-hidden="true"></span>
+      <div>
+        <p class="wx-temp"><span data-f="temp">–</span> °C</p>
+        <p class="wx-desc" data-f="desc">Načítavam počasie…</p>
+      </div>
+    </div>
+    <dl class="wx-facts">
+      <div><dt><Icon name="thermometer" size={18} /> Pocitovo</dt><dd><span data-f="feels">–</span> °C</dd></div>
+      <div><dt><Icon name="droplets" size={18} /> Vlhkosť</dt><dd><span data-f="hum">–</span> %</dd></div>
+      <div><dt><Icon name="wind" size={18} /> Vietor</dt><dd><span data-f="wind">–</span> km/h</dd></div>
+    </dl>
+  </section>
+
+  <h2>Predpoveď na 7 dní</h2>
+  <ol class="wx-days" data-wx-days>
+    {Array.from({ length: 7 }).map(() => <li class="wx-day wx-skel"><span>&nbsp;</span></li>)}
+  </ol>
+  <p class="wx-error note" hidden data-wx-error><Icon name="info" size={20} /><span>Počasie sa teraz nepodarilo načítať. Skúste to o chvíľu, alebo pozrite <a href="https://meteocentrum.sk/most">Meteocentrum</a>.</span></p>
+
+  <h2>Webkamera a meteostanica</h2>
+  <ul class="file-list">
+    <li><a href="https://meteocentrum.sk/app/#kamery"><span class="file-ext" style="background:var(--blue-600)">WEB</span><span class="file-name">Webkamery</span></a><span class="file-meta">meteocentrum.sk</span></li>
+    <li><a href="https://meteocentrum.sk/most"><span class="file-ext" style="background:var(--blue-600)">WEB</span><span class="file-name">Meteostanica Most pri Bratislave</span></a><span class="file-meta">meteocentrum.sk</span></li>
+  </ul>
+  <p>Pri extrémnom počasí (búrky, víchrica, povodne na Malom Dunaji) sledujte aj <a href={url('/aktuality/upozornenia/')}>upozornenia obce</a> a výstrahy SHMÚ na <a href="https://www.shmu.sk">shmu.sk</a>.</p>
+  <p class="page-meta">Údaje o počasí: <a href="https://open-meteo.com/">Open-Meteo.com</a> (CC BY 4.0). Predpoveď je orientačná.</p>
+</PageShell>
+<script>
+  import { loadWeather, describe } from '../../lib/weather';
+  const root = document.querySelector('[data-wx-page]')!;
+  const set = (k: string, v: string) => root.querySelectorAll(`[data-f="${k}"]`).forEach((e) => (e.textContent = v));
+  const icon = (name: string, size = 20) => {
+    const t = document.querySelector<HTMLTemplateElement>(`#wx-icons template[data-wx="${name}"]`);
+    const n = t ? (t.content.cloneNode(true) as DocumentFragment) : document.createDocumentFragment();
+    n.querySelectorAll('svg').forEach((s) => { s.setAttribute('width', String(size)); s.setAttribute('height', String(size)); });
+    return n;
+  };
+  const DAY = new Intl.DateTimeFormat('sk-SK', { weekday: 'long', timeZone: 'Europe/Bratislava' });
+  const DATE = new Intl.DateTimeFormat('sk-SK', { day: 'numeric', month: 'numeric', timeZone: 'Europe/Bratislava' });
+  loadWeather().then((d) => {
+    const list = document.querySelector('[data-wx-days]')!;
+    if (!d) { set('desc', 'Počasie nie je dostupné'); (document.querySelector('[data-wx-error]') as HTMLElement).hidden = false; list.replaceChildren(); return; }
+    const c = d.current; const w = describe(c.weather_code, c.is_day);
+    set('temp', String(Math.round(c.temperature_2m)));
+    set('desc', w.text);
+    set('feels', String(Math.round(c.apparent_temperature)));
+    set('hum', String(Math.round(c.relative_humidity_2m)));
+    set('wind', String(Math.round(c.wind_speed_10m)));
+    root.querySelector('.wx-big-ico')!.replaceChildren(icon(w.icon, 64));
+    list.replaceChildren(...d.daily.time.map((t: string, i: number) => {
+      const dt = new Date(t + 'T12:00:00');
+      const dw = describe(d.daily.weather_code[i]);
+      const li = document.createElement('li'); li.className = 'wx-day';
+      const name = i === 0 ? 'Dnes' : i === 1 ? 'Zajtra' : DAY.format(dt);
+      li.innerHTML = `<span class="wx-dname"><strong></strong><small></small></span><span class="wx-dico" aria-hidden="true"></span><span class="wx-dtext"></span><span class="wx-rain" title="Pravdepodobnosť zrážok"></span><span class="wx-range"><b></b> / <span></span> °C</span>`;
+      li.querySelector('strong')!.textContent = name[0].toUpperCase() + name.slice(1);
+      li.querySelector('small')!.textContent = DATE.format(dt);
+      li.querySelector('.wx-dico')!.append(icon(dw.icon, 28));
+      li.querySelector('.wx-dtext')!.textContent = dw.text;
+      const pr = d.daily.precipitation_probability_max?.[i];
+      li.querySelector('.wx-rain')!.textContent = pr != null ? `${pr} % zrážky` : '';
+      li.querySelector('.wx-range b')!.textContent = String(Math.round(d.daily.temperature_2m_max[i]));
+      li.querySelector('.wx-range span')!.textContent = String(Math.round(d.daily.temperature_2m_min[i]));
+      return li;
+    }));
+  });
+</script>

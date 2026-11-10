@@ -23,6 +23,16 @@ const fullTitle = title ? `${title} | Obec Most pri Bratislave` : 'Obec Most pri
     <meta property="og:image" content={new URL(url('/erb-512.png'), Astro.site)} />
     <meta property="og:locale" content="sk_SK" />
     {noindex && <meta name="robots" content="noindex" />}
+    <script is:inline>
+      // režim zvolený návštevníkom sa nastaví ešte pred vykreslením (bez bliknutia)
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        var r = document.documentElement;
+        if (t === 'light' || t === 'dark') r.dataset.theme = t;
+        if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) r.classList.add('is-dark');
+      })();
+    </script>
   </head>
   <body>
     <Header current={current} />

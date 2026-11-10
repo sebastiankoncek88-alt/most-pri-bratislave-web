@@ -1,0 +1,25 @@
+---
+import Icon from './Icon.astro';
+---
+<button class="theme-toggle" type="button" data-theme-toggle aria-label="Prepnúť na tmavý režim">
+  <span class="tt-dark"><Icon name="moon" size={16} /> <span class="hide-sm">Tmavý režim</span></span>
+  <span class="tt-light"><Icon name="sun" size={16} /> <span class="hide-sm">Svetlý režim</span></span>
+</button>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+  const root = document.documentElement;
+  const isDark = () => root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const sync = () => {
+    const d = isDark();
+    root.classList.toggle('is-dark', d);
+    btn?.setAttribute('aria-label', d ? 'Prepnúť na svetlý režim' : 'Prepnúť na tmavý režim');
+    btn?.setAttribute('aria-pressed', String(d));
+  };
+  btn?.addEventListener('click', () => {
+    root.dataset.theme = isDark() ? 'light' : 'dark';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch {}
+    sync();
+  });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', sync);
+  sync();
+</script>
