@@ -3,7 +3,7 @@
 # PRED SPUSTENÍM: doplňte názov repozitára (vlastník/názov).
 backend:
   name: github
-  repo: VLASTNIK/most-pri-bratislave-web
+  repo: sebastiankoncek88-alt/most-pri-bratislave-web
   branch: main
 
 media_folder: public/media/uploads
