@@ -2,7 +2,6 @@
 title: "Upozornenie na lietanie s dronmi"
 date: 2026-10-29
 category: "Upozornenie"
-time: "12:55"
 image: "/media/64df3ffbca538082.jpg"
 excerpt: "Obec Most pri Bratislave upozorňuje obyvateľov na pravidlá lietania s bezpilotnými lietadlami (dronmi) v súvislosti s podnetmi týkajúcimi sa preletov dronov nad časťou Studené, ale aj v obci Most pri Bratislave."
 source: "https://www.mostpribratislave.sk/novinka/143297/upozornenie-na-lietanie-s-dronmi"
