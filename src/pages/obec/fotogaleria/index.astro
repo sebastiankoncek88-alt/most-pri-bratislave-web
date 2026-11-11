@@ -1,7 +1,8 @@
 ---
 import PageShell from '../../../layouts/PageShell.astro';
 import gallery from '../../../data/gallery.json';
-import { url } from '../../../data/site';
+import { url, schools } from '../../../data/site';
+import Icon from '../../../components/Icon.astro';
 import { fmtDate } from '../../../lib/content';
 const count = (n: number) => `${n} ${n === 1 ? 'fotka' : n < 5 ? 'fotky' : 'fotiek'}`;
 ---
@@ -19,4 +20,23 @@ const count = (n: number) => `${n} ${n === 1 ? 'fotka' : n < 5 ? 'fotky' : 'foti
       </li>
     ))}
   </ul>
+  <section class="school-albums" aria-labelledby="skoly-title">
+    <h2 id="skoly-title">Fotky zo škôl</h2>
+    <p>Fotoalbumy z akcií škôl spravujú samotné školy na svojich weboch.</p>
+    <ul class="school-grid">
+      {schools.map((s) => (
+        <li class="school-card">
+          <span class="sc-ico" aria-hidden="true"><Icon name="school" size={28} /></span>
+          <span class="sc-body">
+            <strong>{s.name}</strong>
+            <small>{s.address}</small>
+            <span class="sc-links">
+              <a href={s.album}>Fotoalbum <Icon name="external-link" size={15} /></a>
+              <a href={s.web}>Web školy <Icon name="external-link" size={15} /></a>
+            </span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
 </PageShell>

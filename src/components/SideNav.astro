@@ -16,7 +16,7 @@ const isOpen = (i: { id: string; href: string }) => isCur(i) || (currentId ?? ''
       <ul>
         {items.map((top) => (
           <li>
-            <a class="sn" href={url(top.href)} aria-current={isCur(top) ? 'page' : undefined}>{top.title}</a>
+            <a class="sn" href={url(top.href)} aria-current={isCur(top) ? 'page' : undefined}>{top.title}{top.href.startsWith('http') && <span class="ext" aria-label=" (externý web)"> ↗</span>}</a>
             {top.children.length > 0 && isOpen(top) && (
               <ul>
                 {top.children.map((c) => (

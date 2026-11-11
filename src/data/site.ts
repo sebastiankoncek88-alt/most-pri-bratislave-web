@@ -131,6 +131,8 @@ export const extraLinks: Record<string, { title: string; href: string; group: st
   obec: [
     { title: 'Fotogaléria', href: '/obec/fotogaleria/', group: 'O obci', order: 3 },
     { title: 'Počasie a webkamera', href: '/obec/pocasie/', group: 'O obci', order: 6 },
+    { title: 'Web a fotoalbum ZŠ', href: 'https://zs-mostpribratislave.edupage.org/', group: 'Školy a zdravie', order: 11 },
+    { title: 'Web a fotoalbum MŠ', href: 'https://msmosticata.edupage.org/', group: 'Školy a zdravie', order: 12 },
   ],
   aktuality: [
     { title: 'Všetky aktuality', href: '/aktuality/', group: 'Z obce', order: 1 },
@@ -144,3 +146,9 @@ export const extraLinks: Record<string, { title: string; href: string; group: st
     { title: 'Odpovede na podnety občanov', href: '/kontakt/podnety/', group: 'Kontakty', order: 3 },
   ],
 };
+
+// Weby a fotoalbumy škôl (spravujú ich školy na EduPage)
+export const schools = [
+  { name: 'Základná škola M. R. Štefánika', short: 'ZŠ M. R. Štefánika', address: 'Športová 470/84', web: 'https://zs-mostpribratislave.edupage.org/', album: 'https://zs-mostpribratislave.edupage.org/album/' },
+  { name: 'Materská škola', short: 'Materská škola', address: 'ul. 29. augusta 384/2A', web: 'https://msmosticata.edupage.org/', album: 'https://msmosticata.edupage.org/album/' },
+];

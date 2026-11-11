@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import EventList from '../components/EventList.astro';
-import { quickLinks, obec, url } from '../data/site';
+import { quickLinks, obec, url, schools } from '../data/site';
 import { allNews, boardItems, newsUrl, fmtDate } from '../lib/content';
 import gallery from '../data/gallery.json';
 import podnety from '../data/podnety.json';
@@ -182,7 +182,10 @@ const board = await boardItems(5);
     <div class="container">
       <div class="section-head">
         <h2 id="gallery-title">Z fotogalérie</h2>
-        <a class="link-arrow" href={url('/obec/fotogaleria/')}>Všetky albumy <Icon name="arrow-right" size={18} /></a>
+        <span class="head-links">
+          {schools.map((sc) => <a class="link-arrow" href={sc.album}>Fotky {sc.short === 'Materská škola' ? 'z MŠ' : 'zo ZŠ'} <Icon name="external-link" size={16} /></a>)}
+          <a class="link-arrow" href={url('/obec/fotogaleria/')}>Všetky albumy <Icon name="arrow-right" size={18} /></a>
+        </span>
       </div>
       <ul class="album-grid album-grid--4">
         {photos.map((a) => (
