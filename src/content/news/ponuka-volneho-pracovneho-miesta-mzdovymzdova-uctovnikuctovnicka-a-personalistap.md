@@ -66,4 +66,5 @@ Podrobné informácie o pracovnej pozícii a požadovaných dokladoch nájdete v
 ## Súbory na stiahnutie
 <ul class="file-list">
 <li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144103/ponuka-pracovneho-miesta-mzdova-uctovnicka.pdf"><span class="file-ext">PDF</span><span class="file-name">Ponuka pracovného miesta - mzdová účtovníčka</span></a><span class="file-meta">127,11 KB · 12.11.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144103/zakladna-stupnica-platovych-tarif-zamestnancov-pri-vykone-prace-vo-verejnom-zaujme.pdf"><span class="file-ext">PDF</span><span class="file-name">Základná stupnica platových taríf zamestnancov pri výkone práce vo verejnom záujme</span></a><span class="file-meta">64,16 KB · 12.11.2026</span></li>
 </ul>

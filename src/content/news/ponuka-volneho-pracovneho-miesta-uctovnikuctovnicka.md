@@ -56,4 +56,5 @@ Podrobné informácie o pracovnej pozícii, požadovaných dokladoch a podmienka
 ## Súbory na stiahnutie
 <ul class="file-list">
 <li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144102/ponuka-pracovneho-miesta-uctovnicka.pdf"><span class="file-ext">PDF</span><span class="file-name">Ponuka pracovného miesta - učtovníčka</span></a><span class="file-meta">126,56 KB · 12.11.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144102/zakladna-stupnica-platovych-tarif-zamestnancov-pri-vykone-prace-vo-verejnom-zaujme.pdf"><span class="file-ext">PDF</span><span class="file-name">Základná stupnica platových taríf zamestnancov pri výkone práce vo verejnom záujme</span></a><span class="file-meta">64,16 KB · 12.11.2026</span></li>
 </ul>
