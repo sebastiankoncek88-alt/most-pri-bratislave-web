@@ -3,7 +3,7 @@ title: "Projekty obce"
 section: aktuality
 group: "Z obce"
 order: 10
-updated: 2026-11-11
+updated: 2026-11-12
 source: "https://www.mostpribratislave.sk/31251/projekty"
 ---
 

@@ -3,7 +3,7 @@ title: "Farnosť"
 section: obec
 group: "Kultúra, šport, spolky"
 order: 33
-updated: 2026-11-11
+updated: 2026-11-12
 source: "https://www.mostpribratislave.sk/1381/farnost"
 ---
 
