@@ -4,7 +4,7 @@ section: obec
 group: "Kultúra, šport, spolky"
 order: 32.5
 parent: "kluby"
-updated: 2026-11-12
+updated: 2026-11-13
 source: "https://www.mostpribratislave.sk/1399/fk-slovan-most-pri-bratislave"
 ---
 
