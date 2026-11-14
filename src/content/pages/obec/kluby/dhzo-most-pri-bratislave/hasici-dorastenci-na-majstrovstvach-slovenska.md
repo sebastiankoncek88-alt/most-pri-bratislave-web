@@ -4,7 +4,7 @@ section: obec
 group: "Kultúra, šport, spolky"
 order: 33.0
 parent: "kluby/dhzo-most-pri-bratislave"
-updated: 2026-11-13
+updated: 2026-11-14
 source: "https://www.mostpribratislave.sk/1463/hasici-dorastenci-na-majstrovstvach-slovenska"
 ---
 
