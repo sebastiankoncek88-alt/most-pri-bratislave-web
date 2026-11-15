@@ -3,7 +3,7 @@ title: "Kluby a spolky"
 section: obec
 group: "Kultúra, šport, spolky"
 order: 32
-updated: 2026-11-14
+updated: 2026-11-15
 source: "https://www.mostpribratislave.sk/1383/kluby"
 ---
 

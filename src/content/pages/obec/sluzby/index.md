@@ -3,7 +3,7 @@ title: "Služby v obci"
 section: obec
 group: "Služby a doprava"
 order: 20
-updated: 2026-11-14
+updated: 2026-11-15
 source: "https://www.mostpribratislave.sk/1379/sluzby-v-obci"
 ---
 
