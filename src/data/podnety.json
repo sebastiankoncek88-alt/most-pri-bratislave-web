@@ -1,9 +1,18 @@
 {
  "stats": {
   "open": 0,
-  "solved": 1647
+  "solved": 1648
  },
  "items": [
+  {
+   "id": "16715",
+   "title": "Osvetlenie M.R.Štefánika",
+   "status": "Vyriešený",
+   "received": "2026-11-16",
+   "answered": "2026-11-16",
+   "answer": "Dobrý deň,\n\nďakujem veľmi pekne za nahlásenie nefungujúceho verejného osvetlenia.\n\nPožiadam obecného elektrikára, aby preveril funkčnosť verejného osvetlenia v zadnej časti sídliska na ulici M. R. Štefánika, a to na parkoviskách aj pri príjazdovej ceste, a zistil príčinu jeho nefunkčnosti.\n\nĎakujem za upozornenie.\n\nS pozdravom,\n\nRentková.",
+   "url": "https://www.mostpribratislave.sk/podnety-a-otazky/16715/osvetlenie-mrstefanika"
+  },
   {
    "id": "16670",
    "title": "Vianocne trhy",
@@ -174,15 +183,6 @@
    "answered": "2026-10-26",
    "answer": "Dobrý deň,\n\nsituácia s vlastníctvom pozemkov sa nezmenila. Chodník nevybudovala obec, ale developer danej lokality, ktorý mal jeho realizáciu uloženú ako podmienku v rámci stavebných povolení. K samotnej realizácii došlo až po preložení vodovodu, ktorý sa nachádza priamo pod telesom chodníka. Developer napokon vybudoval obe etapy chodníka – I. aj II. etapu. Umožnil to aj zmluvný vzťah medzi pôvodným stavebníkom I. etapy a stavebníkom II. etapy, na základe ktorého došlo k prenosu práv a povinností.\n\nChápem, že načasovanie môže vyvolávať rôzne domnienky v súvislosti s voľbami. Vybudovanie chodníka je však výsledkom dlhodobej iniciatívy obce a rokovaní, nie novej aktivity pred voľbami. Jednotlivé stavebné práce majú svoju nadväznosť a nemožno ich realizovať zo dňa na deň. Obec na splnení záväzkov developera trvala a som rada, že výsledkom je chodník, ktorý môžu obyvatelia využívať.\n\nAktuálne developer zabezpečuje kolaudáciu chodníkov a ciest v celej lokalite, na ktorú následne nadväzuje kolaudácia jednotlivých nehnuteľností.\n\nS pozdravom,\n\nRentková.",
    "url": "https://www.mostpribratislave.sk/podnety-a-otazky/16474/chodnik"
-  },
-  {
-   "id": "16460",
-   "title": "Parkovanie",
-   "status": "Vyriešený",
-   "received": "2026-10-12",
-   "answered": "2026-10-16",
-   "answer": "Dobrý deň,\n\nak by o odkúpenie parkovacích miest prejavilo záujem viacero vlastníkov bytov z predmetnej lokality, môžu obci podať spoločnú žiadosť. Tá by bola predložená na posúdenie príslušnej komisii a o prípadnom odpredaji obecných pozemkov a podmienkach takéhoto postupu by rozhodovalo obecné zastupiteľstvo. Doteraz boli predkladané iba individuálne žiadosti majiteľov bytov.\n\nV prípade schválenia predaja by obecné zastupiteľstvo určilo podmienky a spôsob prevodu, napríklad formou verejnej obchodnej súťaže alebo dražby. Pri takomto postupe spravidla rozhoduje výška ponúknutej ceny, pričom vo verejnej obchodnej súťaži sa vychádza z minimálnej ceny stanovenej v jej podmienkach.\n\nZároveň je potrebné zohľadniť zákonné požiadavky na nakladanie s majetkom obce, ako aj zachovanie potrebných parkovacích miest, vrátane miest pre osoby so zdravotným postihnutím. Nie je preto možné automaticky priradiť konkrétne parkovacie miesto ku konkrétnemu bytu.\n\nĎakujem za Váš podnet a záujem o riešenie parkovania v lokalite Pod Pšenom.\n\nS pozdravom,\n\nRentková.",
-   "url": "https://www.mostpribratislave.sk/podnety-a-otazky/16460/parkovanie"
   }
  ]
 }

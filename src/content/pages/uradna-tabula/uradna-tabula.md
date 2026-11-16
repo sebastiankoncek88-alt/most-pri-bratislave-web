@@ -7,6 +7,7 @@ source: "https://www.mostpribratislave.sk/zverejnovanie/135/elektronicka-uradna-
 ---
 
 <ul class="doc-list">
+<li><time>16.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/543475/okresny-urad-bratislava-verejna-vyhlaska-rozhodnutie-o-schvaleni-programu-starostlivosti-o-lesy-na-obdobie-rokov-2026-2035">Okresný úrad Bratislava - verejná vyhláška - Rozhodnutie o schválení programu starostlivosti o lesy na obdobie rokov 2026-2035</a><span class="doc-files">1 súbor (265 KB)</span></li>
 <li><time>5.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/542018/navrh-dodatku-c-6-k-vzn-c-62014-o-urceni-nazvov-ulic-na-uzemi-obce-most-pri-bratislave">Návrh dodatku č. 6 k VZN č. 6/2014 o určení názvov ulíc na území obce Most pri Bratislave</a><span class="doc-files">2 súbory (2 MB)</span></li>
 <li><time>3.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/541394/zverejnenie-informacie-o-podani-ziadosti-c-ocumpb-su-10657-1395-5-2026">Zverejnenie informácie o podaní žiadosti č. OcUMPB-SU-10657-1395-5-2026</a><span class="doc-files">2 súbory (4 MB)</span></li>
 <li><time>3.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/541381/zverejnenie-informacie-o-podani-ziadosti-c-ocumpb-su-10654-1394-5-2026">Zverejnenie informácie o podaní žiadosti č. OcUMPB-SU-10654-1394-5-2026</a><span class="doc-files">2 súbory (4 MB)</span></li>
@@ -31,5 +32,4 @@ source: "https://www.mostpribratislave.sk/zverejnovanie/135/elektronicka-uradna-
 <li><time>16.9.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/534059/okresny-urad-bratislava-verejna-vyhlaska">Okresný úrad Bratislava - verejná vyhláška</a><span class="doc-files">1 súbor (109 KB)</span></li>
 <li><time>11.9.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/533557/verejna-vyhlaska-zverejnenie-rozdelovacieho-planu-vo-forme-umiestnovacieho-a-vytycovacieho-planu">VEREJNÁ VYHLÁŠKA- Zverejnenie rozdeľovacieho plánu vo forme umiestňovacieho a vytyčovacieho plánu</a><span class="doc-files">2 súbory (450 KB)</span></li>
 <li><time>11.9.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/533554/verejna-vyhlaska-urcenie-lehoty-na-odstranenie-nedostatkov-a-rozhodnutie-o-preruseni-kolaudacneho-konania">Verejná vyhláška - Určenie lehoty na odstránenie nedostatkov a rozhodnutie o prerušení kolaudačného konania</a><span class="doc-files">1 súbor (221 KB)</span></li>
-<li><time>9.9.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/533281/zamer-priameho-predaja-hnutelneho-majetku-obce-nissan">Zámer priameho predaja hnuteľného majetku obce - NISSAN</a><span class="doc-files">1 súbor (647 KB)</span></li>
 </ul>
