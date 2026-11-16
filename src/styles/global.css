@@ -911,3 +911,18 @@ p { margin: 0 0 1em; }
   .home-grid > aside { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
   .home-grid > aside .panel + .panel { margin-top: 0; }
 }
+
+/* ---------- Tlač ---------- */
+@media print {
+  :root { --ink: #000; --ink-2: #222; --muted: #444; --heading: #000; --link: #000; --card: #fff; --bg: #fff; --surface: #fff; --line: #bbb; }
+  body { font-size: 11pt; background: #fff; color: #000; }
+  .topbar, .site-header, .site-footer, .side-nav, .alert-bar, .help-box, .page-meta, .breadcrumbs, .doc-filter, .reach-bar, .reach-fab, .reach-spacer, .more-wrap, .hero-search, .skip-link { display: none !important; }
+  .page-head { background: none !important; border: 0; padding: 0 0 8pt; }
+  .page-layout { display: block; padding: 0; }
+  .prose { max-width: none; }
+  .prose a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #444; word-break: break-all; }
+  .file-list a::after { content: none !important; }
+  .file-list li, .doc-list li, .contact-card, .panel { break-inside: avoid; }
+  h1 { font-size: 20pt; } h2 { font-size: 14pt; }
+  .page-head .container::after { content: "Obec Most pri Bratislave, Bratislavská 96/98, tel. 02 / 4595 1215"; display: block; margin-top: 4pt; font-size: 9pt; color: #444; }
+}
