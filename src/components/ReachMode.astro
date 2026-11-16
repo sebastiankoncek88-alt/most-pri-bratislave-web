@@ -1,0 +1,39 @@
+---
+// Režim pre vozíčkarov: obsah sa posunie do dolnej časti obrazovky (dosah zo sedu),
+// väčšie písmo a tlačidlá, ovládacia lišta dole. Na obrazovke na úrade: adresa s ?kiosk=1.
+import Icon from './Icon.astro';
+import { url } from '../data/site';
+---
+<div class="reach-spacer" aria-hidden="true">
+  <p><Icon name="accessibility" size={28} /> Obsah je posunutý nižšie pre lepší dosah zo sedu.</p>
+</div>
+<nav class="reach-bar" aria-label="Ovládanie v režime pre vozíčkarov">
+  <button type="button" data-reach-back><Icon name="arrow-left" size={26} /><span>Späť</span></button>
+  <a href={url('/')}><Icon name="house" size={26} /><span>Domov</span></a>
+  <a href={url('/vyhladavanie/')}><Icon name="search" size={26} /><span>Hľadať</span></a>
+  <button type="button" data-reach-top><Icon name="arrow-up" size={26} /><span>Hore</span></button>
+  <button type="button" data-reach-off class="reach-off"><Icon name="x" size={26} /><span>Vypnúť režim</span></button>
+</nav>
+<button type="button" class="reach-fab" data-reach-toggle aria-pressed="false" aria-label="Zapnúť režim pre vozíčkarov (obsah sa posunie nižšie)">
+  <Icon name="accessibility" size={30} /><span>Režim pre vozíčkarov</span>
+</button>
+<script>
+  const root = document.documentElement;
+  const save = (k: string, v: string | null) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} };
+  const set = (on: boolean) => {
+    root.classList.toggle('reach', on);
+    save('reach', on ? '1' : null);
+    document.querySelectorAll('[data-reach-toggle]').forEach((b) => b.setAttribute('aria-pressed', String(on)));
+  };
+  // obrazovka na úrade: ?kiosk=1 zapne trvalé zobrazenie tlačidla dole (?kiosk=0 vypne)
+  const k = new URLSearchParams(location.search).get('kiosk');
+  if (k === '1') { save('kiosk', '1'); root.classList.add('kiosk'); }
+  if (k === '0') { save('kiosk', null); root.classList.remove('kiosk'); }
+  document.querySelectorAll('[data-reach-toggle]').forEach((b) => {
+    b.setAttribute('aria-pressed', String(root.classList.contains('reach')));
+    b.addEventListener('click', () => set(!root.classList.contains('reach')));
+  });
+  document.querySelector('[data-reach-off]')?.addEventListener('click', () => set(false));
+  document.querySelector('[data-reach-top]')?.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+  document.querySelector('[data-reach-back]')?.addEventListener('click', () => (history.length > 1 ? history.back() : (location.href = (document.querySelector('.reach-bar a') as HTMLAnchorElement).href)));
+</script>
