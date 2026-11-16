@@ -27,8 +27,10 @@ const pages = (await sectionPages('aktuality')).filter((p) => !p.data.parent);
         {cats.map((c) => <button class="btn btn-ghost" data-cat={c} aria-pressed="false">{c}</button>)}
       </div>
       <div class="news-grid" id="news">
-        {news.map((n) => <div data-category={n.data.category}><NewsCard item={n} /></div>)}
+        {news.map((n, i) => <div data-category={n.data.category} hidden={i >= 12}><NewsCard item={n} /></div>)}
       </div>
+      <p class="more-wrap"><button class="btn btn-ghost" type="button" data-more hidden={news.length <= 12}>Zobraziť ďalšie aktuality</button></p>
+      <noscript><style>#news > [hidden] { display: contents !important; }</style></noscript>
       <p style="margin-top:24px"><a href="https://www.mostpribratislave.sk/novinky/1370/novinky-v-obci">Staršie aktuality v archíve</a></p>
     </div>
     <aside>
@@ -54,10 +56,27 @@ const pages = (await sectionPages('aktuality')).filter((p) => !p.data.parent);
   #news > div[hidden] { display: none; }
 </style>
 <script>
+  const PAGE = 12;
+  let cat = '';
+  let shown = PAGE;
+  const items = [...document.querySelectorAll<HTMLElement>('#news > [data-category]')];
+  const more = document.querySelector<HTMLButtonElement>('[data-more]')!;
+  const render = () => {
+    const match = items.filter((el) => !cat || el.dataset.category === cat);
+    items.forEach((el) => (el.hidden = true));
+    match.slice(0, shown).forEach((el) => (el.hidden = false));
+    more.hidden = match.length <= shown;
+    more.textContent = `Zobraziť ďalšie aktuality (${match.length - shown})`;
+  };
   const btns = document.querySelectorAll<HTMLButtonElement>('[data-cat]');
   btns.forEach((b) => b.addEventListener('click', () => {
     btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    const c = b.dataset.cat;
-    document.querySelectorAll<HTMLElement>('#news > [data-category]').forEach((el) => { el.hidden = !!c && el.dataset.category !== c; });
+    cat = b.dataset.cat || ''; shown = PAGE; render();
   }));
+  more.addEventListener('click', () => {
+    const first = items.filter((el) => (!cat || el.dataset.category === cat))[shown];
+    shown += PAGE; render();
+    first?.querySelector('a')?.focus();
+  });
+  render();
 </script>

@@ -903,3 +903,4 @@ p { margin: 0 0 1em; }
 .contact-card h3 a { text-decoration: none; color: var(--heading); }
 .contact-card h3 a:hover { color: var(--link); text-decoration: underline; }
 .contacts-empty { color: var(--ink-2); }
+.more-wrap { margin: 24px 0 0; text-align: center; }
