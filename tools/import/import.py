@@ -230,13 +230,14 @@ def clean(body, link_map, self_url=None):
         base = u.split('#')[0].split('?')[0].rstrip('/')
         if base in link_map: return '(' + link_map[base]
         return '(' + u
-    b = re.sub(r'<(https?://(?:www\.)?mostpribratislave\.sk[^>\s]*)>', r'[Viac informácií](\1)', b)
+    b = re.sub(r'(\w)?<(https?://(?:www\.)?mostpribratislave\.sk[^>\s]*)>', lambda m_: (m_.group(1) + ' ' if m_.group(1) else '') + f'[Viac informácií]({m_.group(2)})', b)
     b = re.sub(r'\((/(?!media/)[^)\s]+|https?://(?:www\.)?mostpribratislave\.sk[^)\s]*)', relink, b)
     selfnew = link_map.get(self_url.rstrip('/')) if self_url else None
     def oldtext(mm):
         tgt = mm.group(1)
         return '' if tgt == selfnew else f'[Viac informácií]({tgt})'
     b = re.sub(r'\[https?://(?:www\.)?mostpribratislave\.sk[^\]]*\]\(([^)\s]+)[^)]*\)', oldtext, b)
+    b = re.sub(r'([^\s(\[])\[Viac informácií\]', r'\1 [Viac informácií]', b)
     b = re.sub(r'href="(/data/[^"]+)"', lambda mm: 'href="' + OLD + mm.group(1) + '"', b)
     # zdvojené odseky (perex sa na starom webe opakuje)
     paras = b.split('\n\n'); out = []

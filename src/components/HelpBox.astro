@@ -1,0 +1,24 @@
+---
+// Rámček „Neviete si rady?“ na konci podstránok – kontakt podľa sekcie
+import Icon from './Icon.astro';
+import OfficeStatus from './OfficeStatus.astro';
+import { obec, url } from '../data/site';
+interface Props { section: string }
+const { section } = Astro.props;
+const by: Record<string, { who: string; email: string; phone?: string }> = {
+  odpady: { who: 'Referát odpadov a životného prostredia', email: 'odpady@mostpribratislave.sk', phone: '02 / 4595 1215, kl. 3' },
+  samosprava: { who: 'Sekretariát starostky', email: 'sekretariat@mostpribratislave.sk' },
+  'uradna-tabula': { who: 'Podateľňa a sekretariát', email: 'sekretariat@mostpribratislave.sk' },
+};
+const c = by[section] ?? { who: 'Obecný úrad Most pri Bratislave', email: obec.email };
+---
+<aside class="help-box" aria-labelledby="help-title" data-pagefind-ignore>
+  <h2 id="help-title"><Icon name="life-buoy" size={22} /> Neviete si rady?</h2>
+  <p>{c.who} vám rád poradí.</p>
+  <ul>
+    <li><Icon name="phone" size={18} /> <a href={`tel:${obec.phoneHref}`}>{c.phone ?? obec.phone}</a></li>
+    <li><Icon name="mail" size={18} /> <a href={`mailto:${c.email}`}>{c.email}</a></li>
+    <li><Icon name="clock" size={18} /> <OfficeStatus /></li>
+    <li><Icon name="arrow-right" size={18} /> <a href={url('/kontakt/')}>Stránkové hodiny a všetky kontakty</a></li>
+  </ul>
+</aside>

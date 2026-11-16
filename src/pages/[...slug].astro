@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SideNav from '../components/SideNav.astro';
+import HelpBox from '../components/HelpBox.astro';
 import { sections, url } from '../data/site';
 import { sortChildren, pageUrl, fmtDate } from '../lib/content';
 
@@ -53,6 +54,7 @@ const isEmpty = !(page.body || '').trim();
       {hasDocs && d.source && (
         <div class="note" data-pagefind-ignore><Icon name="info" size={20} /><p>Zobrazené sú najnovšie zverejnené dokumenty. Staršie záznamy nájdete v <a href={d.source}>archíve</a>.</p></div>
       )}
+      {d.section !== 'kontakt' && <HelpBox section={d.section} />}
       <div class="page-meta" data-pagefind-ignore>
         {d.updated && <span>Naposledy upravené: {fmtDate(d.updated)}</span>}
         <span>Správca obsahu: Obecný úrad Most pri Bratislave</span>

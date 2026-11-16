@@ -848,3 +848,29 @@ p { margin: 0 0 1em; }
 @media print { .reach-bar, .reach-fab, .reach-spacer { display: none !important; } }
 :root.reach .topbar a[href^="mailto:"], :root.reach .topbar a[href*="facebook"], :root.reach .topbar a[href$="/obec/fotogaleria/"] { display: none; }
 :root.reach .topbar .theme-toggle, :root.reach .office-status { white-space: nowrap; }
+
+/* Rámček pomoci */
+.help-box { margin-top: 40px; padding: 20px 22px; border: 1px solid var(--line); border-left: 4px solid var(--link); border-radius: var(--radius-sm); background: var(--surface); }
+.help-box h2 { display: flex; gap: 10px; align-items: center; font-size: 1.25rem; margin: 0 0 4px; padding: 0; }
+.help-box h2 .icon { color: var(--link); }
+.help-box p { color: var(--ink-2); margin: 0 0 10px; }
+.help-box ul { list-style: none; margin: 0 !important; padding: 0 !important; display: grid; gap: 6px; }
+.help-box li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 0 !important; }
+.help-box li > .icon { color: var(--muted); }
+
+/* Vyhľadávanie (Pagefind) – zladenie s dizajnom webu */
+.search-page .pagefind-ui__search-input { font-family: var(--font) !important; font-weight: 600; color: var(--ink); background: var(--card); }
+.search-page .pagefind-ui__search-clear { font-family: var(--font); font-size: 0.9375rem; font-weight: 600; color: var(--link); background: transparent !important; border: 0; padding: 0 16px; }
+.search-page .pagefind-ui__search-clear:hover { text-decoration: underline; }
+.search-page .pagefind-ui__message { font-weight: 600; color: var(--ink-2); }
+.search-page .pagefind-ui__result { border-top: 1px solid var(--line) !important; padding: 22px 0 !important; }
+.search-page .pagefind-ui__result-link { color: var(--heading) !important; font-weight: 700; text-decoration: none; }
+.search-page .pagefind-ui__result-link:hover { color: var(--link) !important; text-decoration: underline; }
+.search-page .pagefind-ui__result-title { font-size: 1.1875rem; }
+.search-page .pagefind-ui__result-nested .pagefind-ui__result-link { font-size: 1.0625rem; font-weight: 600; }
+.search-page .pagefind-ui__result-nested .pagefind-ui__result-link::before { content: '› ' !important; color: var(--muted); }
+.search-page .pagefind-ui__result-excerpt { color: var(--ink-2); font-size: 0.9875rem; }
+.search-page mark { background: var(--warn-bg); color: var(--warn-ink); padding: 0 2px; border-radius: 3px; font-weight: 600; }
+.search-page .pagefind-ui__button { font-family: var(--font); font-weight: 700; color: var(--link); background: var(--card); border: 2px solid var(--line-strong); border-radius: 999px; }
+.search-page .pagefind-ui__button:hover { border-color: var(--link); }
+.search-page { --pagefind-ui-background: var(--card); --pagefind-ui-tag: var(--chip); }
