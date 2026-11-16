@@ -893,3 +893,13 @@ p { margin: 0 0 1em; }
   .sn-wrap[open] > summary { margin-bottom: 14px; }
   .side-nav { border-top: 0 !important; padding-top: 8px !important; }
 }
+
+/* Kontakt */
+.contact-hero .panel + .panel { margin-top: 0; }
+.contacts-head { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; margin: 1.6em 0 16px; }
+.contacts-head h2 { margin: 0; }
+.contacts-head .doc-filter { margin: 0; flex: 1; max-width: 360px; min-width: 220px; }
+.contacts-head .doc-filter input { max-width: none; width: 100%; }
+.contact-card h3 a { text-decoration: none; color: var(--heading); }
+.contact-card h3 a:hover { color: var(--link); text-decoration: underline; }
+.contacts-empty { color: var(--ink-2); }

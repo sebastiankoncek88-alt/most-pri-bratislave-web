@@ -43,8 +43,15 @@ const days = [1, 2, 3, 4, 5];
       </section>
     </div>
 
-    <h2>Kontakty na referáty</h2>
-    <div class="contact-grid">
+    <div class="contacts-head">
+      <h2>Kontakty na referáty</h2>
+      <div class="doc-filter">
+        <label for="cf" class="sr-only">Hľadať v kontaktoch</label>
+        <input id="cf" type="search" placeholder="Hľadať meno alebo referát…" data-contact-filter />
+      </div>
+    </div>
+    <p class="contacts-empty" hidden data-contact-empty>Nič sme nenašli. Skúste iné slovo alebo zavolajte na úrad {obec.phone}.</p>
+    <div class="contact-grid" data-contacts>
       {contacts.map((c) => (
         <div class="contact-card">
           <h3><a href={url(c.href)}>{c.title}</a></h3>
@@ -63,6 +70,16 @@ const days = [1, 2, 3, 4, 5];
   </div>
 </Base>
 <script>
+  const cf = document.querySelector<HTMLInputElement>('[data-contact-filter]');
+  cf?.addEventListener('input', () => {
+    const q = cf.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    let n = 0;
+    document.querySelectorAll<HTMLElement>('[data-contacts] .contact-card').forEach((c) => {
+      const hit = !q || (c.textContent || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(q);
+      c.hidden = !hit; if (hit) n++;
+    });
+    (document.querySelector('[data-contact-empty]') as HTMLElement).hidden = n > 0;
+  });
   const d = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Bratislava' })).getDay();
   document.querySelector(`#hours tr[data-day="${d}"]`)?.classList.add('today');
 </script>
