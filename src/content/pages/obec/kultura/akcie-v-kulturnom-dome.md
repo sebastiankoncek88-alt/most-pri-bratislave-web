@@ -2,7 +2,7 @@
 title: "Akcie v kultúrnom dome"
 section: obec
 group: "Kultúra, šport, spolky"
-order: 31.5
+order: 31.5107
 parent: "kultura"
 updated: 2025-04-07
 source: "https://www.mostpribratislave.sk/1388/akcie-v-kulturnom-dome"

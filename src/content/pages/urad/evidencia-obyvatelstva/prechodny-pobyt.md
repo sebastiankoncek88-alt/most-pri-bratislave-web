@@ -2,7 +2,7 @@
 title: "Prechodný pobyt"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.5136
 parent: "evidencia-obyvatelstva"
 updated: 2022-03-15
 source: "https://www.mostpribratislave.sk/13702/prechodny-pobyt"

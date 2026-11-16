@@ -2,7 +2,7 @@
 title: "Harmonogram na rok 2024"
 section: odpady
 group: "Základné informácie"
-order: 0.5
+order: 0.5148
 parent: "harmonogram"
 updated: 2025-12-15
 source: "https://www.mostpribratislave.sk/26763/harmonogram-na-rok-2024"

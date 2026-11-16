@@ -2,7 +2,7 @@
 title: "Revitalizáciu školského areálu v Základnej škole M. R. Štefánika"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5093
 parent: "projekty"
 updated: 2026-08-13
 source: "https://www.mostpribratislave.sk/31657/revitalizaciu-skolskeho-arealu-v-zakladnej-skole-m-r-stefanika"

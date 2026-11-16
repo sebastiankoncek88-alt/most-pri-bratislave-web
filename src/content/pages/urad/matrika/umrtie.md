@@ -2,7 +2,7 @@
 title: "Úmrtie"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5124
 parent: "matrika"
 updated: 2025-02-20
 source: "https://www.mostpribratislave.sk/13693/umrtie"

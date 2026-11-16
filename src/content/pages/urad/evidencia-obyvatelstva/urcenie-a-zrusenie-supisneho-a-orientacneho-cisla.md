@@ -2,7 +2,7 @@
 title: "Určenie a zrušenie súpisného a orientačného čísla"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.5138
 parent: "evidencia-obyvatelstva"
 updated: 2022-08-17
 source: "https://www.mostpribratislave.sk/13705/urcenie-a-zrusenie-supisneho-a-orientacneho-cisla"

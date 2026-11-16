@@ -2,7 +2,7 @@
 title: "Chodník a verejné osvetlenie - Autobusová zastávka pri Tureckom kopci"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5094
 parent: "projekty"
 updated: 2026-10-21
 source: "https://www.mostpribratislave.sk/31896/chodnik-a-verejne-osvetlenie-autobusova-zastavka-pri-tureckom-kopci"

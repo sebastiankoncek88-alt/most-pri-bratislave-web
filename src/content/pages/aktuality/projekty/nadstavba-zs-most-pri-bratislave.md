@@ -2,7 +2,7 @@
 title: "Nadstavba ZŠ Most pri Bratislave"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5087
 parent: "projekty"
 updated: 2026-10-21
 source: "https://www.mostpribratislave.sk/31252/nadstavba-zs-most-pri-bratislave"

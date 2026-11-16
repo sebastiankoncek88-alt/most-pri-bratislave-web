@@ -2,7 +2,7 @@
 title: "Revitalizácia vozovky na ul. Krátka"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5088
 parent: "projekty"
 updated: 2026-11-16
 source: "https://www.mostpribratislave.sk/31272/revitalizacia-vozovky-na-ul-kratka"

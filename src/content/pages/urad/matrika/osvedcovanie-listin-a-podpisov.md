@@ -2,7 +2,7 @@
 title: "Osvedčovanie listín a podpisov"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5129
 parent: "matrika"
 updated: 2022-03-10
 source: "https://www.mostpribratislave.sk/13699/osvedcovanie-listin-a-podpisov"

@@ -2,7 +2,7 @@
 title: "Cestovný poriadok"
 section: obec
 group: "Služby a doprava"
-order: 20.5
+order: 20.5106
 parent: "sluzby"
 updated: 2022-03-21
 source: "https://www.mostpribratislave.sk/1387/cestovny-poriadok"

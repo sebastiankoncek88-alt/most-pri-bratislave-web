@@ -2,7 +2,7 @@
 title: "Príspevok pri narodení dieťaťa"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5131
 parent: "matrika"
 updated: 2025-03-11
 source: "https://www.mostpribratislave.sk/13930/prispevok-pri-narodeni-dietata"

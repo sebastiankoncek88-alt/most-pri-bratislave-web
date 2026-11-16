@@ -2,7 +2,7 @@
 title: "Participatívny rozpočet 2025"
 section: samosprava
 group: "Predpisy a rozpočet"
-order: 22.5
+order: 22.5121
 parent: "participativny-rozpocet"
 updated: 2025-04-11
 source: "https://www.mostpribratislave.sk/27192/participativny-rozpocet-2025"

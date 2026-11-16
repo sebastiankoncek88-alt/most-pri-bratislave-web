@@ -2,7 +2,7 @@
 title: "Kontakt"
 section: obec
 group: "Kultúra, šport, spolky"
-order: 33.5
+order: 33.511
 parent: "farnost"
 updated: 2024-07-08
 source: "https://www.mostpribratislave.sk/1394/kontakt"

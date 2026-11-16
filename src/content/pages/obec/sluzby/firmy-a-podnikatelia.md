@@ -2,7 +2,7 @@
 title: "Firmy a podnikatelia"
 section: obec
 group: "Služby a doprava"
-order: 20.5
+order: 20.5103
 parent: "sluzby"
 updated: 2021-06-21
 source: "https://www.mostpribratislave.sk/1384/firmy-a-podnikatelia"

@@ -2,7 +2,7 @@
 title: "Výmena autobusových zastávok"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5096
 parent: "projekty"
 source: "https://www.mostpribratislave.sk/31898/vymena-autobusovych-zastavok"
 ---

@@ -2,7 +2,7 @@
 title: "Tlačivá"
 section: odpady
 group: "Základné informácie"
-order: 4.5
+order: 4.5141
 parent: "referat-odpadov"
 updated: 2025-11-26
 source: "https://www.mostpribratislave.sk/14164/tlaciva"

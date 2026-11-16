@@ -1,8 +1,8 @@
 ---
-title: "Výpisy z matrík - rodný list, úmrtný list, sobášny list"
+title: "Výpisy z matrík (rodný, sobášny, úmrtný list)"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5126
 parent: "matrika"
 updated: 2025-07-17
 source: "https://www.mostpribratislave.sk/13695/vypisy-z-matrik-rodny-list-umrtny-list-sobasny-list"

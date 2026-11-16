@@ -2,7 +2,7 @@
 title: "Pošta"
 section: obec
 group: "Služby a doprava"
-order: 20.5
+order: 20.5104
 parent: "sluzby"
 updated: 2025-04-07
 source: "https://www.mostpribratislave.sk/1385/posta"

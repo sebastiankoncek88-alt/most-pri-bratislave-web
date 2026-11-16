@@ -2,7 +2,7 @@
 title: "FK Slovan Most pri Bratislave"
 section: obec
 group: "Kultúra, šport, spolky"
-order: 32.5
+order: 32.5117
 parent: "kluby"
 updated: 2026-11-16
 source: "https://www.mostpribratislave.sk/1399/fk-slovan-most-pri-bratislave"

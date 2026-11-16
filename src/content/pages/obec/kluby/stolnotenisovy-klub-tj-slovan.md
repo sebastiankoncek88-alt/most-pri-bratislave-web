@@ -2,7 +2,7 @@
 title: "Stolnotenisový klub TJ Slovan"
 section: obec
 group: "Kultúra, šport, spolky"
-order: 32.5
+order: 32.5118
 parent: "kluby"
 updated: 2023-08-02
 source: "https://www.mostpribratislave.sk/1400/stolnotenisovy-klub-tj-slovan"

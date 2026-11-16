@@ -124,6 +124,11 @@ CHILD_TITLES = {
     '1400': 'Stolnotenisový klub TJ Slovan',
     '1398': 'DHZO Most pri Bratislave (hasiči)',
     '1462': 'Ples futbalistov 2012',
+    '28313': 'Tlačivá podľa pôvodného stavebného zákona (50/1976 Zb.)',
+    '28314': 'Elektronické podanie cez Portál výstavby',
+    '28315': 'Tlačivá podľa nového stavebného zákona (25/2025 Z. z.)',
+    '13695': 'Výpisy z matrík (rodný, sobášny, úmrtný list)',
+    '27153': 'Žiadosti o príspevky',
 }
 CHILD_SLUGS = {
     '28313': 'tlaciva-stary-zakon', '28314': 'portal-vystavby', '28315': 'tlaciva-novy-zakon',
@@ -385,7 +390,7 @@ for _ in range(3):
         slug = CHILD_SLUGS.get(k1) or p['url'].rstrip('/').split('/')[-1]
         title = CHILD_TITLES.get(k1) or title_case_fix(p['title'])
         assigned[p['url']] = dict(section=pi['section'], slug=pi['slug'] + '/' + slug,
-                                  group=pi['group'], order=pi['order'] + 0.5, title=title,
+                                  group=pi['group'], order=round(pi['order'] + 0.5 + pages.index(p) / 10000, 4), title=title,
                                   parent=pi['slug'])
 
 link_map = {u.rstrip('/'): f"/{a['section']}/{a['slug']}/" for u, a in assigned.items()}

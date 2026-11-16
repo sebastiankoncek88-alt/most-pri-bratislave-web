@@ -2,7 +2,7 @@
 title: "Harmonogram na rok 2025"
 section: odpady
 group: "Základné informácie"
-order: 0.5
+order: 0.5146
 parent: "harmonogram"
 updated: 2025-03-05
 source: "https://www.mostpribratislave.sk/26764/harmonogram-na-rok-2025"

@@ -2,7 +2,7 @@
 title: "Návrh na zrušenie trvalého pobytu"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.5137
 parent: "evidencia-obyvatelstva"
 updated: 2025-12-04
 source: "https://www.mostpribratislave.sk/13703/navrh-na-zrusenie-trvaleho-pobytu"

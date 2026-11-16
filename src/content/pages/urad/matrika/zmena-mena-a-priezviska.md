@@ -2,7 +2,7 @@
 title: "Zmena mena a priezviska"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5128
 parent: "matrika"
 updated: 2025-07-21
 source: "https://www.mostpribratislave.sk/13697/zmena-mena-a-priezviska"

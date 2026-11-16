@@ -2,9 +2,9 @@
 title: "Rekonštrukcia ulice Budovateľská"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5092
 parent: "projekty"
-updated: 2026-10-21
+updated: 2026-11-16
 source: "https://www.mostpribratislave.sk/31652/rekonstrukcia-ulice-budovatelska"
 ---
 
@@ -63,6 +63,16 @@ V ďalšej etape sa predpokladá odfrézovanie úseku od bytového domu č. 209 
 
 O prípadnej zmene miesta vykladania odpadu a o termínoch využívania dočasných stojísk vás budeme informovať podľa priebehu stavebných prác.
 
+**Informácie z 16.11.2026 - rekonštrukčné práce pokračujú, harmonogram sa dodržiava**
+
+Dňa 16.11.2026 začali práce - pokládka asfaltovej **ložnej vrstvy vozovky**. Práce postupujú podľa harmonogramu. Upozorňujeme, že aktuálny stav zachytený na fotografiách ešte nepredstavuje konečné dokončenie povrchu komunikácie. **Finálna obrusná (vrchná) asfaltová vrstva bude položená až po dokončení prípravných prác a realizácii ložnej vrstvy v celej dĺžke rekonštruovaného úseku.** Následne bude vozovka dokončená súvislou vrchnou asfaltovou vrstvou. Podľa vyjadrenia zhotoviteľa a stavebného dozoru sa harmonogram stavebných prác priebežne plní a na kontrolnom dni neboli zaznamenané časové odchýlky od zmluvného harmonogramu.
+
 Prosíme vás o trpezlivosť a zvýšenú opatrnosť v okolí staveniska. Uvedomujeme si, že rekonštrukcia prinesie dočasné obmedzenia, jej cieľom je však zlepšiť stav komunikácie a podmienky pre obyvateľov.
 
 Ďakujeme za pochopenie a spoluprácu.
+
+## Súbory na stiahnutie
+<ul class="file-list">
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/31652/budovatelska-a.jpg"><span class="file-ext">JPG</span><span class="file-name">Budovateľská a</span></a><span class="file-meta">6,11 MB · 16.11.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/31652/budovatelska-b.jpg"><span class="file-ext">JPG</span><span class="file-name">Budovateľská b</span></a><span class="file-meta">6,51 MB · 16.11.2026</span></li>
+</ul>

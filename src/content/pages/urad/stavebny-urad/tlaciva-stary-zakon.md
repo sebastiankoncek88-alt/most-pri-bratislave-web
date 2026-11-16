@@ -1,8 +1,8 @@
 ---
-title: "Tlačivá v zmysle zákona 50/1976 Zb. o územnom plánovaní a stavebnom poriadku (stavebný zákon)"
+title: "Tlačivá podľa pôvodného stavebného zákona (50/1976 Zb.)"
 section: urad
 group: "Stavanie a územie"
-order: 30.5
+order: 30.5132
 parent: "stavebny-urad"
 updated: 2026-04-24
 source: "https://www.mostpribratislave.sk/28313/tlaciva-v-zmysle-zakona-501976-zb-o-uzemnom-planovani-a-stavebnom-poriadku-stavebny-zakon"

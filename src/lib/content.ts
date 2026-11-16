@@ -28,7 +28,7 @@ export type NavItem = { id: string; title: string; href: string; order: number; 
 
 /** Strom navigácie sekcie: importované/vlastné stránky + špeciálne stránky (fotogaléria, podujatia…). */
 export async function sectionTree(section: string) {
-  const { extraLinks } = await import('../data/site');
+  const { extraLinks, groupOrder } = await import('../data/site');
   const pages = await sectionPages(section);
   const toItem = (p: Page): NavItem => ({ id: p.id, title: p.data.title, href: pageUrl(p), order: p.data.order, group: p.data.group || 'Ďalšie', children: [] });
   const tops: NavItem[] = pages.filter((p) => !p.data.parent).map((top) => {
@@ -38,10 +38,12 @@ export async function sectionTree(section: string) {
   for (const x of extraLinks[section] || []) tops.push({ id: x.href, title: x.title, href: x.href, order: x.order, group: x.group, children: [] });
   tops.sort((a, b) => a.order - b.order || collator.compare(a.title, b.title));
   const groups = new Map<string, NavItem[]>();
+  for (const g of groupOrder[section] || []) groups.set(g, []);
   for (const t of tops) {
     if (!groups.has(t.group)) groups.set(t.group, []);
     groups.get(t.group)!.push(t);
   }
+  for (const [g, items] of groups) if (!items.length) groups.delete(g);
   return groups;
 }
 
@@ -49,7 +51,8 @@ export async function sectionTree(section: string) {
 export function sortChildren(list: Page[]) {
   const year = (p: Page) => Number(p.data.title.match(/(19|20)\d\d/)?.[0] || 0);
   if (list.length && list.every((p) => year(p))) return [...list].sort((a, b) => year(b) - year(a));
-  return [...list].sort((a, b) => collator.compare(a.data.title, b.data.title));
+  // poradie ako na pôvodnom webe (order), pri zhode abecedne
+  return [...list].sort((a, b) => a.data.order - b.data.order || collator.compare(a.data.title, b.data.title));
 }
 
 export function pageUrl(p: Page) {

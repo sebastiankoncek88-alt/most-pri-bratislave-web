@@ -2,7 +2,7 @@
 title: "Vybavenie rybárskeho lístka"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.5139
 parent: "evidencia-obyvatelstva"
 updated: 2022-03-30
 source: "https://www.mostpribratislave.sk/13704/vybavenie-rybarskeho-listka"

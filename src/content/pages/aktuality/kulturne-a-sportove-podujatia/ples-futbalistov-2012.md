@@ -2,7 +2,7 @@
 title: "Ples futbalistov 2012"
 section: aktuality
 group: "Podujatia"
-order: 20.5
+order: 20.5102
 parent: "kulturne-a-sportove-podujatia"
 updated: 2025-04-10
 source: "https://www.mostpribratislave.sk/1462/ples-futbalistov-2012"

@@ -34,8 +34,12 @@ for p in range(1, PAGES + 1):
 stats = None
 t0 = get(f'{BASE}/')
 if t0:
-    m = re.search(r'Podnety:\s*(\d+)\s*v riešení\s*(\d+)\s*vyriešených', re.sub(r'<[^>]+>|\s+', ' ', t0))
-    if m: stats = {'open': int(m.group(1)), 'solved': int(m.group(2))}
+    flat = re.sub(r'<[^>]+>|\s+', ' ', t0)
+    m = re.search(r'Podnety:\s*(?:(\d+)\s*v riešení\s*)?(\d+)\s*vyriešených', flat)
+    if m: stats = {'open': int(m.group(1) or 0), 'solved': int(m.group(2))}
+if stats is None:  # pri neúspechu ponechať posledné známe čísla
+    try: stats = json.load(open(os.path.join(OUT, 'src/data/podnety.json'), encoding='utf-8')).get('stats')
+    except Exception: pass
 
 items = []
 for u in links:

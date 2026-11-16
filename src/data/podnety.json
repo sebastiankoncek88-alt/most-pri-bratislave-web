@@ -1,5 +1,8 @@
 {
- "stats": null,
+ "stats": {
+  "open": 0,
+  "solved": 1647
+ },
  "items": [
   {
    "id": "16670",

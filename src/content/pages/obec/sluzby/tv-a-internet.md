@@ -2,7 +2,7 @@
 title: "TV a internet"
 section: obec
 group: "Služby a doprava"
-order: 20.5
+order: 20.5105
 parent: "sluzby"
 updated: 2021-06-21
 source: "https://www.mostpribratislave.sk/1386/tv-a-internet"

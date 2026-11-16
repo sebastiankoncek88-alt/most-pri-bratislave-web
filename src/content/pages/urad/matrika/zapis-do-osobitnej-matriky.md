@@ -2,7 +2,7 @@
 title: "Zápis do osobitnej matriky"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5127
 parent: "matrika"
 updated: 2025-09-11
 source: "https://www.mostpribratislave.sk/13696/zapis-do-osobitnej-matriky"

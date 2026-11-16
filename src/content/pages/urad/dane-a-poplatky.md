@@ -43,4 +43,4 @@ V prípade bezpodielového vlastníctva manželov (BSM) podáva priznanie len je
 1. Daňovník, ktorému vznikol nárok na zníženie dane z nehnuteľností z dôvodu ZŤP podľa platného VZN, si uplatní tento nárok podaním priznania k dani z nehnuteľností s príslušnou prílohou, najneskôr v lehote na podanie priznania, t.j. do 31. januára pre príslušné zdaňovacie Daňovník doloží k priznaniu aj kópiu ZŤP preukazu. Daňovníkovi, ktorému správca dane poskytol zníženie dane v predchádzajúcom zdaňovacom období a nenastali u neho zmeny, ktoré majú vplyv na zánik nároku na zníženie dane, správca dane automaticky zníži daň v rozhodnutí aj v ďalšom zdaňovacom období.
 2. Daňovníkovi, ktorému vznikol nárok na zníženie dane z nehnuteľnosti z dôvodu dosiahnutia veku 65 rokov podľa platného VZN, správca dane uplatní zníženie automaticky bez povinnosti podať daňové priznanie.
 
-**Tlačivá sú dostupné na**[Viac informácií](https://www.mostpribratislave.sk/zverejnovanie-detail/5694/danove-tlaciva)
+**Tlačivá sú dostupné na** [Viac informácií](https://www.mostpribratislave.sk/zverejnovanie-detail/5694/danove-tlaciva)

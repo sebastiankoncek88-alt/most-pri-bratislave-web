@@ -2,7 +2,7 @@
 title: "Trvalý pobyt"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.5135
 parent: "evidencia-obyvatelstva"
 updated: 2025-07-21
 source: "https://www.mostpribratislave.sk/13701/trvaly-pobyt"

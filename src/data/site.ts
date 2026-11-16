@@ -152,3 +152,10 @@ export const schools = [
   { name: 'Základná škola M. R. Štefánika', short: 'ZŠ M. R. Štefánika', address: 'Športová 470/84', web: 'https://zs-mostpribratislave.edupage.org/', album: 'https://zs-mostpribratislave.edupage.org/album/' },
   { name: 'Materská škola', short: 'Materská škola', address: 'ul. 29. augusta 384/2A', web: 'https://msmosticata.edupage.org/', album: 'https://msmosticata.edupage.org/album/' },
 ];
+
+// Poradie skupín na stránkach sekcií (najčastejšie potreby obyvateľov hore)
+export const groupOrder: Record<string, string[]> = {
+  urad: ['Doklady a osobné veci', 'Dane a financie', 'Stavanie a územie', 'Bezpečnosť', 'Obecný úrad'],
+  odpady: ['Základné informácie', 'Zber podľa druhu', 'Viac informácií'],
+  'uradna-tabula': ['Úradná tabuľa', 'Zmluvy, faktúry, objednávky', 'Voľby a referendá', 'Ďalšie dokumenty'],
+};

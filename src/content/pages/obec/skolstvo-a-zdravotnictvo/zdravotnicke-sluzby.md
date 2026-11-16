@@ -2,7 +2,7 @@
 title: "Zdravotnícke služby"
 section: obec
 group: "Školy a zdravie"
-order: 10.5
+order: 10.5113
 parent: "skolstvo-a-zdravotnictvo"
 updated: 2025-07-18
 source: "https://www.mostpribratislave.sk/1397/zdravotnicke-sluzby"

@@ -26,7 +26,7 @@ const groups = await sectionTree(section);
     {section === 'urad' && (
       <div class="note" style="margin-top:0">
         <Icon name="clock" size={20} />
-        <p><strong><OfficeStatus /></strong>. Obecný úrad, {obec.address}, tel. <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a>. <a href={url('/kontakt/')}>Stránkové hodiny a kontakty</a></p>
+        <p class="office-note"><strong><OfficeStatus /></strong><span>Obecný úrad, {obec.address}, tel. <a href={`tel:${obec.phoneHref}`}>{obec.phone}</a></span><a href={url('/kontakt/')}>Stránkové hodiny a kontakty</a></p>
       </div>
     )}
     {section === 'odpady' && (
@@ -43,7 +43,7 @@ const groups = await sectionTree(section);
           {items.map((top) => (
             <li class="link-card">
               <a href={url(top.href)}>{top.title}</a>
-              {top.children.length > 0 && <small>{top.children.length} {top.children.length < 5 ? 'podstránky' : 'podstránok'}</small>}
+              {top.children.length > 0 && <small>{top.children.slice(0, 3).map((c) => c.title).join(', ')}{top.children.length > 3 ? ` a ďalšie (${top.children.length})` : ''}</small>}
             </li>
           ))}
         </ul>

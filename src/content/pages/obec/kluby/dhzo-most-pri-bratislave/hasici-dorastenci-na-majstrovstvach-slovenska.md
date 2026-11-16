@@ -2,7 +2,7 @@
 title: "Hasiči - dorastenci na Majstrovstvách Slovenska"
 section: obec
 group: "Kultúra, šport, spolky"
-order: 33.0
+order: 33.0231
 parent: "kluby/dhzo-most-pri-bratislave"
 updated: 2026-11-16
 source: "https://www.mostpribratislave.sk/1463/hasici-dorastenci-na-majstrovstvach-slovenska"

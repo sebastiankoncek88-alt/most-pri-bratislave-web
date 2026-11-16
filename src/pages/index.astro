@@ -140,7 +140,7 @@ const board = await boardItems(5);
           <a class="btn btn-primary btn-sm" href={url('/nahlasit-problem/')}><Icon name="message-square-warning" size={18} /> Poslať podnet</a>
         </span>
       </div>
-      {podnety.stats && <p class="podnet-stat"><strong>{podnety.stats.solved.toLocaleString('sk-SK')}</strong> vyriešených podnetov, <strong>{podnety.stats.open}</strong> práve v riešení</p>}
+      {podnety.stats && <p class="podnet-stat"><strong>{podnety.stats.solved.toLocaleString('sk-SK')}</strong> vyriešených podnetov{podnety.stats.open > 0 ? <>, <strong>{podnety.stats.open}</strong> práve v riešení</> : ', žiadny nečaká na odpoveď'}</p>}
       <ul class="podnet-cards">
         {podnety.items.slice(0, 4).map((p) => {
           const open = /rieš/i.test(p.status) && !/vyrieš/i.test(p.status);

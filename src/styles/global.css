@@ -874,3 +874,7 @@ p { margin: 0 0 1em; }
 .search-page .pagefind-ui__button { font-family: var(--font); font-weight: 700; color: var(--link); background: var(--card); border: 2px solid var(--line-strong); border-radius: 999px; }
 .search-page .pagefind-ui__button:hover { border-color: var(--link); }
 .search-page { --pagefind-ui-background: var(--card); --pagefind-ui-tag: var(--chip); }
+
+.office-note { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: center; }
+.link-card small { line-height: 1.4; }
+.link-card small { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

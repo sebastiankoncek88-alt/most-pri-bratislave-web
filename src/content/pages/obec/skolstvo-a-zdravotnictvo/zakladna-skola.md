@@ -2,7 +2,7 @@
 title: "Základná škola"
 section: obec
 group: "Školy a zdravie"
-order: 10.5
+order: 10.5111
 parent: "skolstvo-a-zdravotnictvo"
 updated: 2026-05-26
 source: "https://www.mostpribratislave.sk/1395/zakladna-skola"

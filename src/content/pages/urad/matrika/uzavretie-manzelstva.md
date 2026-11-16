@@ -2,7 +2,7 @@
 title: "Uzavretie manželstva"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.5125
 parent: "matrika"
 updated: 2026-02-27
 source: "https://www.mostpribratislave.sk/13694/uzavretie-manzelstva"

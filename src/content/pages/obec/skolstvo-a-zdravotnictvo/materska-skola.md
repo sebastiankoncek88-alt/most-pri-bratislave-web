@@ -2,7 +2,7 @@
 title: "Materská škola"
 section: obec
 group: "Školy a zdravie"
-order: 10.5
+order: 10.5112
 parent: "skolstvo-a-zdravotnictvo"
 updated: 2026-07-14
 source: "https://www.mostpribratislave.sk/1396/materska-skola"

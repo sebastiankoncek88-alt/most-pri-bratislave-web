@@ -2,7 +2,7 @@
 title: "Určenie otcovstva pred narodením dieťaťa"
 section: urad
 group: "Doklady a osobné veci"
-order: 10.5
+order: 10.513
 parent: "matrika"
 updated: 2022-03-10
 source: "https://www.mostpribratislave.sk/13707/urcenie-otcovstva-pred-narodenim-dietata"

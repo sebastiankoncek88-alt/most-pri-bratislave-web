@@ -2,7 +2,7 @@
 title: "Revitalizácia verejného priestranstva - križovatka Bratislavská x Športová"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5097
 parent: "projekty"
 updated: 2026-10-21
 source: "https://www.mostpribratislave.sk/32068/revitalizacia-verejneho-priestranstva-krizovatka-bratislavska-x-sportova"

@@ -2,7 +2,7 @@
 title: "Zriadenie prevádzky a určenie času prevádzky"
 section: urad
 group: "Doklady a osobné veci"
-order: 11.5
+order: 11.514
 parent: "evidencia-obyvatelstva"
 updated: 2025-08-19
 source: "https://www.mostpribratislave.sk/13706/zriadenie-prevadzky-a-urcenie-casu-prevadzky"

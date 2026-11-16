@@ -2,7 +2,7 @@
 title: "Harmonogram na rok 2022"
 section: odpady
 group: "Základné informácie"
-order: 0.5
+order: 0.5147
 parent: "harmonogram"
 updated: 2025-04-10
 source: "https://www.mostpribratislave.sk/27885/harmonogram-na-rok-2022"

@@ -2,7 +2,7 @@
 title: "Rekonštrukcia ulice Športová - časť 2, vetva 3"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5091
 parent: "projekty"
 updated: 2026-09-08
 source: "https://www.mostpribratislave.sk/31544/rekonstrukcia-ulice-sportova-cast-2-vetva-3"

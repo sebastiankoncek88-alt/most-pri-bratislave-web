@@ -2,7 +2,7 @@
 title: "Osvetlenie chodníka pri RDP Most pri Bratislave"
 section: aktuality
 group: "Z obce"
-order: 10.5
+order: 10.5095
 parent: "projekty"
 updated: 2026-10-21
 source: "https://www.mostpribratislave.sk/31897/osvetlenie-chodnika-pri-rdp-most-pri-bratislave"

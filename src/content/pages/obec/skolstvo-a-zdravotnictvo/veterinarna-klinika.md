@@ -2,7 +2,7 @@
 title: "Veterinárna klinika"
 section: obec
 group: "Školy a zdravie"
-order: 10.5
+order: 10.5114
 parent: "skolstvo-a-zdravotnictvo"
 updated: 2022-05-02
 source: "https://www.mostpribratislave.sk/2355/veterinarna-klinika"

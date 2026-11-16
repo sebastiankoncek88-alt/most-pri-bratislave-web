@@ -2,7 +2,7 @@
 title: "Participatívny rozpočet 2026"
 section: samosprava
 group: "Predpisy a rozpočet"
-order: 22.5
+order: 22.5122
 parent: "participativny-rozpocet"
 updated: 2026-03-21
 source: "https://www.mostpribratislave.sk/30487/participativny-rozpocet-2026"

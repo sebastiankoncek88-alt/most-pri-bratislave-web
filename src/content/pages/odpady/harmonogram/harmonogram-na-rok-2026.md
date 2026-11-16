@@ -2,7 +2,7 @@
 title: "Harmonogram na rok 2026"
 section: odpady
 group: "Základné informácie"
-order: 0.5
+order: 0.5145
 parent: "harmonogram"
 updated: 2026-01-27
 source: "https://www.mostpribratislave.sk/30118/harmonogram-na-rok-2026"
