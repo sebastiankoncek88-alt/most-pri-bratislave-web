@@ -904,3 +904,10 @@ p { margin: 0 0 1em; }
 .contact-card h3 a:hover { color: var(--link); text-decoration: underline; }
 .contacts-empty { color: var(--ink-2); }
 .more-wrap { margin: 24px 0 0; text-align: center; }
+
+/* Tablet: bočný panel pod hlavný obsah, panely vedľa seba */
+@media (max-width: 1180px) and (min-width: 641px) {
+  .home-grid { grid-template-columns: 1fr; }
+  .home-grid > aside { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+  .home-grid > aside .panel + .panel { margin-top: 0; }
+}
