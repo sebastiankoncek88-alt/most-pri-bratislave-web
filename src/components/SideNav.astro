@@ -9,6 +9,8 @@ const isCur = (i: { id: string; href: string }) => i.id === currentId || i.href 
 const isOpen = (i: { id: string; href: string }) => isCur(i) || (currentId ?? '').startsWith(i.id + '/');
 ---
 <nav class="side-nav" aria-label={`Navigácia v sekcii ${meta?.title ?? 'Kontakt'}`}>
+ <details class="sn-wrap" open data-sn-wrap>
+  <summary>Ďalšie stránky v sekcii {meta?.title ?? 'Kontakt'}</summary>
   <h2><a href={url(`/${section}/`)}>{meta?.title ?? 'Kontakt'}</a></h2>
   {[...groups.entries()].map(([g, items]) => (
     <>
@@ -31,4 +33,9 @@ const isOpen = (i: { id: string; href: string }) => isCur(i) || (currentId ?? ''
       </ul>
     </>
   ))}
+ </details>
 </nav>
+<script>
+  // na mobile je menu sekcie zbalené (na konci stránky by bolo príliš dlhé)
+  if (matchMedia('(max-width: 900px)').matches) document.querySelectorAll('[data-sn-wrap]').forEach((d) => d.removeAttribute('open'));
+</script>
