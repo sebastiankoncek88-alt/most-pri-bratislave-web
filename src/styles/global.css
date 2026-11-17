@@ -926,3 +926,16 @@ p { margin: 0 0 1em; }
   h1 { font-size: 20pt; } h2 { font-size: 14pt; }
   .page-head .container::after { content: "Obec Most pri Bratislave, Bratislavská 96/98, tel. 02 / 4595 1215"; display: block; margin-top: 4pt; font-size: 9pt; color: #444; }
 }
+
+/* Režim pre vozíčkarov: menšie spodné tlačidlo a lišta (stále min. 48 px na dotyk) */
+:root.kiosk .reach-fab, :root.reach .reach-fab { min-height: 50px; padding: 0 16px; gap: 8px; font-size: 0.9375rem; border-width: 2px; box-shadow: 0 4px 14px rgb(0 0 0 / 0.25); }
+:root.reach .reach-bar { gap: 6px; padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); border-top-width: 2px; }
+:root.reach .reach-bar a, :root.reach .reach-bar button { min-height: 56px; font-size: 0.875rem; gap: 2px; border-radius: 10px; }
+:root.reach main { padding-bottom: 88px; }
+:root.reach .site-footer { padding-bottom: 76px; }
+:root.reach .mobile-menu { bottom: 76px; }
+@media (max-width: 640px) {
+  :root.reach .reach-bar a, :root.reach .reach-bar button { min-height: 52px; }
+  :root.reach .reach-bar span { font-size: 0.75rem; }
+  :root.kiosk .reach-fab { padding: 0 14px; }
+}
