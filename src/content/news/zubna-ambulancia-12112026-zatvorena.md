@@ -2,7 +2,6 @@
 title: "Zubná ambulancia - 12.11.2026 zatvorená"
 date: 2026-11-11
 category: "Obecný úrad"
-time: "14:28"
 image: "/media/afd8022a031a5760.jpg"
 excerpt: "dovoľujeme si Vám oznámiť, že MUDr. Ingrid Lembaková nebude dňa 12.11.2026 zo zdravotných dôvodov ordinovať."
 source: "https://www.mostpribratislave.sk/novinka/144040/zubna-ambulancia-12112026-zatvorena"
