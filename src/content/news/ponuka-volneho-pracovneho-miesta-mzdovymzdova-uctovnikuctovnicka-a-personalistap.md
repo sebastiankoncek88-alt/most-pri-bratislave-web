@@ -2,7 +2,6 @@
 title: "Ponuka voľného pracovného miesta – mzdový/mzdová účtovník/účtovníčka a personalista/personalistka"
 date: 2026-11-12
 category: "Oznam"
-time: "10:12"
 excerpt: "Obec Most pri Bratislave ponúka voľné pracovné miesto na pozíciu samostatný odborný referent – mzdový/á účtovník/čka a personalista/ka na Obecnom úrade v Moste pri Bratislave."
 source: "https://www.mostpribratislave.sk/novinka/144103/ponuka-volneho-pracovneho-miesta-mzdovymzdova-uctovnikuctovnicka-a-personalistapersonalistka"
 ---

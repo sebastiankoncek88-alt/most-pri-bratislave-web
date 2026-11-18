@@ -2,7 +2,6 @@
 title: "EFaktúra od 1. januára 2027: Zistite, koho sa týka a ako sa pripraviť"
 date: 2026-11-12
 category: "Oznam"
-time: "12:14"
 image: "/media/6f3eff8d0edaae1d.png"
 excerpt: "Od 1. januára 2027 sa na Slovensku zavádza elektronická fakturácia (eFaktúra), ktorá prinesie jednoduchšie, bezpečnejšie a efektívnejšie vystavovanie, odosielanie a prijímanie faktúr. Na nový systém sa potrebujú pripravi"
 source: "https://www.mostpribratislave.sk/novinka/144121/efaktura-od-1-januara-2027-zistite-koho-sa-tyka-a-ako-sa-pripravit"

@@ -2,7 +2,6 @@
 title: "Ponuka voľného pracovného miesta – účtovník/účtovníčka"
 date: 2026-11-12
 category: "Oznam"
-time: "09:59"
 excerpt: "Obec Most pri Bratislave ponúka voľné pracovné miesto na pozíciu samostatný odborný referent – účtovník/účtovníčka na Obecnom úrade v Moste pri Bratislave."
 source: "https://www.mostpribratislave.sk/novinka/144102/ponuka-volneho-pracovneho-miesta-uctovnikuctovnicka"
 ---
