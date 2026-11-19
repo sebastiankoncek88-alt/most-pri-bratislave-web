@@ -2,7 +2,6 @@
 title: "Oprava poškodenej vodiacej steny v križovatke ulíc Bratislavská a Nálepková"
 date: 2026-11-16
 category: "Oznam"
-time: "09:44"
 image: "/media/44110a237dc6fd24.png"
 excerpt: "Obec Most pri Bratislave informuje obyvateľov o plánovanej oprave poškodenej betónovej vodiacej steny v križovatke ciest II/121 a III/1039, na uliciach Bratislavská a Nálepková - križovatka \"Y\"."
 source: "https://www.mostpribratislave.sk/novinka/144265/oprava-poskodenej-vodiacej-steny-v-krizovatke-ulic-bratislavska-a-nalepkova"

@@ -2,7 +2,6 @@
 title: "Zástupy počas neprítomnosti - detská ambulancia Tomášov"
 date: 2026-11-16
 category: "Oznam"
-time: "10:53"
 image: "/media/5d91271b75dbb174.jpg"
 excerpt: "Zástupy počas neprítomnosti - detská ambulancia Tomášov"
 source: "https://www.mostpribratislave.sk/novinka/144280/zastupy-pocas-nepritomnosti-detska-ambulancia-tomasov"
