@@ -32,5 +32,5 @@ Veríme, že aj tohtoročný Adventný Most bude plný príjemných stretnutí, 
 
 ## Súbory na stiahnutie
 <ul class="file-list">
-<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144491/advent-2026.pdf"><span class="file-ext">PDF</span><span class="file-name">advent 2026</span></a><span class="file-meta">0,95 MB · 18.11.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/news_files/mostpribratislave/144491/adventny-most-2026.pdf"><span class="file-ext">PDF</span><span class="file-name">Adventný Most 2026</span></a><span class="file-meta">0,96 MB · 19.11.2026</span></li>
 </ul>

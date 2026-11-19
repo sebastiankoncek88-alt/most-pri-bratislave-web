@@ -18,15 +18,6 @@
   "url": "https://www.mostpribratislave.sk/kalendar/54289/nordic-walking-pre-seniorov"
  },
  {
-  "title": "Zber elektro-odpadu z domácností",
-  "date": "2026-11-20",
-  "time": "12:30",
-  "end": "18:00",
-  "place": null,
-  "excerpt": "Vážení občania, spoločnosť ROVAMI v spolupráci s obcou Most pri Bratislave uskutoční zber elektroodpadu z domácností. Piatok 20. 11. 2026 od 12:30 do 18:00Sobota 21. 11. 2026 od 8:00 do 12:00 Miesto zberu: dvor pri Zdravotnom stredisku, Bratislavská 6/13 (elek",
-  "url": "https://www.mostpribratislave.sk/kalendar/55509/zber-elektro-odpadu-z-domacnosti"
- },
- {
   "title": "Zber odpadového textilu a šatstva",
   "date": "2026-11-20",
   "time": "12:30",
@@ -37,12 +28,12 @@
  },
  {
   "title": "Zber elektro-odpadu z domácností",
-  "date": "2026-11-21",
-  "time": "08:00",
-  "end": "12:00",
+  "date": "2026-11-20",
+  "time": "12:30",
+  "end": "18:00",
   "place": null,
-  "excerpt": "Vážení občania, spoločnosť ROVAMI v spolupráci s obcou Most pri Bratislave uskutoční zber elektroodpadu z domácností. Piatok 23. 11. 2026 od 12:30 do 18:00Sobota 24. 11. 2026 od 8:00 do 12:00 Miesto zberu: dvor pri Zdravotnom stredisku, Bratislavská 6/13 (elek",
-  "url": "https://www.mostpribratislave.sk/kalendar/55511/zber-elektro-odpadu-z-domacnosti"
+  "excerpt": "Vážení občania, spoločnosť ROVAMI v spolupráci s obcou Most pri Bratislave uskutoční zber elektroodpadu z domácností. Piatok 20. 11. 2026 od 12:30 do 18:00Sobota 21. 11. 2026 od 8:00 do 12:00 Miesto zberu: dvor pri Zdravotnom stredisku, Bratislavská 6/13 (elek",
+  "url": "https://www.mostpribratislave.sk/kalendar/55509/zber-elektro-odpadu-z-domacnosti"
  },
  {
   "title": "Zber odpadového textilu a šatstva",
@@ -52,6 +43,15 @@
   "place": null,
   "excerpt": "Vážení občania, dovoľujeme si vás informovať, že sa uskutoční zber odpadového textilu a šatstva, ale aj textilu a šatstva na opätovné použitie v nasledujúcich termínoch: Piatok 20. 11. 2026 od 12:30 do 18:00Sobota 21. 11. 2026 od 8:00 do 12:00 Miesto zberu: dv",
   "url": "https://www.mostpribratislave.sk/kalendar/55519/zber-odpadoveho-textilu-a-satstva"
+ },
+ {
+  "title": "Zber elektro-odpadu z domácností",
+  "date": "2026-11-21",
+  "time": "08:00",
+  "end": "12:00",
+  "place": null,
+  "excerpt": "Vážení občania, spoločnosť ROVAMI v spolupráci s obcou Most pri Bratislave uskutoční zber elektroodpadu z domácností. Piatok 23. 11. 2026 od 12:30 do 18:00Sobota 24. 11. 2026 od 8:00 do 12:00 Miesto zberu: dvor pri Zdravotnom stredisku, Bratislavská 6/13 (elek",
+  "url": "https://www.mostpribratislave.sk/kalendar/55511/zber-elektro-odpadu-z-domacnosti"
  },
  {
   "title": "Sobášny deň",
@@ -99,15 +99,6 @@
   "url": "https://www.mostpribratislave.sk/kalendar/54290/nordic-walking-pre-seniorov"
  },
  {
-  "title": "Adventné dielničky",
-  "date": "2026-11-28",
-  "time": "10:00",
-  "end": "12:00",
-  "place": null,
-  "excerpt": "",
-  "url": "https://www.mostpribratislave.sk/kalendar/55545/adventne-dielnicky"
- },
- {
   "title": "Požehnanie adventného venca",
   "date": "2026-11-29",
   "time": "11:30",
@@ -133,5 +124,14 @@
   "place": null,
   "excerpt": "Srdečne vás pozývame na cvičenie pre seniorov, ktoré sa koná každý utorok v čase 10:00 - 11:00 v Tanečnej sále Kultúrneho domu, Bratislavská 96/98, Most pri Bratislave.  Vstup je voľný.  Prineste si pitný režim, dobrú náladu a kalimatku (ak nemáte, máme k disp",
   "url": "https://www.mostpribratislave.sk/kalendar/55218/cvicenie-pre-seniorov"
+ },
+ {
+  "title": "MAMAFIT - pohybové cvičenie",
+  "date": "2026-12-03",
+  "time": "10:00",
+  "end": null,
+  "place": null,
+  "excerpt": "Milé mamičky, oteckovia a všetci rodičia, pozývame vás na príjemné pohybové cvičenie, pri ktorom si zacvičíte, posilníte telo a strávite čas so svojimi deťmi.  Čaká vás cvičenie zamerané na spevnenie stredu tela a panvového dna, posilnenie kondície a držania t",
+  "url": "https://www.mostpribratislave.sk/kalendar/55208/mamafit-pohybove-cvicenie"
  }
 ]
