@@ -4,7 +4,7 @@ section: obec
 group: "Kultúra, šport, spolky"
 order: 33.5109
 parent: "farnost"
-updated: 2026-11-19
+updated: 2026-11-20
 source: "https://www.mostpribratislave.sk/1393/obnova-a-restaurovanie"
 ---
 

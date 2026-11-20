@@ -3,7 +3,7 @@ title: "Projekty a verejné obstarávanie"
 section: urad
 group: "Obecný úrad"
 order: 5
-updated: 2026-11-19
+updated: 2026-11-20
 source: "https://www.mostpribratislave.sk/27761/referat-projektov-a-verejneho-obstaravania"
 ---
 
