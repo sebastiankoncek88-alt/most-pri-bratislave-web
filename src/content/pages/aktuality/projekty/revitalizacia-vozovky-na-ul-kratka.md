@@ -4,7 +4,7 @@ section: aktuality
 group: "Z obce"
 order: 10.5088
 parent: "projekty"
-updated: 2026-11-21
+updated: 2026-11-22
 source: "https://www.mostpribratislave.sk/31272/revitalizacia-vozovky-na-ul-kratka"
 ---
 
