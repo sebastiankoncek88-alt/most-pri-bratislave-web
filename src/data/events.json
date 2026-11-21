@@ -1,23 +1,5 @@
 [
  {
-  "title": "Zber odpadového textilu a šatstva",
-  "date": "2026-11-21",
-  "time": "08:00",
-  "end": "12:00",
-  "place": null,
-  "excerpt": "Vážení občania, dovoľujeme si vás informovať, že sa uskutoční zber odpadového textilu a šatstva, ale aj textilu a šatstva na opätovné použitie v nasledujúcich termínoch: Piatok 20. 11. 2026 od 12:30 do 18:00Sobota 21. 11. 2026 od 8:00 do 12:00 Miesto zberu: dv",
-  "url": "https://www.mostpribratislave.sk/kalendar/55519/zber-odpadoveho-textilu-a-satstva"
- },
- {
-  "title": "Zber elektro-odpadu z domácností",
-  "date": "2026-11-21",
-  "time": "08:00",
-  "end": "12:00",
-  "place": null,
-  "excerpt": "Vážení občania, spoločnosť ROVAMI v spolupráci s obcou Most pri Bratislave uskutoční zber elektroodpadu z domácností. Piatok 23. 11. 2026 od 12:30 do 18:00Sobota 24. 11. 2026 od 8:00 do 12:00 Miesto zberu: dvor pri Zdravotnom stredisku, Bratislavská 6/13 (elek",
-  "url": "https://www.mostpribratislave.sk/kalendar/55511/zber-elektro-odpadu-z-domacnosti"
- },
- {
   "title": "Sobášny deň",
   "date": "2026-11-21",
   "time": "13:00",
@@ -133,5 +115,23 @@
   "place": null,
   "excerpt": "Milé mamičky, oteckovia a všetci rodičia, pozývame vás na príjemné pohybové cvičenie, pri ktorom si zacvičíte, posilníte telo a strávite čas so svojimi deťmi.  Čaká vás cvičenie zamerané na spevnenie stredu tela a panvového dna, posilnenie kondície a držania t",
   "url": "https://www.mostpribratislave.sk/kalendar/55209/mamafit-pohybove-cvicenie"
+ },
+ {
+  "title": "Vianočné dielničky",
+  "date": "2026-12-12",
+  "time": "10:00",
+  "end": "12:00",
+  "place": null,
+  "excerpt": "",
+  "url": "https://www.mostpribratislave.sk/kalendar/55547/vianocne-dielnicky"
+ },
+ {
+  "title": "Vianočné trhy",
+  "date": "2026-12-12",
+  "time": "12:00",
+  "end": null,
+  "place": null,
+  "excerpt": "",
+  "url": "https://www.mostpribratislave.sk/kalendar/56181/vianocne-trhy"
  }
 ]
