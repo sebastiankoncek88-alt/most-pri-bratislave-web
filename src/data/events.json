@@ -1,14 +1,5 @@
 [
  {
-  "title": "Sobášny deň",
-  "date": "2026-11-21",
-  "time": "13:00",
-  "end": "16:00",
-  "place": null,
-  "excerpt": "",
-  "url": "https://www.mostpribratislave.sk/kalendar/44580/sobasny-den"
- },
- {
   "title": "Country bál",
   "date": "2026-11-21",
   "time": "19:00",
@@ -133,5 +124,14 @@
   "place": null,
   "excerpt": "",
   "url": "https://www.mostpribratislave.sk/kalendar/56181/vianocne-trhy"
+ },
+ {
+  "title": "Cvičenie pre seniorov",
+  "date": "2026-12-15",
+  "time": "10:00",
+  "end": null,
+  "place": null,
+  "excerpt": "Srdečne vás pozývame na cvičenie pre seniorov, ktoré sa koná každý utorok v čase 10:00 - 11:00 v Tanečnej sále Kultúrneho domu, Bratislavská 96/98, Most pri Bratislave.  Vstup je voľný.  Prineste si pitný režim, dobrú náladu a kalimatku (ak nemáte, máme k disp",
+  "url": "https://www.mostpribratislave.sk/kalendar/55220/cvicenie-pre-seniorov"
  }
 ]
