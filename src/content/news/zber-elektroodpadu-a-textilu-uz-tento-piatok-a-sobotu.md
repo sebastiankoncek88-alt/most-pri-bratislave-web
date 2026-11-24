@@ -2,7 +2,6 @@
 title: "Zber elektroodpadu a textilu – už tento piatok a sobotu"
 date: 2026-11-16
 category: "Odpady"
-time: "16:31"
 image: "/media/058598b17b6d49bf.jpg"
 excerpt: "V piatok a v sobotu môžete v Moste pri Bratislave odovzdať nepotrebný elektroodpad, odpadový textil a šatstvo, ako aj textil a šatstvo vhodné na opätovné použitie."
 source: "https://www.mostpribratislave.sk/novinka/144339/zber-elektroodpadu-a-textilu-uz-tento-piatok-a-sobotu"
