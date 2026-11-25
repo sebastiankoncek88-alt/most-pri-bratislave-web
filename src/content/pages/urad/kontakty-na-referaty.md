@@ -3,7 +3,7 @@ title: "Kontakty na referáty"
 section: urad
 group: "Obecný úrad"
 order: 1
-updated: 2026-03-24
+updated: 2026-11-25
 source: "https://www.mostpribratislave.sk/1401/kontakty-obecny-stavebny-matricny-urad"
 ---
 
@@ -78,6 +78,8 @@ web: [Viac informácií](/urad/evidencia-obyvatelstva/)
 Referát priestupkov:
 
 JUDr. Dominika Bela - [priestupky@mostpribratislave.sk](mailto:kochrdova@mostpribratislave.sk)
+
+tel.: +421 911 757 239
 
 web: [Viac informácií](/urad/priestupky/)
 

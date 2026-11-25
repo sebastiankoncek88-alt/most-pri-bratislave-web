@@ -3,11 +3,11 @@ title: "Starostka obce"
 section: samosprava
 group: "Vedenie obce"
 order: 1
-updated: 2026-04-15
+updated: 2026-11-25
 source: "https://www.mostpribratislave.sk/1402/starosta-obce"
 ---
 
-Mgr. Katarína Rentková, PhD.
+Tomáš Šoltés
 
 kontakt: 02/45 95 12 15, mobil 0911 714 647
 

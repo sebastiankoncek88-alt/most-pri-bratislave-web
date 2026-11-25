@@ -7,6 +7,7 @@ source: "https://www.mostpribratislave.sk/zverejnovanie/137/faktury"
 ---
 
 <ul class="doc-list">
+<li><time>25.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/545466/faktury-2026-c-1225-1343">Faktúry 2026 č. 1225 - 1343</a><span class="doc-files">1 súbor (401 KB)</span></li>
 <li><time>9.11.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/542528/faktury-2026-c-1179-1224">Faktúry 2026 č. 1179 - 1224</a><span class="doc-files">1 súbor (396 KB)</span></li>
 <li><time>13.10.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/538596/faktury-2026-c-1051-1178">Faktúry 2026 č. 1051 - 1178</a><span class="doc-files">1 súbor (425 KB)</span></li>
 <li><time>18.9.2026</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/534267/faktury-2026-c-937-1050">Faktúry 2026 č. 937 - 1050</a><span class="doc-files">1 súbor (419 KB)</span></li>
@@ -31,5 +32,4 @@ source: "https://www.mostpribratislave.sk/zverejnovanie/137/faktury"
 <li><time>3.6.2025</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/464569/faktury-2025-c-461-526">Faktúry 2025 č. 461 - 526</a><span class="doc-files">1 súbor (404 KB)</span></li>
 <li><time>20.5.2025</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/462217/faktury-2025-c-405-460">Faktúry 2025 č. 405 - 460</a><span class="doc-files">1 súbor (397 KB)</span></li>
 <li><time>13.5.2025</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/461528/faktury-2025-c-357-404">Faktúry 2025 č. 357 - 404</a><span class="doc-files">1 súbor (398 KB)</span></li>
-<li><time>7.5.2025</time><a href="https://www.mostpribratislave.sk/zverejnovanie/detail/460938/faktury-2025-c-315-356">Faktúry 2025 č. 315 - 356</a><span class="doc-files">1 súbor (388 KB)</span></li>
 </ul>

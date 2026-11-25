@@ -3,11 +3,13 @@ title: "Priestupky"
 section: urad
 group: "Obecný úrad"
 order: 3
-updated: 2025-04-10
+updated: 2026-11-25
 source: "https://www.mostpribratislave.sk/25848/referat-priestupkov"
 ---
 
 JUDr. Dominika Bela -  [priestupky@mostpribratislave.sk](mailto:priestupky@mostpribratislave.sk)
+
+tel.: +421 911 757 239
 
 Referát zabezpečuje:
 
