@@ -2,7 +2,6 @@
 title: "Rekonštrukcia ulice Budovateľská ii. etapa – práce na vjazdoch do dvorov"
 date: 2026-11-17
 category: "Doprava a stavby"
-time: "16:11"
 image: "/media/d3dbb58ba379cad9.jpg"
 excerpt: "Od stredy 18. 11. 2026 sú v rámci rekonštrukcie ulice Budovateľská, v úseku medzi križovatkami s ulicami Družstevná a Ulica pri hasičskej zbrojnici, naplánované stavebné práce na jednotlivých vjazdoch do dvorov."
 source: "https://www.mostpribratislave.sk/novinka/144406/rekonstrukcia-ulice-budovatelska-ii-etapa-prace-na-vjazdoch-do-dvorov"
