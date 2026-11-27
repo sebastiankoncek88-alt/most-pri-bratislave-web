@@ -2,7 +2,6 @@
 title: "Dopravná situácia v časti Studené – stanoviská k žiadosti o prehodnotenie rýchlosti na ceste ii/120"
 date: 2026-11-18
 category: "Doprava a stavby"
-time: "16:17"
 image: "/media/244a0d84518ef9b1.jpg"
 excerpt: "Obec Most pri Bratislave informuje obyvateľov časti Studené o výsledku prerokovania žiadosti občanov o opätovné prehodnotenie najvyššej dovolenej rýchlosti a dopravného značenia na ceste II/120 v úseku prechádzajúcom čas"
 source: "https://www.mostpribratislave.sk/novinka/144479/dopravna-situacia-v-casti-studene-stanoviska-k-ziadosti-o-prehodnotenie-rychlosti-na-ceste-ii120"

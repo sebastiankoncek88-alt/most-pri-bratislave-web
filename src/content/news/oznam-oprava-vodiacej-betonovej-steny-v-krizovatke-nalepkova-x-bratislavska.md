@@ -2,7 +2,6 @@
 title: "Oprava vodiacej betónovej steny v križovatke nálepková x bratislavská"
 date: 2026-11-18
 category: "Oznam"
-time: "17:20"
 excerpt: "Uskutoční sa oprava vodiacej betónovej steny v križovatke ciest II/121 a III/1039 v Moste pri Bratislave - križovatka \"Y\""
 source: "https://www.mostpribratislave.sk/novinka/144490/oznam-oprava-vodiacej-betonovej-steny-v-krizovatke-nalepkova-x-bratislavska"
 ---

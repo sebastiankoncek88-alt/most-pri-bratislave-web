@@ -2,7 +2,6 @@
 title: "Revitalizácia školského areálu ZŠ M. R. Štefánika sa posúva do ďalšej fázy. podpísali sme zmluvu so zhotoviteľom!"
 date: 2026-11-17
 category: "Oznam"
-time: "16:42"
 image: "/media/834adb479fdca656.png"
 excerpt: "Revitalizácia školského areálu Základnej školy M. R. Štefánika v Moste pri Bratislave sa posúva do ďalšej, veľmi dôležitej etapy. Po dlhom prípravnom procese, zabezpečení projektovej dokumentácie, potrebných povolení, fi"
 source: "https://www.mostpribratislave.sk/novinka/144409/revitalizacia-skolskeho-arealu-zs-m-r-stefanika-sa-posuva-do-dalsej-fazy-podpisali-sme-zmluvu-so-zhotovitelom"

@@ -3,7 +3,7 @@ title: "Školstvo a zdravotníctvo"
 section: obec
 group: "Školy a zdravie"
 order: 10
-updated: 2026-11-26
+updated: 2026-11-27
 source: "https://www.mostpribratislave.sk/1382/skolstvo-a-zdravotnictvo"
 ---
 

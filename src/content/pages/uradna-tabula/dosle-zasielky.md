@@ -3,7 +3,7 @@ title: "Oznámenia o došlých zásielkach"
 section: uradna-tabula
 group: "Úradná tabuľa"
 order: 1
-updated: 2026-11-26
+updated: 2026-11-27
 source: "https://www.mostpribratislave.sk/11149/oznamenia-o-doslych-zasielkach"
 ---
 
@@ -15,4 +15,5 @@ source: "https://www.mostpribratislave.sk/11149/oznamenia-o-doslych-zasielkach"
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/vlcek-24112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Vlček 24112026</span></a><span class="file-meta">82,34 KB · 24.11.2026</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/dergnovich-26112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Dergnovich 26112026</span></a><span class="file-meta">81,62 KB · 26.11.2026</span></li>
 <li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/vlcek-26112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Vlček 26112026</span></a><span class="file-meta">78,29 KB · 26.11.2026</span></li>
+<li><a href="https://www.mostpribratislave.sk/data/page/mostpribratislave/11149/radev-27112026.pdf"><span class="file-ext">PDF</span><span class="file-name">Radev 27112026</span></a><span class="file-meta">80,69 KB · 27.11.2026</span></li>
 </ul>
